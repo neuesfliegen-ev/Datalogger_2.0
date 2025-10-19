@@ -1,6 +1,6 @@
 # 🛩️ Datalogger_2.0 
 
-Datalogger for collecting, logging and transmitting RC flight data
+Datalogger for collecting, logging and transmitting RC flight data.
 Continuation of project Datalogger (first version)
 
 ---
@@ -10,6 +10,7 @@ Continuation of project Datalogger (first version)
 - Remove SIM card and use radio communication for telemetry
 - Improve IMU sensor stability on flight
 - Develop more efficient calibration process
+- Develop a ground station capable of receiving and uploading live telemetry
 
 ---
 
@@ -20,6 +21,8 @@ Continuation of project Datalogger (first version)
   - 9-axis IMU data (acceleration, gyroscope, magnetometer)
   - Barometric pressure, altitude, and temperature
   - GPS coordinates, altitude, speed, and satellite count
+- Streams telemetry to ground station through radio communication
+- Ground station streams telemetry to web server
 //to be refined
 
 ## 🧠 Core Components
