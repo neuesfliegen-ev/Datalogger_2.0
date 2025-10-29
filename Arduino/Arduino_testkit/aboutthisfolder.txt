@@ -1,0 +1,7 @@
+Arduino testing folder
+what u need:
+- app nRF Connect
+- Arduino
+- usb a to c converter
+- windows laptop (translate commands for apple)
+- files in this folder
