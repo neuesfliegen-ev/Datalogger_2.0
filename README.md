@@ -1,6 +1,7 @@
 # 🛩️ Datalogger_2.0 
 
-Datalogger for collecting, logging and transmitting RC flight data.
+Datalogger for collecting, logging and transmitting RC flight data during the New Flying Competition
+organised and held by the Neues Fliegen e.V.
 Continuation of project Datalogger (first version)
 
 ---
@@ -27,13 +28,13 @@ Continuation of project Datalogger (first version)
 
 ## 🧠 Core Components
 
-| Component                  | Description |
-|---------------------------|-------------|
-| **Arduino**               | Primary microcontroller (Nano Ble 33 Sense REV2) |
-| **BMI270_BMM150**         | 9-DOF IMU (acceleration, gyroscope, magnetometer) integrated on Arduino |
-| **LPS22HB**               | Barometric pressure sensor integrated on Arduino |
-| **GEP M10**               | GEP-M10 GPS module utilizing the u-blox M10050 GPS chip |
-| **SD Card Module**        | Stores `.csv` data logs |
+| Component                  	| Description |
+|-------------------------------|-------------|
+| **ESP32**               		| Primary microcontroller |
+| **WT-901**         			| 9-DOF IMU (acceleration, gyroscope, magnetometer)  |
+| **GEP M10**               	| GEP-M10 GPS module utilizing the u-blox M10050 GPS chip |
+| **E22-900T30D LoRa module**	| Enables the transmission of live telemetry via radio communication to ground station|
+| **SD Card Module**        	| Stores `.csv` data logs |
 //more to be added
 
 ---
