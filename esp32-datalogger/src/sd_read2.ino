@@ -33,7 +33,6 @@ const unsigned long LOGGING_PERIOD = 100; // 100 milliseconds / 10Hz
 
 unsigned long lastWriteTime = 0;
 unsigned long lastFlushTime = 0;
-const unsigned long WRITE_INTERVAL = 100;  // Write to SD every 100ms / 10Hz
 const unsigned long FLUSH_INTERVAL = 200;  // Flush SD every 300ms
 
 // Test variables - used only to test the code written
@@ -57,9 +56,11 @@ void loop() {
 
   if (now - lastCollection >= LOGGING_PERIOD) {
 
+    //test code
     lastCollection = now;
-
-    String lineToLog = String(now) + "," + String(count);
+    char lineToLog[32];
+    snprintf(lineToLog, sizeof(lineToLog), "%lu,%u", now, count);
+    
     
     log(lineToLog);
   
@@ -82,7 +83,7 @@ void setupSD() {
   Serial.println(F("SD card initialised successfully.\n"));
 }
 
-void log(String line) {
+void log(const char* line) {
   // this is a wrapper function for writeToSD()
   // use this in main
 
@@ -90,19 +91,18 @@ void log(String line) {
   writeToSD(line);
   Serial.print("Logged at time stamp:");
   Serial.println(now);
+  
 }
 
-void writeToSD(const String& line) {
+void writeToSD(const char* line) {
   // do not call this function directly!
   // call log() instead!!
 
-  // Write buffered data every 100ms
-  if (millis() - lastWriteTime >= WRITE_INTERVAL) {
-    if (dataFile) {
-      dataFile.println(line);
-    }
-    lastWriteTime = millis();
+  if (dataFile) {
+    dataFile.println(line);
   }
+
+  lastWriteTime = millis();
 
   // Flush every 300ms
   if (millis() - lastFlushTime >= FLUSH_INTERVAL) {
