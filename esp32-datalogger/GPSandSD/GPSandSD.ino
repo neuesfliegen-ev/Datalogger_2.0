@@ -4,7 +4,7 @@
 // file config
 File dataFile;
 const int chipSelect = 5;
-char filename[13]; // 1 for '/', 8 for name, 1 for '.', 3 for ext, 1 for null terminator
+char filename[14]; // 1 for '/', 8 for name, 1 for '.', 3 for ext, 1 for null terminator
 
 // define logstate
 LogState logState = LogState::IDLE;
@@ -15,12 +15,6 @@ unsigned long lastCollection = 0;
 
 unsigned long lastWriteTime = 0;
 unsigned long lastFlushTime = 0;
-
-// Create GPS parser
-TinyGPSPlus gps;
-
-float latitude = 0.0, longitude = 0.0, gpsAltitude = 0.0, Speed = 0.0;  //&speed in m/s
-uint8_t SatCount = 0;
 
 // Test variables - used only to test the code written
 unsigned int count = 0;
@@ -47,7 +41,7 @@ void loop() {
   "n/a,n/a,n/a,n/a," // Roll, pitch, yaw, baro
   "%.6f,%.6f," // GPS lat & long
   "%.2f,%.2f," // GPS alt & speed
-  "%u", now, latitude, longitude, gpsAltitude, Speed, SatCount);  
+  "%u,%d", now, getLat(), getLong(), getAlt(), getSpeed(), getSatCount(), isGPSValid());  
   log(lineToLog);
     
 }

@@ -16,7 +16,7 @@ enum class LogState { IDLE, ACTIVE };
 
 extern File dataFile;
 extern const int chipSelect;
-extern char filename[13]; // 1 for '/', 8 for name, 1 for '.', 3 for ext, 1 for null terminator
+extern char filename[14]; // 1 for '/', 8 for name, 1 for '.', 3 for ext, 1 for null terminator
 extern LogState logState;
 
 void setupSD();

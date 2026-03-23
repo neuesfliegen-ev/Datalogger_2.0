@@ -3,9 +3,6 @@
 #include "gps2.h"
 
 //====Function Declarations====
-void setupSD();
-void log(const char* line);
-
 // to be added
 // void updateLogging();
 // void startLog(); 
@@ -82,13 +79,19 @@ void generateFile() {
                     "magX,"
                     "magY,"
                     "magZ,"
+                    "roll,"
+                    "pitch,"
+                    "yaw,"
                     "baro,"
                     "GPSlat,"
                     "GPSlong,"
                     "GPSalt,"
                     "GPSspeed,"
+                    "sat_count,"
+                    "GPS_valid,"
                     "pitot_static,"
-                    "pitot_dynamic"); 
+                    "pitot_dynamic"
+                    ); 
     
     
     // Crucial: flush() forces the SD card to update its directory
@@ -102,21 +105,9 @@ void generateFile() {
 
  }
 
-
 void generateFileName() { //will be updated to use GPS date and time to generate filename
-  unsigned long ts = millis() % 10000; // Get the last 4 digits of uptime
-  int teamNum = 12; // Example team number
 
   // snprintf builds the string safely into the 'filename' array
   // Format: /T[Team][TS].CSV -> /T120042.CSV (Total 11 chars)
-  snprintf(filename, sizeof(filename), "/T%02d%04lu.CSV", teamNum, ts);
+  snprintf(filename, sizeof(filename), "/%02d%02d%02d%02d.CSV", getGPSmonth(), getGPSday(), getGPShour(), getGPSminute());
 }
-
-
-
-
-
-
-
-
-

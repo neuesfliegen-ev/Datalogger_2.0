@@ -1,11 +1,13 @@
 #include <TinyGPSPlus.h>
+#include <math.h>
 #include "gps2.h"
 
-void wiringCheck();
-void GPSsetup();
-void GPSLock();
-void updateGPSData();
-void printAll();
+TinyGPSPlus gps;
+
+double latitude = 0, longitude = 0, gpsAltitude = 0;
+float Speed = 0;
+uint8_t SatCount = 0;
+uint8_t GPS_valid = 0;
 
 /*
 void wiringCheck() {
@@ -67,19 +69,31 @@ void GPSLock() {
 
 void updateGPSData() {
   while (Serial1.available()) {
-      char c = Serial1.read();
-
-      // Feed to TinyGPS parser
-      gps.encode(c);
-
-      if (gps.location.isUpdated()) {
-      latitude     = gps.location.lat();
-      longitude    = gps.location.lng();
-      gpsAltitude  = gps.altitude.meters();
-      Speed        = gps.speed.mps();
-      SatCount     = gps.satellites.value();
-      }
+    // Feed to TinyGPS parser
+    gps.encode(Serial1.read());
   }
+
+  if (gps.location.isUpdated() && gps.location.isValid()) {
+      latitude  = gps.location.lat();
+      longitude = gps.location.lng();
+  }
+  if (gps.altitude.isUpdated() && gps.altitude.isValid()) {
+      gpsAltitude = gps.altitude.meters();
+  }
+  if (gps.speed.isUpdated() && gps.speed.isValid()) {
+      Speed = gps.speed.mps();
+  }
+  if (gps.satellites.isUpdated() && gps.satellites.isValid()) {
+      SatCount = gps.satellites.value();
+  }
+
+  if (gps.location.isValid() && gps.altitude.isValid() && gps.speed.isValid() && gps.satellites.value() >= MIN_SATS) {
+    GPS_valid = 1;
+  } else{
+    GPS_valid = 0;
+  }
+  
+  
 
 }
 
@@ -89,4 +103,46 @@ void printAll() { // only for serial print - won't be used later
   snprintf(gpsMsg, sizeof(gpsMsg), "Lat: %.6f, Long: %.6f, GPSAlt: %.2f, Speed: %.2f, SatCount: %u", latitude, longitude, gpsAltitude, Speed, SatCount);
 
   Serial.println(gpsMsg);
+}
+
+double getLat() {
+  return round(latitude * 1e6) / 1e6;
+}
+
+double getLong() {
+  return roundf(longitude * 1e6) / 1e6;
+}
+
+double getAlt() {
+  return roundf(gpsAltitude * 1e2) / 1e2;
+}
+
+float getSpeed() {
+  return roundf(Speed * 1e2) / 1e2;
+}
+
+uint8_t getSatCount() {
+  return SatCount;
+}
+
+uint8_t isGPSValid() {
+  // Returns true only if location, altitude, and speed are all currently valid
+  return GPS_valid;
+
+}
+
+uint8_t getGPSmonth() {
+  return gps.date.month();
+}
+
+uint8_t getGPSday() {
+  return gps.date.day();
+}
+
+uint8_t getGPShour() {
+  return gps.time.hour();
+}
+
+uint8_t getGPSminute() {
+  return gps.time.minute();
 }
