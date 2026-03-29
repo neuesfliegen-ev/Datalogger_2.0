@@ -19,9 +19,9 @@ void updateDataLine(struct DataLine* dl, struct Telemetry* t) {
 
 }
 //take imu i2c leitung and pass poitner to telemetry struct and fill data
-void updateTelemetry(TwoWire* imu, Telemetry* t){
+void updateTelemetry(Telemetry* t){
   IMUData imuData;//make to store new imu data
-  readEverythingFromIMU(imu, &imuData);
+  readEverythingFromIMU(&imuData);
   t->timestamp = millis();
   t->ax = imuData.ax; t->ay = imuData.ay; t->az = imuData.az; t->temp = imuData.temp; 
   t->gx = imuData.gx; t->gy = imuData.gy; t->gz = imuData.gz;

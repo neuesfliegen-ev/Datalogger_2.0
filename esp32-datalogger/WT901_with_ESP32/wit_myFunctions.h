@@ -1,8 +1,9 @@
 #pragma once
 #include <Wire.h>
-//---------ADD headers for wt_c_sdk_myFunctions-------------------------------------------------------------
-//int32_t myWitI2cWrite(uint8_t ucAddr, uint8_t ucReg, uint8_t *p_ucVal, uint32_t uiLen);
-//int32_t myWitI2cRead(uint8_t ucAddr, uint8_t ucReg, uint8_t *p_ucVal, uint32_t uiLen);
+
+constexpr int IMU_SDA = 21;//IMU
+constexpr int IMU_SCL = 22;
+constexpr uint8_t IMU_I2C_ADDR = 0x50;
 
 struct IMUData {
   float ax, ay, az;
@@ -14,7 +15,6 @@ struct IMUData {
 };
 
 //get rid of acc and mag, just do all
-int8_t wit_calibrate_acc();
-int8_t wit_calibrate_mag();
+int32_t setupIMU(TwoWire*);
 int8_t wit_calibrate_all();
-int8_t readEverythingFromIMU(TwoWire* imu, IMUData* t);
+int8_t readEverythingFromIMU(IMUData* t);
