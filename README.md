@@ -31,8 +31,9 @@ Continuation of project Datalogger (first version)
 | Component                  	| Description |
 |-------------------------------|-------------|
 | **ESP32**               		| Primary microcontroller |
-| **WT-901**         			| 9-DOF IMU (acceleration, gyroscope, magnetometer)  |
+| **WT-901B**         			  | 10-DOF IMU (acceleration, gyroscope, magnetometer + barometer)  |
 | **GEP M10**               	| GEP-M10 GPS module utilizing the u-blox M10050 GPS chip |
+| **Digital pitot sensor**    | PixHawk PX4 digital airspeed sensor |
 | **E22-900T30D LoRa module**	| Enables the transmission of live telemetry via radio communication to ground station|
 | **SD Card Module**        	| Stores `.csv` data logs |
 //more to be added
