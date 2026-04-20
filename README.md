@@ -6,12 +6,13 @@ Continuation of project Datalogger (first version)
 
 ---
 
-## 🧩 Planned Improvements
+## 🧩 Improvements
 
 - Remove SIM card and use radio communication for telemetry
 - Improve IMU sensor stability on flight
 - Develop more efficient calibration process
 - Develop a ground station capable of receiving and uploading live telemetry
+- Implement FreeRTOS on ESP32
 
 ---
 
