@@ -2,11 +2,8 @@
 #define WT901_I2C_H
 
 #include "driver/i2c_master.h"
+#include "imu_data.h"
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #define SAVE 			0x00
 #define CALSW 			0x01
@@ -98,96 +95,14 @@ extern "C" {
 #define DIO_MODE_DOPWM 4
 #define DIO_MODE_GPS 5		
 
-struct STime
-{
-	unsigned char ucYear;
-	unsigned char ucMonth;
-	unsigned char ucDay;
-	unsigned char ucHour;
-	unsigned char ucMinute;
-	unsigned char ucSecond;
-	unsigned short usMiliSecond;
-};
-
-struct SAcc
-{
-    // Raw acceleration data from registers (short array)
-    short a[3];        // a[0] = X axis, a[1] = Y axis, a[2] = Z axis (from register map)
-    
-    // Converted acceleration values (float array)
-    float af[3];       // af[0] = X axis, af[1] = Y axis, af[2] = Z axis (converted to float)
-};
-
-struct STmp //temperature
-{
-	short tmp;
-	float tmpf;
-};
-
-struct SGyr
-{
-    // Raw gyroscope data from registers (short array)
-    short w[3];        // g[0] = X axis, g[1] = Y axis, g[2] = Z axis (from register map)
-    
-    // Converted gyroscope values (float array)
-    float wf[3];       // gf[0] = X axis, gf[1] = Y axis, gf[2] = Z axis (converted to float)
-};
-
-struct SAtt
-{
-    // Raw angle data from registers (short array)
-    short Att[3];    // Attitude[0] = Roll, Attitude[1] = Pitch, Attitude[2] = Yaw (from register map)
-    
-    // Converted angle values (float array)
-    float Attf[3];   // Attitudef[0] = Roll, Attitudef[1] = Pitch, Attitudef[2] = Yaw (converted to float)
-};
-
-struct SMag
-{
-	short h[3];
-};
-
-struct SDStatus
-{
-	short sDStatus[4];
-};
-
-struct SBar
-{
-	long lPressure;
-	long lHeight;
-};
-
-struct SLonLat
-{
-	long lLon;
-	long lLat;
-};
-
-struct SGPSV
-{
-	short sGPSHeight;
-	short sGPSYaw;
-	long lGPSVelocity;
-};
-
 class CJY901 
 {
   public: 
-	struct STime		stcTime;
-	struct STmp			stcTmp;
-	struct SAcc 		stcAcc;
-	struct SGyr 		stcGyr;
-	struct SAtt 		stcAtt;
-	struct SMag 		stcMag;
-	struct SDStatus 	stcDStatus;
-	struct SBar 		stcBar;
-	struct SLonLat 		stcLonLat;
-	struct SGPSV 		stcGPSV;
+  	IMUData imuData;
 	
     CJY901(){}; 
 	void StartIIC(i2c_master_dev_handle_t bus_handle);
-    void CopeSerialData(unsigned char ucData);
+  void CopeSerialData(unsigned char ucData);
 	short ReadWord(unsigned char ucAddr);
 	void WriteWord(unsigned char ucAddr,short sData);
 	void ReadData(unsigned char ucAddr,unsigned char ucLength,char chrData[]);
@@ -208,7 +123,7 @@ class CJY901
   // getOffsets();
   void checkOrientation();
   void checkAxis6Mode();
-  void updateAll();
+  IMUData& updateAll();
   void printAllData();
   esp_err_t unlock();
   esp_err_t lock();
@@ -221,10 +136,5 @@ class CJY901
 	esp_err_t readRegisters(uint8_t addressToRead, uint8_t bytesToRead, uint8_t *dest);
 	esp_err_t writeRegister(uint8_t *dataToWrite, uint8_t bytesToWrite);
 };
-//extern CJY901 JY901;
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

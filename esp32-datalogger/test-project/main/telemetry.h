@@ -1,5 +1,5 @@
-#define 
-
+#include "esp_check.h"
+#include "imu_data.h"
 
 struct SDataset {
 	uint32_t t;
@@ -8,7 +8,7 @@ struct SDataset {
 	float hx, hy, hz;
 	float roll, pitch, yaw;
 	float tmp;
-	float hght;
+	float hght, press; 
 	float psta, pdyn;
 	float alt, gs, lat, lon;
 };
@@ -19,7 +19,7 @@ struct SDataset_raw {
 	short hx, hy, hz;
 	short roll, pitch, yaw;
 	short tmp;
-	short hght;
+	short hght; 
 	float psta, pdyn;
 	float alt, gs, lat, lon;
 };
@@ -29,8 +29,9 @@ public:
 	Telemetry(){};
 	struct SDataset dataset;
 	struct SDataset rawDataset;
-	esp_err_t update_telemetry();
+	esp_err_t update_telemetry(const IMUData& imuData);
 private:
 
-}
+};
+
 
