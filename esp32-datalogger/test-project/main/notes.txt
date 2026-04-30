@@ -1,0 +1,38 @@
+ImuData imuData = imu.readCachedData();
+GpsData gpsData = gps.readCachedData();
+BaroData baroData = baro.readCachedData();
+
+telemetry.update(imuData, gpsData, baroData);
+
+------------------------------------
+
+IMU returns imuAll
+
+
+Telemetry returns allData
+
+SD card class takes 
+
+------------------------------------
+
+
+#include "Telemetry.h"
+#include "Radio.h"
+#include "SdLogger.h"
+
+// helper function declarations
+void initSensors();
+void updateSensors();
+
+int main() {
+    initSensors();
+    updateSensors();
+    return 0;
+}
+
+// helper function definitions
+void initSensors() {
+}
+
+void updateSensors() {
+}

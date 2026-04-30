@@ -1,0 +1,4 @@
+Command: cmake -G Ninja -B D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\main\build -DPYTHON_DEPS_CHECKED=1 -DPYTHON=C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe -DESP_PLATFORM=1 -DCCACHE_ENABLE=True D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\main
+-- The C compiler identification is unknown
+-- The CXX compiler identification is unknown
+-- Configuring incomplete, errors occurred!
