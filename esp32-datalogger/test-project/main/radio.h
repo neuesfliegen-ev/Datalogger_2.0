@@ -10,7 +10,7 @@ class RadioClass
     void startUART(uart_port_t);
   private:
     uart_port_t uart_port;
-    void readBytes();
+    void readBytes(void *buf, uint32_t length);
     void writeBytes();
 
 };
