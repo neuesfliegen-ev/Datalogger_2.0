@@ -23,8 +23,8 @@ static bool TELEMETRY_ENABLED = false;
 
 const gpio_num_t RADIO_TX_PIN = GPIO_NUM_17;
 const gpio_num_t RADIO_RX_PIN = GPIO_NUM_16;	
-const gpio_num_t RADIO_M0_PIN = GPIO_NUM_18;	
-const gpio_num_t RADIO_M1_PIN = GPIO_NUM_19;	
+const gpio_num_t RADIO_M0_PIN = GPIO_NUM_33;	
+const gpio_num_t RADIO_M1_PIN = GPIO_NUM_32;	
 const gpio_num_t GPS_TX_PIN = GPIO_NUM_34;
 const gpio_num_t GPS_RX_PIN = GPIO_NUM_35;
 const gpio_num_t IMU_SDA_PIN = GPIO_NUM_21; //1k pullup
@@ -42,7 +42,7 @@ const uart_port_t RADIO_UART_NUM = UART_NUM_2;
 const uart_port_t GPS_UART_NUM = UART_NUM_1; //CHECK?
 
 /*Constants for time keeping in milliseconds*/
-const uint32_t GPS_UPDATE_PERIOD = 1000;
+const uint32_t GPS_UPDATE_PERIOD = 100;
 const uint32_t PITOT_UPDATE_PERIOD = 200;
 const uint32_t IMU_UPDATE_PERIOD = 100;
 
@@ -53,6 +53,7 @@ static const uint32_t wt901b_i2c_scl_speed_hz = 100000;
 static const uint32_t sleep_time_ms = 1000;
 
 static const char *TAG = "SD_INIT";
+
 
 Telemetry telemetry;
 CJY901 IMU;
@@ -78,7 +79,7 @@ esp_err_t radio_uart_setup(){
 		uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(RADIO_UART_NUM, &uart_config));
-	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
 	Radio.startUART(RADIO_UART_NUM);
 	return ESP_OK;
 }
@@ -86,7 +87,7 @@ esp_err_t radio_uart_setup(){
 void gps_uart_setup(){
 	const int uart_buffer_size = (1024 * 2);	// Setup UART buffered IO with event queue
 	QueueHandle_t uart_queue;	// Install UART driver using an event queue here
-	ESP_ERROR_CHECK(uart_driver_install(RADIO_UART_NUM, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
+	ESP_ERROR_CHECK(uart_driver_install(GPS_UART_NUM, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
 
 	uart_config_t uart_config{};   // zero-initialize everything
 		uart_config.baud_rate = 9600;
@@ -154,7 +155,7 @@ void serial_buses_setup(){
 
 	//if(init_spi_bus() != ESP_OK){return;}
     //if(init_sdcard() != ESP_OK){return;}
-    //radio_uart_setup();
+    radio_uart_setup();
     //gps_uart_setup();
 }
 
@@ -190,18 +191,31 @@ extern "C" void app_main(){
 	
 	gpio_reset_pin(BLINK_LED);
 	gpio_set_direction(BLINK_LED, GPIO_MODE_OUTPUT);
-
+	gpio_set_direction(RADIO_M0_PIN, GPIO_MODE_OUTPUT);
+	gpio_set_level(RADIO_M0_PIN, 0);
+	gpio_set_level(RADIO_M1_PIN, 0);
+ 
 
 	while(1){
 		if (Radio.readCommand(command, option)) {
     		commandHandler.executeCommand(command, option);
 		}
+		uint8_t packet[] = {
+		    0x00, // address
+		    0x01, // address
+		    0x01, // channel
+		    'h','e','l','l','o','\n'
+		};
+
+		int written = Radio.writeBytes(packet, sizeof(packet));
+		ESP_LOGI("RADIO", "written = %d", written);
+
 		gpio_set_level(BLINK_LED, 1);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 		
 		update_all_sensor_data();
-
 		printf("Attitude: %.2f, %.2f, %.2f\n", IMU.imuData.att.Attf[0], IMU.imuData.att.Attf[1],IMU.imuData.att.Attf[2]);
+		printf("Attitude from telemetry: %.2f, %.2f, %.2f\n", telemetry.dataset.roll, telemetry.dataset.pitch, telemetry.dataset.yaw);
 
 		gpio_set_level(BLINK_LED, 0);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);

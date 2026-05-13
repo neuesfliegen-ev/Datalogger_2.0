@@ -21,17 +21,17 @@ esp_err_t CommandHandler::executeCommand(int command, int option) {
     switch(command) {
         case 0:
             // calibrate IMU
-            radio.writeMessage("Calibrating IMU...\n");
+            radio.writeMessage("Received command 0...\n");
             break;
 
         case 1:
             // start telemetry
-            radio.writeMessage("Starting telemetry...\n");
+            radio.writeMessage("Received command 1...\n");
             break;
 
         case 2:
             // stop telemetry
-            radio.writeMessage("Stopping telemetry...\n");
+            radio.writeMessage("Received command 2...\n");
             break;
 
         default:

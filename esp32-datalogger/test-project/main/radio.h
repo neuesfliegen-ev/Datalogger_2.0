@@ -29,9 +29,9 @@ public:
 
     bool readCommand(int& cmd, int& option);
 
-    void readBytes(void *buf, uint32_t length);
+    int readBytes(void *buf, uint32_t length);
 
-    void writeBytes(const uint8_t* data, size_t length);
+    int writeBytes(const uint8_t* data, size_t length);
 
     void writeMessage(const char* msg);
 

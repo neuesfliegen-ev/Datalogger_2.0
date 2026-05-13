@@ -39,12 +39,12 @@ bool RadioClass::readCommand(int& command, int& option) {
     return false;
 }
 
-void RadioClass::readBytes(void *buf, uint32_t length){
-    uart_read_bytes(uart_num, buf, length, pdMS_TO_TICKS(100));
+int RadioClass::readBytes(void *buf, uint32_t length){
+    return uart_read_bytes(uart_num, buf, length, pdMS_TO_TICKS(100));
 }
 
-void RadioClass::writeBytes(const uint8_t* data, size_t length){
-	uart_write_bytes(uart_num, (const char*)data, length); 
+int RadioClass::writeBytes(const uint8_t* data, size_t length){
+	return uart_write_bytes(uart_num, (const char*)data, length);
 };
 
 void RadioClass::writeMessage(const char* msg) {
