@@ -9,29 +9,29 @@
 #include "esp_log.h"
 #include "driver/i2c_master.h"
 #include "driver/uart.h"
-
-
 #include "driver/spi_common.h"
 #include "driver/sdspi_host.h"
-
 #include "sdmmc_cmd.h"
-
 
 #include "radio.h"
 #include "WT901_I2C.h"
 #include "telemetry.h"
+#include "commandHandler.h"
 
-static const bool DEBUG = true;
+static bool DEBUG = true;
+static bool TELEMETRY_ENABLED = false;
 
 const gpio_num_t RADIO_TX_PIN = GPIO_NUM_17;
-const gpio_num_t RADIO_RX_PIN = GPIO_NUM_16;
+const gpio_num_t RADIO_RX_PIN = GPIO_NUM_16;	
+const gpio_num_t RADIO_M0_PIN = GPIO_NUM_18;	
+const gpio_num_t RADIO_M1_PIN = GPIO_NUM_19;	
 const gpio_num_t GPS_TX_PIN = GPIO_NUM_34;
 const gpio_num_t GPS_RX_PIN = GPIO_NUM_35;
 const gpio_num_t IMU_SDA_PIN = GPIO_NUM_21; //1k pullup
 const gpio_num_t IMU_SCL_PIN = GPIO_NUM_22; //1k pullup
 const gpio_num_t PITOT_SDA_PIN = GPIO_NUM_8; //1k pull up --CHANGE
 const gpio_num_t PITOT_SCL_PIN = GPIO_NUM_9; //1k pull up --CHANGE
-const gpio_num_t SD_MISO_PIN = GPIO_NUM_2;
+//const gpio_num_t SD_MISO_PIN = GPIO_NUM_2;
 const gpio_num_t SD_CS_PIN = GPIO_NUM_13;
 const gpio_num_t SD_SCK_PIN = GPIO_NUM_14;
 const gpio_num_t SD_MOSI_PIN = GPIO_NUM_15; //10k pullup
@@ -56,7 +56,10 @@ static const char *TAG = "SD_INIT";
 
 Telemetry telemetry;
 CJY901 IMU;
-RadioClass radio;
+RadioClass Radio(RADIO_M0_PIN, RADIO_M1_PIN);
+//PitotClass Pitot;
+//GPSClass GPS;
+CommandHandler commandHandler(Radio, IMU, telemetry, TELEMETRY_ENABLED);
 
 static uint32_t last_gps_update = 0;
 static uint32_t last_imu_update = 0;
@@ -76,7 +79,7 @@ esp_err_t radio_uart_setup(){
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(RADIO_UART_NUM, &uart_config));
 	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-	radio.startUART(RADIO_UART_NUM);
+	Radio.startUART(RADIO_UART_NUM);
 	return ESP_OK;
 }
 
@@ -94,7 +97,7 @@ void gps_uart_setup(){
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(GPS_UART_NUM, &uart_config));
 	ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
-	radio.startUART(GPS_UART_NUM);	
+	//GPS.startUART(GPS_UART_NUM);	
 }
 
 void init_IMU_i2c(){
@@ -145,7 +148,6 @@ void init_Pitot_i2c(){
 	//Pitot.StartIIC(imu_dev_handle);
 }
 
-
 void serial_buses_setup(){
 	init_IMU_i2c();
 	//init_Pitot_i2c();
@@ -154,7 +156,6 @@ void serial_buses_setup(){
     //if(init_sdcard() != ESP_OK){return;}
     //radio_uart_setup();
     //gps_uart_setup();
-
 }
 
 void update_all_sensor_data(){
@@ -179,6 +180,7 @@ void update_all_sensor_data(){
 	if(DEBUG)printf("updated telemetry\n");
 }
 
+int command, option; 
 
 extern "C" void app_main(){
 	serial_buses_setup();
@@ -191,6 +193,9 @@ extern "C" void app_main(){
 
 
 	while(1){
+		if (Radio.readCommand(command, option)) {
+    		commandHandler.executeCommand(command, option);
+		}
 		gpio_set_level(BLINK_LED, 1);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 		

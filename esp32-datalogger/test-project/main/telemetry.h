@@ -1,3 +1,6 @@
+#ifndef TELEMETRY_H
+#define TELEMETRY_H
+
 #include "esp_check.h"
 #include "imu_data.h"
 
@@ -35,3 +38,4 @@ private:
 };
 
 
+#endif

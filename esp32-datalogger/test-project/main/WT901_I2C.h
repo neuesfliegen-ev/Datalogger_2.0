@@ -4,7 +4,6 @@
 #include "driver/i2c_master.h"
 #include "imu_data.h"
 
-
 #define SAVE 			0x00
 #define CALSW 			0x01
 #define RSW 			0x02
