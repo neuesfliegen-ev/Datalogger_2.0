@@ -190,28 +190,29 @@ extern "C" void app_main(){
 	char* ourTaskName = pcTaskGetName(NULL);
 	ESP_LOGI(ourTaskName, "Hello, starting up..");
 	
+	/*
 	gpio_reset_pin(BLINK_LED);
 	gpio_set_direction(BLINK_LED, GPIO_MODE_OUTPUT);
 	gpio_set_direction(RADIO_M0_PIN, GPIO_MODE_OUTPUT);
 	gpio_set_level(RADIO_M0_PIN, 0);
 	gpio_set_level(RADIO_M1_PIN, 0);
- 
+ 	*/
 
 	while(1){
-		/*
 		if (Radio.readCommand(command, option)) {
     		commandHandler.executeCommand(command, option);
 		}
-		*/
+		/*
 		uint8_t packet[] = {
-		    0x00, // address
-		    0x02, // address
-		    0x02, // channel
+		    //0x00, // address
+		    //0x02, // address
+		    //0x02, // channel
 		    'h','e','l','l','o','\r','\n'
 		};
 
 		int written = Radio.writeBytes(packet, sizeof(packet));
 		ESP_LOGI("RADIO", "written = %d", written);
+		
 
 		uint8_t data[128];
 		int len = uart_read_bytes(RADIO_UART_NUM, data, sizeof(data) - 1, pdMS_TO_TICKS(100));
@@ -219,12 +220,12 @@ extern "C" void app_main(){
 	        data[len] = '\0';
 	        ESP_LOGI("RADIO_RX", "received %d bytes: %s", len, (char*)data);
 	    }
-
+		*/
 
 		gpio_set_level(BLINK_LED, 1);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 		
-		update_all_sensor_data();
+		update_all_sensor_data(); 
 		printf("Attitude: %.2f, %.2f, %.2f\n", IMU.imuData.att.Attf[0], IMU.imuData.att.Attf[1],IMU.imuData.att.Attf[2]);
 		printf("Attitude from telemetry: %.2f, %.2f, %.2f\n", telemetry.dataset.roll, telemetry.dataset.pitch, telemetry.dataset.yaw);
 

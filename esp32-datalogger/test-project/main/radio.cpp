@@ -1,5 +1,6 @@
 #include "radio.h"
 #include "telemetry.h"
+#include "esp_log.h"
 
 
 RadioClass::RadioClass(gpio_num_t M0, gpio_num_t M1){
@@ -14,10 +15,10 @@ void RadioClass::startUART(uart_port_t p){
 bool RadioClass::readCommand(int& command, int& option) {
     static char buffer[64];
     static int index = 0;
-
     uint8_t byte;
 
     int len = uart_read_bytes(uart_num, &byte, 1, pdMS_TO_TICKS(10));
+    printf("Reading uart bytes\n");
 
     if (len <= 0) {return false; }
 
@@ -32,6 +33,7 @@ bool RadioClass::readCommand(int& command, int& option) {
         index = 0;
         uart_flush(uart_num);
         writeMessage("Command too long, flushing UART\n");
+        printf("Command too long, flushing UART");
         return false;
     }
 
