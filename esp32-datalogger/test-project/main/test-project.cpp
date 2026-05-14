@@ -75,7 +75,7 @@ esp_err_t radio_uart_setup(){
 		uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(RADIO_UART_NUM, &uart_config));
-	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
 	radio.startUART(RADIO_UART_NUM);
 	return ESP_OK;
 }
@@ -83,7 +83,7 @@ esp_err_t radio_uart_setup(){
 void gps_uart_setup(){
 	const int uart_buffer_size = (1024 * 2);	// Setup UART buffered IO with event queue
 	QueueHandle_t uart_queue;	// Install UART driver using an event queue here
-	ESP_ERROR_CHECK(uart_driver_install(RADIO_UART_NUM, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
+	ESP_ERROR_CHECK(uart_driver_install(GPS_UART_NUM, uart_buffer_size, uart_buffer_size, 10, &uart_queue, 0));
 
 	uart_config_t uart_config{};   // zero-initialize everything
 		uart_config.baud_rate = 9600;
@@ -93,7 +93,7 @@ void gps_uart_setup(){
 		uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(GPS_UART_NUM, &uart_config));
-	ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+	ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
 	radio.startUART(GPS_UART_NUM);	
 }
 
