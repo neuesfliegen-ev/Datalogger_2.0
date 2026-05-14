@@ -1,0 +1,17 @@
+{
+    "idf.espIdfPath": "${workspaceFolder}/esp32-datalogger",
+    "idf.pythonBinPath": "C:\\Espressif\\tools\\python\\python.exe",
+    "idf.toolsPath": "C:\\Espressif\\tools",
+    "idf.gitPath": "git",
+    "idf.telemetry": false,
+    "idf.saveBeforeBuild": true,
+    "idf.buildPath": "${workspaceFolder}/esp32-datalogger/test-project/build",
+    "idf.port": "COM3",
+    "idf.flashType": "UART",
+    "idf.flashBaudRate": "921600",
+    "idf.monitorBaudRate": "115200",
+    "editor.formatOnSave": true,
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    }
+}

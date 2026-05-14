@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/CMakeFiles/bootloader
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/CMakeFiles/bootloader.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/CMakeFiles/bootloader-complete.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+C:/Users/ohjay/OneDrive - HAW-HH/HAW/github/Projects/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

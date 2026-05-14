@@ -31,7 +31,7 @@ struct SAirSpeed
 
 struct SAirDensity
 {
-    // Air density (optional)
+    // Air density - should we keep it this way or define at the top?
     float rho;
 };
 
