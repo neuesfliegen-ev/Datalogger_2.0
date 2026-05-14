@@ -22,20 +22,25 @@ esp_err_t CommandHandler::executeCommand(int command, int option) {
         case 0:
             // calibrate IMU
             radio.writeMessage("Received command 0...\n");
+            printf("Laptop received command 0\n");
             break;
 
         case 1:
             // start telemetry
             radio.writeMessage("Received command 1...\n");
+            printf("Laptop received command 1\n");
             break;
 
         case 2:
             // stop telemetry
             radio.writeMessage("Received command 2...\n");
+            printf("Laptop received command 2\n");
+
             break;
 
         default:
             radio.writeMessage("Invalid command, flushing uart buffer\n");
+            printf("invalid command\n");
     }
 
     return ESP_OK;

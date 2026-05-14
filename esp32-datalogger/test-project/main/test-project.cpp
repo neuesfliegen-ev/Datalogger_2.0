@@ -80,6 +80,7 @@ esp_err_t radio_uart_setup(){
 		uart_config.source_clk = UART_SCLK_DEFAULT;	
 	ESP_ERROR_CHECK(uart_param_config(RADIO_UART_NUM, &uart_config));
 	ESP_ERROR_CHECK(uart_set_pin(RADIO_UART_NUM, RADIO_TX_PIN, RADIO_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+	//gpio_set_pull_mode(RADIO_TX_PIN, GPIO_PULLUP_ONLY);
 	Radio.startUART(RADIO_UART_NUM);
 	return ESP_OK;
 }
@@ -197,18 +198,28 @@ extern "C" void app_main(){
  
 
 	while(1){
+		/*
 		if (Radio.readCommand(command, option)) {
     		commandHandler.executeCommand(command, option);
 		}
+		*/
 		uint8_t packet[] = {
 		    0x00, // address
-		    0x01, // address
-		    0x01, // channel
-		    'h','e','l','l','o','\n'
+		    0x02, // address
+		    0x02, // channel
+		    'h','e','l','l','o','\r','\n'
 		};
 
 		int written = Radio.writeBytes(packet, sizeof(packet));
 		ESP_LOGI("RADIO", "written = %d", written);
+
+		uint8_t data[128];
+		int len = uart_read_bytes(RADIO_UART_NUM, data, sizeof(data) - 1, pdMS_TO_TICKS(100));
+	    if (len > 0) {
+	        data[len] = '\0';
+	        ESP_LOGI("RADIO_RX", "received %d bytes: %s", len, (char*)data);
+	    }
+
 
 		gpio_set_level(BLINK_LED, 1);
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
