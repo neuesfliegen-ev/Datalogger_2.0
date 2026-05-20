@@ -43,5 +43,5 @@ esp32-datalogger/test-project/.vscode
 esp32-datalogger/test-project/build
 esp32-datalogger/test-project/main/.vs
 esp32-datalogger/test-project/main/build
-esp32-datalogger/test-project/main/out/build/x64-Debug
+esp32-datalogger/test-project/main/out
 esp32-datalogger/test-project/sdkconfig
