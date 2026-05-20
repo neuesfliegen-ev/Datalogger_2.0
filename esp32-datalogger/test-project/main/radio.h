@@ -3,16 +3,17 @@
 
 #include "driver/uart.h"
 
-class RadioClass 
-{
-  public: 
-    RadioClass(){};
-    void startUART(uart_port_t);
-  private:
-    uart_port_t uart_port;
-    void readBytes(void *buf, uint32_t length);
-    void writeBytes();
+/* Classes */
 
+// Radio class to handle the communication with the radio module, using UART.
+class RadioClass
+{
+public:
+  RadioClass() {};
+  void startUART(uart_port_t); // called from main
+  /* Send for laptop RF, Read for commmand from laptop - methods should be defined here */
+private:
+  uart_port_t uart_port;
 };
 
 #endif
