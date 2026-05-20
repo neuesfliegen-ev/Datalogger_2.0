@@ -2,11 +2,11 @@
 //* Register values for WT901 I2C and Class definition *//
 /////////////////////////////////////////////////////////
 
-#ifndef WT901_I2C_H
-#define WT901_I2C_H
+#ifndef IMU_H
+#define IMU_H
 
 #include "driver/i2c_master.h"
-#include "imu_data.h"
+#include "hal/imu_data.h"
 
 /** Register values **/
 #define SAVE 0x00

@@ -1,5 +1,5 @@
 #include "esp_check.h"
-#include "imu_data.h"
+#include "hal/imu_data.h"
 
 /* Structs */
 

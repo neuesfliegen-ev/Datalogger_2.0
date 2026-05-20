@@ -1,2 +1,2 @@
-idf_component_register(SRCS "test-project.cpp" "WT901_I2C.cpp" "telemetry.cpp" "radio.cpp" "commandHandler.cpp"
+idf_component_register(SRCS "test-project.cpp" "hal/imu.cpp" "telemetry.cpp" "hal/radio.cpp" "commandHandler.cpp"
                     INCLUDE_DIRS ".")
