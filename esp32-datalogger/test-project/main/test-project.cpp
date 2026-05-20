@@ -17,7 +17,7 @@
 
 #include "hal/radio.h"
 #include "hal/imu.h"
-#include "telemetry.h"
+#include "modules/telemetry.h"
 
 static const bool DEBUG = true;
 
