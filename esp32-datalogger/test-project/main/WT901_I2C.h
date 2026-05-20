@@ -112,8 +112,6 @@ class CJY901
 	esp_err_t updateMag();
 	esp_err_t updateBar();
 	void updateDStatus();
-	void updateLonLat();
-	void updateGPSV();
 
   void Config();
   esp_err_t calibrateAcc();

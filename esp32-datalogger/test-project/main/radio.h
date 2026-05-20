@@ -12,6 +12,11 @@
 
 #include "telemetry.h"
 
+typedef struct {
+    char text[1024];
+    size_t len;
+} RadioMessage;
+
 struct RadioCommand {
     int command;
     int option;
@@ -22,9 +27,12 @@ private:
     gpio_num_t M0_PIN;
     gpio_num_t M1_PIN;
     uart_port_t uart_num;
+    QueueHandle_t radioQueue;
 
 public:
     RadioClass(gpio_num_t, gpio_num_t);
+
+    void setQueue(QueueHandle_t);
 
     void startUART(uart_port_t p);
 
@@ -34,9 +42,11 @@ public:
 
     int writeBytes(const uint8_t* data, size_t length);
 
-    void writeMessage(const char* msg);
+    int sendMessage(const char* msg);
 
-    void sendData(Telemetry* dataset);
+    int sendData(const uint8_t*, size_t);
+
+    int sendDataset(Telemetry*);
 };
 
 #endif

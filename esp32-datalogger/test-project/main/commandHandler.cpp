@@ -1,5 +1,6 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/semphr.h"
 #include "esp_timer.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
@@ -21,25 +22,39 @@ esp_err_t CommandHandler::executeCommand(int command, int option) {
     switch(command) {
         case 0:
             // calibrate IMU
-            radio.writeMessage("Received command 0...\n");
+            if(option == 0) imu.calibrateAcc();
+            if(option == 1) imu.calibrateMag();
+            radio.sendMessage("Received command 0...\n");
             printf("Laptop received command 0\n");
             break;
 
         case 1:
             // start telemetry
-            radio.writeMessage("Received command 1...\n");
+            //imu.stopCalibrating();
+            //radio.sendMessage("Received command 1...\n");
             printf("Laptop received command 1\n");
             break;
 
         case 2:
             // stop telemetry
-            radio.writeMessage("Received command 2...\n");
+            //telemetryEnabled = option;
+            radio.sendMessage("Received command 2...\n");
             printf("Laptop received command 2\n");
 
             break;
 
+        case 3:
+        	radio.sendMessage("Received command 3...\n");
+            printf("Laptop received command 3\n");
+
+            break;
+
+        case 4:
+            radio.sendMessage("help?\n");
+            break;
+
         default:
-            radio.writeMessage("Invalid command, flushing uart buffer\n");
+            radio.sendMessage("Invalid command, flushing uart buffer\n");
             printf("invalid command\n");
     }
 

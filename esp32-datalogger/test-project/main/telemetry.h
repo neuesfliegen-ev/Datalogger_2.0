@@ -32,7 +32,7 @@ public:
 	Telemetry(){};
 	struct SDataset dataset;
 	struct SDataset rawDataset;
-	esp_err_t update_telemetry(const IMUData& imuData);
+	esp_err_t update_telemetry(uint32_t, const IMUData& imuData/*, const GPSData& gpsData, const AirspeedData& airspeedData*/);
 private:
 
 };
