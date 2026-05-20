@@ -39,9 +39,7 @@
 
 # debug information files
 *.dwo
-esp32-datalogger/test-project/.vscode
-esp32-datalogger/test-project/build
-esp32-datalogger/test-project/main/.vs
-esp32-datalogger/test-project/main/build
-esp32-datalogger/test-project/main/out
-esp32-datalogger/test-project/sdkconfig
+
+01_Datalogger_software/.vscode
+01_Datalogger_software/build
+01_Datalogger_software/sdkconfig
