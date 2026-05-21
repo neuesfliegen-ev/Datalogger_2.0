@@ -1,0 +1,176 @@
+(footprint "GPS GEP-M10"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -6.9 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "01c5c511-88f5-4c77-a44e-98f4a6a1c894")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "GPS GEP-M10"
+		(at 0 -5.4 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "6e266f1f-b009-425c-9ce1-6dbe0d016eb7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cf0812a9-18a4-48e0-b1b0-b63cc1f8e1e0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "70eb40ce-6af0-4d5f-80fd-6204cc8fb2c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_rect
+		(start -6 -2)
+		(end 6 1.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "a3bd7847-bb5d-466f-8004-4a6ff351269e")
+	)
+	(fp_text user "R"
+		(at -3.4 0.2 270)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "3dfd48bc-5d8f-4ab0-a38c-3cfdb394ca3a")
+		(effects
+			(font
+				(size 0.8001 0.8001)
+				(thickness 0.100013)
+			)
+			(justify left top)
+		)
+	)
+	(fp_text user "T"
+		(at -0.9 0.3 270)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "41465925-b194-451e-8fce-18194c677c36")
+		(effects
+			(font
+				(size 0.8001 0.8001)
+				(thickness 0.100013)
+			)
+			(justify left top)
+		)
+	)
+	(fp_text user "V"
+		(at 1.6 0.3 270)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "414da28a-b406-4e79-a36f-fd7a6f291045")
+		(effects
+			(font
+				(size 0.8001 0.8001)
+				(thickness 0.100013)
+			)
+			(justify left top)
+		)
+	)
+	(fp_text user "G"
+		(at 4.2 0.2 270)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "8b35cb5c-bcf7-45ff-bcf6-c7552f5224fb")
+		(effects
+			(font
+				(size 0.8001 0.8001)
+				(thickness 0.100013)
+			)
+			(justify left top)
+		)
+	)
+	(fp_text user "GPS GEP-M10"
+		(at 0 -3.9 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "2208e16c-1fff-4ef9-b1c0-147d38b813b2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" thru_hole oval
+		(at -3.876 -0.9)
+		(size 1.524 1.524)
+		(drill 0.914)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "ca9b2378-cb5f-4586-88c7-44ef39650405")
+	)
+	(pad "2" thru_hole oval
+		(at -1.336 -0.9)
+		(size 1.524 1.524)
+		(drill 0.914)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "2b33461f-0115-4303-b57a-85a80e7c8d60")
+	)
+	(pad "3" thru_hole oval
+		(at 1.204 -0.9)
+		(size 1.524 1.524)
+		(drill 0.914)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "0fb89821-b76b-4178-90b4-65b590432350")
+	)
+	(pad "4" thru_hole oval
+		(at 3.744 -0.9)
+		(size 1.524 1.524)
+		(drill 0.914)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(solder_mask_margin 0.1016)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "f8d4c274-f89b-47c7-9173-7e2a973a363b")
+	)
+	(embedded_fonts no)
+)
