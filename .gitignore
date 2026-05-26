@@ -40,6 +40,6 @@
 # debug information files
 *.dwo
 
-01_Datalogger_software/.vscode
-01_Datalogger_software/build
-01_Datalogger_software/sdkconfig
+01_Datalogger_firmware/.vscode
+01_Datalogger_firmware/build
+01_Datalogger_firmware/sdkconfig
