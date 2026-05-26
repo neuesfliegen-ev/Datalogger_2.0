@@ -1,0 +1,6 @@
+-Wno-frame-address
+-mlongcalls
+-fno-builtin-memcpy
+-fno-builtin-memset
+-fno-builtin-bzero
+"-specs=D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/specs/picolibc.specs"

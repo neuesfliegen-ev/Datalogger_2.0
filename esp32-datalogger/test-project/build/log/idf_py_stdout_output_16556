@@ -1,0 +1,230 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b574h ( 46452) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001b59c vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001e050 vaddr=40080000 size=01fc8h (  8136) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=13db4h ( 81332) map[0m
+[0;32mI (145) esp_image: segment 4: paddr=00033ddc vaddr=40081fc8 size=09c08h ( 39944) load[0m
+[0;32mI (161) esp_image: segment 5: paddr=0003d9ec vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (168) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (168) boot: Disabling RNG early entropy source...[0m
+[0;32mI (179) cpu_start: Multicore app[0m
+[0;32mI (188) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (188) cpu_start: Pro cpu start user code[0m
+[0;32mI (188) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (190) app_init: Application information:[0m
+[0;32mI (194) app_init: Project name:     test-project[0m
+[0;32mI (198) app_init: App version:      2dafe38-dirty[0m
+[0;32mI (202) app_init: Compile time:     May 14 2026 16:42:04[0m
+[0;32mI (207) app_init: ELF file SHA256:  83eda0105...[0m
+[0;32mI (212) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (217) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (221) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (225) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (229) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (235) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (240) heap_init: At 3FFB3588 len 0002CA78 (178 KiB): DRAM[0m
+[0;32mI (245) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (251) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (256) heap_init: At 4008BBD0 len 00014430 (81 KiB): IRAM[0m
+[0;33mW (263) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (275) spi_flash: detected chip: generic[0m
+[0;32mI (278) spi_flash: flash io: dio[0m
+[0;33mW (281) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (295) main_task: Started on CPU0[0m
+[0;32mI (305) main_task: Calling app_main()[0m
+[0;32mI (305) uart: queue free spaces: 10[0m
+[0;32mI (305) main: Hello, starting up..[0m
+[0;32mI (305) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.70, -64.96
+Attitude from telemetry: -174.29, 1.70, -64.96
+[0;32mI (2405) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.70, -64.96
+Attitude from telemetry: -174.29, 1.70, -64.96
+[0;32mI (4505) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.70, -64.96
+Attitude from telemetry: -174.29, 1.70, -64.96
+[0;32mI (6605) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.70, -64.96
+Attitude from telemetry: -174.29, 1.70, -64.96
+[0;32mI (8705) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.69, -64.96
+Attitude from telemetry: -174.28, 1.69, -64.96
+[0;32mI (10805) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.70, -64.96
+Attitude from telemetry: -174.28, 1.70, -64.96
+[0;32mI (12905) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.69, -64.96
+Attitude from telemetry: -174.28, 1.69, -64.96
+[0;32mI (15005) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.96
+Attitude from telemetry: -174.29, 1.71, -64.96
+[0;32mI (17105) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.70, -64.95
+Attitude from telemetry: -174.29, 1.70, -64.95
+[0;32mI (19205) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.70, -64.95
+Attitude from telemetry: -174.28, 1.70, -64.95
+[0;32mI (21305) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.70, -64.95
+Attitude from telemetry: -174.28, 1.70, -64.95
+[0;32mI (23405) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.28, 1.70, -64.95
+Attitude from telemetry: -174.28, 1.70, -64.95
+[0;32mI (25505) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.95
+Attitude from telemetry: -174.29, 1.71, -64.95
+[0;32mI (27605) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.95
+Attitude from telemetry: -174.29, 1.71, -64.95
+[0;32mI (29705) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.95
+Attitude from telemetry: -174.29, 1.71, -64.95
+[0;32mI (31805) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.95
+Attitude from telemetry: -174.29, 1.71, -64.95
+[0;32mI (33905) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.30, 1.71, -64.95
+Attitude from telemetry: -174.30, 1.71, -64.95
+[0;32mI (36005) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.30, 1.71, -64.95
+Attitude from telemetry: -174.30, 1.71, -64.95
+[0;32mI (38105) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.30, 1.71, -64.95
+Attitude from telemetry: -174.30, 1.71, -64.95
+[0;32mI (40205) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.30, 1.71, -64.95
+Attitude from telemetry: -174.30, 1.71, -64.95
+[0;32mI (42305) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.29, 1.71, -64.95
+Attitude from telemetry: -174.29, 1.71, -64.95
+[0;32mI (44405) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.31, 1.70, -64.93
+Attitude from telemetry: -174.31, 1.70, -64.93
+[0;32mI (46505) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.71, -64.92
+Attitude from telemetry: -174.33, 1.71, -64.92
+[0;32mI (48605) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.70, -64.92
+Attitude from telemetry: -174.32, 1.70, -64.92
+[0;32mI (50705) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.70, -64.92
+Attitude from telemetry: -174.32, 1.70, -64.92
+[0;32mI (52805) RADIO: written = 7[0m
+[0;32mI (52905) RADIO_RX: received 3 bytes: lol[0m
+updated telemetry
+Attitude: -174.32, 1.70, -64.92
+Attitude from telemetry: -174.32, 1.70, -64.92
+[0;32mI (54905) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (57005) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (59105) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.69, -64.92
+Attitude from telemetry: -174.32, 1.69, -64.92
+[0;32mI (61205) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.69, -64.92
+Attitude from telemetry: -174.33, 1.69, -64.92
+[0;32mI (63305) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (65405) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (67505) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (69605) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (71705) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.31, 1.70, -64.92
+Attitude from telemetry: -174.31, 1.70, -64.92
+[0;32mI (73805) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (75905) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.33, 1.70, -64.92
+Attitude from telemetry: -174.33, 1.70, -64.92
+[0;32mI (78005) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.70, -64.93
+Attitude from telemetry: -174.32, 1.70, -64.93
+[0;32mI (80105) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.31, 1.69, -64.93
+Attitude from telemetry: -174.31, 1.69, -64.93
+[0;32mI (82205) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.31, 1.69, -64.94
+Attitude from telemetry: -174.31, 1.69, -64.94
+[0;32mI (84305) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.69, -64.94
+Attitude from telemetry: -174.32, 1.69, -64.94
+[0;32mI (86405) RADIO: written = 7[0m
+updated telemetry
+Attitude: -174.32, 1.70, -64.94
+Attitude from telemetry: -174.32, 1.70, -64.94
+[0;32mI (88505) RADIO: written = 7[0m

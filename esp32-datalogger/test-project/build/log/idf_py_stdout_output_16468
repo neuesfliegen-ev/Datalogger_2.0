@@ -1,0 +1,796 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b69ch ( 46748) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001b6c4 vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001e178 vaddr=40080000 size=01ea0h (  7840) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=150dch ( 86236) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=00035104 vaddr=40081ea0 size=09d30h ( 40240) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003ee3c vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (196) app_init: Project name:     test-project[0m
+[0;32mI (200) app_init: App version:      3b856a2-dirty[0m
+[0;32mI (204) app_init: Compile time:     May  6 2026 16:54:13[0m
+[0;32mI (209) app_init: ELF file SHA256:  b0d0e90d4...[0m
+[0;32mI (214) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (219) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (223) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (227) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (231) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (237) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (242) heap_init: At 3FFB35D8 len 0002CA28 (178 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008BBD0 len 00014430 (81 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (280) spi_flash: flash io: dio[0m
+[0;33mW (283) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (297) main_task: Started on CPU0[0m
+[0;32mI (307) main_task: Calling app_main()[0m
+[0;32mI (307) uart: queue free spaces: 10[0m
+[0;32mI (307) main: Hello, starting up..[0m
+[0;32mI (317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.13
+Attitude from telemetry: 179.76, 6.88, 2.13
+[0;32mI (2317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.03
+Attitude from telemetry: 179.76, 6.88, 2.03
+[0;32mI (4317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.87
+Attitude from telemetry: 179.76, 6.87, 1.87
+[0;32mI (6317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.82
+Attitude from telemetry: 179.76, 6.87, 1.82
+[0;32mI (8317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.81
+Attitude from telemetry: 179.76, 6.87, 1.81
+[0;32mI (10317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.80
+Attitude from telemetry: 179.76, 6.87, 1.80
+[0;32mI (12317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.80
+Attitude from telemetry: 179.76, 6.87, 1.80
+[0;32mI (14317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.80
+Attitude from telemetry: 179.76, 6.87, 1.80
+[0;32mI (16317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 1.80
+Attitude from telemetry: 179.75, 6.88, 1.80
+[0;32mI (18317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 1.80
+Attitude from telemetry: 179.76, 6.89, 1.80
+[0;32mI (20317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.37
+Attitude from telemetry: 179.76, 6.87, 2.37
+[0;32mI (22317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.67
+Attitude from telemetry: 179.76, 6.88, 2.67
+[0;32mI (24317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.66
+Attitude from telemetry: 179.76, 6.86, 2.66
+[0;32mI (26317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.84, 2.61
+Attitude from telemetry: 179.76, 6.84, 2.61
+[0;32mI (28317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.60
+Attitude from telemetry: 179.76, 6.86, 2.60
+[0;32mI (30317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.60
+Attitude from telemetry: 179.75, 6.87, 2.60
+[0;32mI (32317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.68
+Attitude from telemetry: 179.75, 6.87, 2.68
+[0;32mI (34317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.77
+Attitude from telemetry: 179.75, 6.87, 2.77
+[0;32mI (36317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 2.74
+Attitude from telemetry: 179.75, 6.88, 2.74
+[0;32mI (38317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 2.63
+Attitude from telemetry: 179.75, 6.88, 2.63
+[0;32mI (40317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.59
+Attitude from telemetry: 179.76, 6.88, 2.59
+[0;32mI (42317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 2.58
+Attitude from telemetry: 179.76, 6.89, 2.58
+[0;32mI (44317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.58
+Attitude from telemetry: 179.76, 6.87, 2.58
+[0;32mI (46317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.58
+Attitude from telemetry: 179.76, 6.87, 2.58
+[0;32mI (48317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.58
+Attitude from telemetry: 179.76, 6.88, 2.58
+[0;32mI (50317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.58
+Attitude from telemetry: 179.76, 6.88, 2.58
+[0;32mI (52317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.58
+Attitude from telemetry: 179.76, 6.87, 2.58
+[0;32mI (54317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.63
+Attitude from telemetry: 179.76, 6.86, 2.63
+[0;32mI (56317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 2.66
+Attitude from telemetry: 179.75, 6.86, 2.66
+[0;32mI (58317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.48
+Attitude from telemetry: 179.76, 6.87, 2.48
+[0;32mI (60317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.48
+Attitude from telemetry: 179.76, 6.87, 2.48
+[0;32mI (62317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.48
+Attitude from telemetry: 179.76, 6.86, 2.48
+[0;32mI (64317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.48
+Attitude from telemetry: 179.76, 6.87, 2.48
+[0;32mI (66317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 2.48
+Attitude from telemetry: 179.76, 6.89, 2.48
+[0;32mI (68317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.90, 2.48
+Attitude from telemetry: 179.75, 6.90, 2.48
+[0;32mI (70317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.92, 2.48
+Attitude from telemetry: 179.75, 6.92, 2.48
+[0;32mI (72317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.92, 2.48
+Attitude from telemetry: 179.75, 6.92, 2.48
+[0;32mI (74317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (76317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (78317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.92, 2.48
+Attitude from telemetry: 179.76, 6.92, 2.48
+[0;32mI (80317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.89, 2.48
+Attitude from telemetry: 179.75, 6.89, 2.48
+[0;32mI (82317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 2.48
+Attitude from telemetry: 179.75, 6.88, 2.48
+[0;32mI (84317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.48
+Attitude from telemetry: 179.75, 6.87, 2.48
+[0;32mI (86317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.48
+Attitude from telemetry: 179.75, 6.87, 2.48
+[0;32mI (88317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 2.48
+Attitude from telemetry: 179.75, 6.87, 2.48
+[0;32mI (90317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.48
+Attitude from telemetry: 179.76, 6.87, 2.48
+[0;32mI (92317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.48
+Attitude from telemetry: 179.76, 6.88, 2.48
+[0;32mI (94317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.90, 2.48
+Attitude from telemetry: 179.76, 6.90, 2.48
+[0;32mI (96317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.92, 2.48
+Attitude from telemetry: 179.76, 6.92, 2.48
+[0;32mI (98317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (100317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (102317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (104317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.92, 2.48
+Attitude from telemetry: 179.76, 6.92, 2.48
+[0;32mI (106317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.92, 2.48
+Attitude from telemetry: 179.76, 6.92, 2.48
+[0;32mI (108317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (110317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.93, 2.48
+Attitude from telemetry: 179.76, 6.93, 2.48
+[0;32mI (112317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.92, 2.48
+Attitude from telemetry: 179.76, 6.92, 2.48
+[0;32mI (114317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.90, 2.48
+Attitude from telemetry: 179.76, 6.90, 2.48
+[0;32mI (116317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.90, 2.48
+Attitude from telemetry: 179.75, 6.90, 2.48
+[0;32mI (118317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 2.48
+Attitude from telemetry: 179.75, 6.86, 2.48
+[0;32mI (120317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.85, 2.48
+Attitude from telemetry: 179.76, 6.85, 2.48
+[0;32mI (122317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.85, 2.48
+Attitude from telemetry: 179.75, 6.85, 2.48
+[0;32mI (124317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.48
+Attitude from telemetry: 179.76, 6.86, 2.48
+[0;32mI (126317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 2.48
+Attitude from telemetry: 179.75, 6.86, 2.48
+[0;32mI (128317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.84, 2.48
+Attitude from telemetry: 179.76, 6.84, 2.48
+[0;32mI (130317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 2.24
+Attitude from telemetry: 179.75, 6.86, 2.24
+[0;32mI (132317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.06
+Attitude from telemetry: 179.76, 6.87, 2.06
+[0;32mI (134317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.94
+Attitude from telemetry: 179.76, 6.87, 1.94
+[0;32mI (136317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 1.92
+Attitude from telemetry: 179.75, 6.87, 1.92
+[0;32mI (138317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.92
+Attitude from telemetry: 179.76, 6.88, 1.92
+[0;32mI (140317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (142317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (144317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (146317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (148317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (150317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.90, 1.91
+Attitude from telemetry: 179.76, 6.90, 1.91
+[0;32mI (152317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 1.91
+Attitude from telemetry: 179.76, 6.89, 1.91
+[0;32mI (154317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.91
+Attitude from telemetry: 179.76, 6.88, 1.91
+[0;32mI (156317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.91
+Attitude from telemetry: 179.76, 6.87, 1.91
+[0;32mI (158317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.91
+Attitude from telemetry: 179.76, 6.86, 1.91
+[0;32mI (160317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.91
+Attitude from telemetry: 179.76, 6.87, 1.91
+[0;32mI (162317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.87, 1.92
+Attitude from telemetry: 179.77, 6.87, 1.92
+[0;32mI (164317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.92
+Attitude from telemetry: 179.76, 6.86, 1.92
+[0;32mI (166317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.92
+Attitude from telemetry: 179.76, 6.86, 1.92
+[0;32mI (168317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.92
+Attitude from telemetry: 179.76, 6.86, 1.92
+[0;32mI (170317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.92
+Attitude from telemetry: 179.76, 6.86, 1.92
+[0;32mI (172317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.92
+Attitude from telemetry: 179.76, 6.88, 1.92
+[0;32mI (174317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 1.92
+Attitude from telemetry: 179.75, 6.86, 1.92
+[0;32mI (176317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.92
+Attitude from telemetry: 179.76, 6.87, 1.92
+[0;32mI (178317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 1.92
+Attitude from telemetry: 179.75, 6.87, 1.92
+[0;32mI (180317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 1.92
+Attitude from telemetry: 179.75, 6.86, 1.92
+[0;32mI (182317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 1.92
+Attitude from telemetry: 179.75, 6.87, 1.92
+[0;32mI (184317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 1.92
+Attitude from telemetry: 179.76, 6.86, 1.92
+[0;32mI (186317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 1.92
+Attitude from telemetry: 179.76, 6.87, 1.92
+[0;32mI (188317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 1.92
+Attitude from telemetry: 179.76, 6.88, 1.92
+[0;32mI (190317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 2.03
+Attitude from telemetry: 179.76, 6.86, 2.03
+[0;32mI (192317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 2.77
+Attitude from telemetry: 179.76, 6.87, 2.77
+[0;32mI (194317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.00
+Attitude from telemetry: 179.76, 6.88, 3.00
+[0;32mI (196317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.17
+Attitude from telemetry: 179.76, 6.88, 3.17
+[0;32mI (198317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.28
+Attitude from telemetry: 179.75, 6.87, 3.28
+[0;32mI (200317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.31
+Attitude from telemetry: 179.75, 6.87, 3.31
+[0;32mI (202317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (204317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (206317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (208317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.32
+Attitude from telemetry: 179.75, 6.87, 3.32
+[0;32mI (210317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (212317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (214317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.32
+Attitude from telemetry: 179.75, 6.88, 3.32
+[0;32mI (216317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.32
+Attitude from telemetry: 179.76, 6.88, 3.32
+[0;32mI (218317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.32
+Attitude from telemetry: 179.75, 6.87, 3.32
+[0;32mI (220317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.32
+Attitude from telemetry: 179.75, 6.87, 3.32
+[0;32mI (222317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.32
+Attitude from telemetry: 179.75, 6.87, 3.32
+[0;32mI (224317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.32
+Attitude from telemetry: 179.75, 6.87, 3.32
+[0;32mI (226317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.32
+Attitude from telemetry: 179.76, 6.87, 3.32
+[0;32mI (228317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.32
+Attitude from telemetry: 179.76, 6.86, 3.32
+[0;32mI (230317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.33
+Attitude from telemetry: 179.76, 6.87, 3.33
+[0;32mI (232317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (234317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 3.33
+Attitude from telemetry: 179.75, 6.86, 3.33
+[0;32mI (236317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (238317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.33
+Attitude from telemetry: 179.75, 6.87, 3.33
+[0;32mI (240317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.87, 3.33
+Attitude from telemetry: 179.75, 6.87, 3.33
+[0;32mI (242317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.33
+Attitude from telemetry: 179.76, 6.88, 3.33
+[0;32mI (244317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (246317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (248317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (250317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.33
+Attitude from telemetry: 179.76, 6.88, 3.33
+[0;32mI (252317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (254317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (256317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (258317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (260317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (262317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (264317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.88, 3.33
+Attitude from telemetry: 179.75, 6.88, 3.33
+[0;32mI (266317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.33
+Attitude from telemetry: 179.76, 6.88, 3.33
+[0;32mI (268317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.33
+Attitude from telemetry: 179.76, 6.89, 3.33
+[0;32mI (270317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.33
+Attitude from telemetry: 179.76, 6.89, 3.33
+[0;32mI (272317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.33
+Attitude from telemetry: 179.76, 6.89, 3.33
+[0;32mI (274317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.33
+Attitude from telemetry: 179.76, 6.88, 3.33
+[0;32mI (276317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (278317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (280317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (282317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (284317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.33
+Attitude from telemetry: 179.76, 6.87, 3.33
+[0;32mI (286317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.33
+Attitude from telemetry: 179.76, 6.87, 3.33
+[0;32mI (288317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.33
+Attitude from telemetry: 179.76, 6.88, 3.33
+[0;32mI (290317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.33
+Attitude from telemetry: 179.76, 6.87, 3.33
+[0;32mI (292317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (294317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.33
+Attitude from telemetry: 179.76, 6.86, 3.33
+[0;32mI (296317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.49
+Attitude from telemetry: 179.76, 6.87, 3.49
+[0;32mI (298317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.75, 6.86, 3.42
+Attitude from telemetry: 179.75, 6.86, 3.42
+[0;32mI (300317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.58
+Attitude from telemetry: 179.76, 6.87, 3.58
+[0;32mI (302317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.81
+Attitude from telemetry: 179.76, 6.88, 3.81
+[0;32mI (304317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 2.96
+Attitude from telemetry: 179.76, 6.88, 2.96
+[0;32mI (306317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.03
+Attitude from telemetry: 179.76, 6.86, 3.03
+[0;32mI (308317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.15
+Attitude from telemetry: 179.76, 6.86, 3.15
+[0;32mI (310317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.29
+Attitude from telemetry: 179.76, 6.87, 3.29
+[0;32mI (312317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.87, 3.33
+Attitude from telemetry: 179.76, 6.87, 3.33
+[0;32mI (314317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.85, 3.35
+Attitude from telemetry: 179.76, 6.85, 3.35
+[0;32mI (316317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.85, 3.35
+Attitude from telemetry: 179.76, 6.85, 3.35
+[0;32mI (318317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.85, 3.35
+Attitude from telemetry: 179.76, 6.85, 3.35
+[0;32mI (320317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.35
+Attitude from telemetry: 179.76, 6.86, 3.35
+[0;32mI (322317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.86, 3.35
+Attitude from telemetry: 179.76, 6.86, 3.35
+[0;32mI (324317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.35
+Attitude from telemetry: 179.76, 6.88, 3.35
+[0;32mI (326317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.34
+Attitude from telemetry: 179.76, 6.89, 3.34
+[0;32mI (328317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.91, 3.35
+Attitude from telemetry: 179.76, 6.91, 3.35
+[0;32mI (330317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.90, 3.35
+Attitude from telemetry: 179.76, 6.90, 3.35
+[0;32mI (332317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (334317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (336317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.88, 3.35
+Attitude from telemetry: 179.77, 6.88, 3.35
+[0;32mI (338317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.87, 3.35
+Attitude from telemetry: 179.77, 6.87, 3.35
+[0;32mI (340317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (342317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (344317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (346317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (348317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.89, 3.35
+Attitude from telemetry: 179.77, 6.89, 3.35
+[0;32mI (350317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (352317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.88, 3.35
+Attitude from telemetry: 179.76, 6.88, 3.35
+[0;32mI (354317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.76, 6.89, 3.35
+Attitude from telemetry: 179.76, 6.89, 3.35
+[0;32mI (356317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (358317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (360317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (362317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (364317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35
+[0;32mI (366317) RADIO: written = 9[0m
+updated telemetry
+Attitude: 179.77, 6.90, 3.35
+Attitude from telemetry: 179.77, 6.90, 3.35

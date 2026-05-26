@@ -1,0 +1,173 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b7fch ( 47100) map[0m
+[0;32mI (105) esp_image: segment 1: paddr=0001b824 vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001e2d8 vaddr=40080000 size=01d40h (  7488) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14e2ch ( 85548) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=00034e54 vaddr=40081d40 size=09e90h ( 40592) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003ecec vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (196) app_init: Project name:     test-project[0m
+[0;32mI (200) app_init: App version:      9424512-dirty[0m
+[0;32mI (204) app_init: Compile time:     May 15 2026 14:00:19[0m
+[0;32mI (209) app_init: ELF file SHA256:  51fb2f6b4...[0m
+[0;32mI (214) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (219) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (223) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (227) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (231) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (237) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (242) heap_init: At 3FFB35D0 len 0002CA30 (178 KiB): DRAM[0m
+[0;32mI (248) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008BBD0 len 00014430 (81 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (280) spi_flash: flash io: dio[0m
+[0;33mW (283) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (297) main_task: Started on CPU0[0m
+[0;32mI (307) main_task: Calling app_main()[0m
+[0;32mI (307) main: Hello, starting up..[0m
+[0;32mI (307) uart: queue free spaces: 10[0m
+[0;32mI (307) radio: install radio uart driver[0m
+[0;32mI (307) radio: config radio uart[0m
+[0;32mI (307) radio: set radio pins[0m
+[0;32mI (317) radio: RadioClass start[0m
+[0;32mI (317) uart: queue free spaces: 10[0m
+[0;32mI (317) gps: gps uart install[0m
+[0;32mI (317) gps: gps param config[0m
+[0;32mI (327) gps: gps pin set[0m
+0updated telemetry
+Attitude: 179.82, 3.96, -85.07
+Attitude from telemetry: 179.82, 3.96, -85.07
+0updated telemetry
+Attitude: 179.82, 3.96, -85.10
+Attitude from telemetry: 179.82, 3.96, -85.10
+0updated telemetry
+Attitude: 179.82, 3.96, -85.10
+Attitude from telemetry: 179.82, 3.96, -85.10
+0updated telemetry
+Attitude: 179.82, 3.95, -85.10
+Attitude from telemetry: 179.82, 3.95, -85.10
+0updated telemetry
+Attitude: 179.81, 3.95, -85.12
+Attitude from telemetry: 179.81, 3.95, -85.12
+0updated telemetry
+Attitude: 179.82, 3.95, -85.12
+Attitude from telemetry: 179.82, 3.95, -85.12
+0updated telemetry
+Attitude: 179.83, 3.95, -85.12
+Attitude from telemetry: 179.83, 3.95, -85.12
+0updated telemetry
+Attitude: 179.82, 3.96, -85.12
+Attitude from telemetry: 179.82, 3.96, -85.12
+0updated telemetry
+Attitude: 179.82, 3.96, -85.12
+Attitude from telemetry: 179.82, 3.96, -85.12
+0updated telemetry
+Attitude: 179.83, 3.96, -85.10
+Attitude from telemetry: 179.83, 3.96, -85.10
+0updated telemetry
+Attitude: 179.83, 3.96, -85.19
+Attitude from telemetry: 179.83, 3.96, -85.19
+0updated telemetry
+Attitude: 179.83, 3.95, -85.19
+Attitude from telemetry: 179.83, 3.95, -85.19
+0updated telemetry
+Attitude: 179.83, 3.95, -85.19
+Attitude from telemetry: 179.83, 3.95, -85.19
+0updated telemetry
+Attitude: 179.83, 3.95, -85.19
+Attitude from telemetry: 179.83, 3.95, -85.19
+0updated telemetry
+Attitude: 179.83, 3.96, -85.19
+Attitude from telemetry: 179.83, 3.96, -85.19
+0updated telemetry
+Attitude: 179.82, 3.96, -85.19
+Attitude from telemetry: 179.82, 3.96, -85.19
+0updated telemetry
+Attitude: 179.82, 3.96, -85.19
+Attitude from telemetry: 179.82, 3.96, -85.19
+0updated telemetry
+Attitude: 179.82, 3.96, -85.19
+Attitude from telemetry: 179.82, 3.96, -85.19
+0updated telemetry
+Attitude: 179.82, 3.96, -85.19
+Attitude from telemetry: 179.82, 3.96, -85.19
+0updated telemetry
+Attitude: 179.82, 3.96, -85.19
+Attitude from telemetry: 179.82, 3.96, -85.19
+0updated telemetry
+Attitude: 179.85, 2.88, -85.26
+Attitude from telemetry: 179.85, 2.88, -85.26
+0updated telemetry
+Attitude: 179.89, 2.96, -85.26
+Attitude from telemetry: 179.89, 2.96, -85.26
+0updated telemetry
+Attitude: 179.87, 2.99, -85.26
+Attitude from telemetry: 179.87, 2.99, -85.26
+0updated telemetry
+Attitude: 179.87, 3.00, -85.26
+Attitude from telemetry: 179.87, 3.00, -85.26
+0updated telemetry
+Attitude: 179.86, 3.00, -85.28
+Attitude from telemetry: 179.86, 3.00, -85.28
+0updated telemetry
+Attitude: 179.85, 3.01, -85.28
+Attitude from telemetry: 179.85, 3.01, -85.28
+0updated telemetry
+Attitude: -179.91, 2.33, -80.00
+Attitude from telemetry: -179.91, 2.33, -80.00
+0updated telemetry
+Attitude: -179.71, 2.41, -77.72
+Attitude from telemetry: -179.71, 2.41, -77.72
+0updated telemetry
+Attitude: -179.74, 2.33, -77.72
+Attitude from telemetry: -179.74, 2.33, -77.72
+0updated telemetry
+Attitude: -179.75, 2.31, -77.72
+Attitude from telemetry: -179.75, 2.31, -77.72
+0updated telemetry
+Attitude: -179.75, 2.29, -77.72
+Attitude from telemetry: -179.75, 2.29, -77.72
+0updated telemetry
+Attitude: -179.75, 2.30, -77.69
+Attitude from telemetry: -179.75, 2.30, -77.69
+0updated telemetry
+Attitude: -179.75, 2.30, -77.69
+Attitude from telemetry: -179.75, 2.30, -77.69
+0updated telemetry
+Attitude: -179.75, 2.31, -77.69
+Attitude from telemetry: -179.75, 2.31, -77.69
+0updated telemetry
+Attitude: -179.76, 2.31, -77.69
+Attitude from telemetry: -179.76, 2.31, -77.69

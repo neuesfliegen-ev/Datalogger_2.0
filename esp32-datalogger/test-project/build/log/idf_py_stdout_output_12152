@@ -1,0 +1,74 @@
+Command: ninja all
+[0/1] Re-running CMake...
+-- Component directory D:/GitHub/esp-idf/components/idf_test does not contain a CMakeLists.txt file. No component will be added
+-- Minimal build - OFF
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32
+-- ESP-TEE is currently supported only on the esp32c6;esp32h2;esp32c5;esp32c61 SoCs
+-- KCONFIG_REPORT_VERBOSITY not set, using default
+-- Project sdkconfig file D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- App "test-project" version: ae53eb2-dirty
+-- Setting up mbedtls configuration
+-- Linkage type is PUBLIC
+-- Adding linker script D:/GitHub/esp-idf/components/esp_system/ld/esp32/memory.ld.in
+--   -> Preprocessing .in script: D:/GitHub/esp-idf/components/esp_system/ld/esp32/memory.ld.in
+-- Adding linker script D:/GitHub/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+--   -> Preprocessing .in script: D:/GitHub/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+--   -> Applying ldgen processing: D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script D:/GitHub/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script D:/GitHub/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script D:/GitHub/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script D:/GitHub/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libc-funcs.ld
+-- Adding linker script D:/GitHub/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Adding linker script D:/GitHub/esp-idf/components/esp_hal_regi2c/esp32/rom.regi2c.ld
+-- Component idf::esp_trace will be linked with -Wl,--whole-archive
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_asrc_adapter esp_blockdev esp_blockdev_util esp_bootloader_format esp_coex esp_common esp_driver_ana_cmpr esp_driver_bitscrambler esp_driver_cam esp_driver_cordic esp_driver_dac esp_driver_dma esp_driver_gpio esp_driver_gptimer esp_driver_i2c esp_driver_i2s esp_driver_i3c esp_driver_isp esp_driver_jpeg esp_driver_ledc esp_driver_mcpwm esp_driver_parlio esp_driver_pcnt esp_driver_ppa esp_driver_rmt esp_driver_sd_intf esp_driver_sdio esp_driver_sdm esp_driver_sdmmc esp_driver_sdspi esp_driver_spi esp_driver_touch_sens esp_driver_tsens esp_driver_twai esp_driver_uart esp_driver_usb_serial_jtag esp_eth esp_event esp_gdbstub esp_hal_ana_cmpr esp_hal_ana_conv esp_hal_asrc esp_hal_cam esp_hal_clock esp_hal_cordic esp_hal_dma esp_hal_emac esp_hal_gpio esp_hal_gpspi esp_hal_i2c esp_hal_i2s esp_hal_i3c esp_hal_ieee802154 esp_hal_jpeg esp_hal_lcd esp_hal_ledc esp_hal_mcpwm esp_hal_mspi esp_hal_parlio esp_hal_pcnt esp_hal_pmu esp_hal_ppa esp_hal_regi2c esp_hal_rmt esp_hal_rtc_timer esp_hal_sd esp_hal_security esp_hal_systimer esp_hal_timg esp_hal_touch_sens esp_hal_twai esp_hal_uart esp_hal_usb esp_hal_wdt esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_libc esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_security esp_stdio esp_system esp_timer esp_trace esp_usb_cdc_rom_console esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser ieee802154 log lwip main mbedtls nvs_flash nvs_sec_provider openthread partition_table perfmon protobuf-c protocomm pthread rt sdmmc soc spi_flash spiffs tcp_transport ulp unity vfs wear_levelling wpa_supplicant xtensa
+-- Component paths: D:/GitHub/esp-idf/components/app_trace D:/GitHub/esp-idf/components/app_update D:/GitHub/esp-idf/components/bootloader D:/GitHub/esp-idf/components/bootloader_support D:/GitHub/esp-idf/components/bt D:/GitHub/esp-idf/components/cmock D:/GitHub/esp-idf/components/console D:/GitHub/esp-idf/components/cxx D:/GitHub/esp-idf/components/driver D:/GitHub/esp-idf/components/efuse D:/GitHub/esp-idf/components/esp-tls D:/GitHub/esp-idf/components/esp_adc D:/GitHub/esp-idf/components/esp_app_format D:/GitHub/esp-idf/components/esp_asrc_adapter D:/GitHub/esp-idf/components/esp_blockdev D:/GitHub/esp-idf/components/esp_blockdev_util D:/GitHub/esp-idf/components/esp_bootloader_format D:/GitHub/esp-idf/components/esp_coex D:/GitHub/esp-idf/components/esp_common D:/GitHub/esp-idf/components/esp_driver_ana_cmpr D:/GitHub/esp-idf/components/esp_driver_bitscrambler D:/GitHub/esp-idf/components/esp_driver_cam D:/GitHub/esp-idf/components/esp_driver_cordic D:/GitHub/esp-idf/components/esp_driver_dac D:/GitHub/esp-idf/components/esp_driver_dma D:/GitHub/esp-idf/components/esp_driver_gpio D:/GitHub/esp-idf/components/esp_driver_gptimer D:/GitHub/esp-idf/components/esp_driver_i2c D:/GitHub/esp-idf/components/esp_driver_i2s D:/GitHub/esp-idf/components/esp_driver_i3c D:/GitHub/esp-idf/components/esp_driver_isp D:/GitHub/esp-idf/components/esp_driver_jpeg D:/GitHub/esp-idf/components/esp_driver_ledc D:/GitHub/esp-idf/components/esp_driver_mcpwm D:/GitHub/esp-idf/components/esp_driver_parlio D:/GitHub/esp-idf/components/esp_driver_pcnt D:/GitHub/esp-idf/components/esp_driver_ppa D:/GitHub/esp-idf/components/esp_driver_rmt D:/GitHub/esp-idf/components/esp_driver_sd_intf D:/GitHub/esp-idf/components/esp_driver_sdio D:/GitHub/esp-idf/components/esp_driver_sdm D:/GitHub/esp-idf/components/esp_driver_sdmmc D:/GitHub/esp-idf/components/esp_driver_sdspi D:/GitHub/esp-idf/components/esp_driver_spi D:/GitHub/esp-idf/components/esp_driver_touch_sens D:/GitHub/esp-idf/components/esp_driver_tsens D:/GitHub/esp-idf/components/esp_driver_twai D:/GitHub/esp-idf/components/esp_driver_uart D:/GitHub/esp-idf/components/esp_driver_usb_serial_jtag D:/GitHub/esp-idf/components/esp_eth D:/GitHub/esp-idf/components/esp_event D:/GitHub/esp-idf/components/esp_gdbstub D:/GitHub/esp-idf/components/esp_hal_ana_cmpr D:/GitHub/esp-idf/components/esp_hal_ana_conv D:/GitHub/esp-idf/components/esp_hal_asrc D:/GitHub/esp-idf/components/esp_hal_cam D:/GitHub/esp-idf/components/esp_hal_clock D:/GitHub/esp-idf/components/esp_hal_cordic D:/GitHub/esp-idf/components/esp_hal_dma D:/GitHub/esp-idf/components/esp_hal_emac D:/GitHub/esp-idf/components/esp_hal_gpio D:/GitHub/esp-idf/components/esp_hal_gpspi D:/GitHub/esp-idf/components/esp_hal_i2c D:/GitHub/esp-idf/components/esp_hal_i2s D:/GitHub/esp-idf/components/esp_hal_i3c D:/GitHub/esp-idf/components/esp_hal_ieee802154 D:/GitHub/esp-idf/components/esp_hal_jpeg D:/GitHub/esp-idf/components/esp_hal_lcd D:/GitHub/esp-idf/components/esp_hal_ledc D:/GitHub/esp-idf/components/esp_hal_mcpwm D:/GitHub/esp-idf/components/esp_hal_mspi D:/GitHub/esp-idf/components/esp_hal_parlio D:/GitHub/esp-idf/components/esp_hal_pcnt D:/GitHub/esp-idf/components/esp_hal_pmu D:/GitHub/esp-idf/components/esp_hal_ppa D:/GitHub/esp-idf/components/esp_hal_regi2c D:/GitHub/esp-idf/components/esp_hal_rmt D:/GitHub/esp-idf/components/esp_hal_rtc_timer D:/GitHub/esp-idf/components/esp_hal_sd D:/GitHub/esp-idf/components/esp_hal_security D:/GitHub/esp-idf/components/esp_hal_systimer D:/GitHub/esp-idf/components/esp_hal_timg D:/GitHub/esp-idf/components/esp_hal_touch_sens D:/GitHub/esp-idf/components/esp_hal_twai D:/GitHub/esp-idf/components/esp_hal_uart D:/GitHub/esp-idf/components/esp_hal_usb D:/GitHub/esp-idf/components/esp_hal_wdt D:/GitHub/esp-idf/components/esp_hid D:/GitHub/esp-idf/components/esp_http_client D:/GitHub/esp-idf/components/esp_http_server D:/GitHub/esp-idf/components/esp_https_ota D:/GitHub/esp-idf/components/esp_https_server D:/GitHub/esp-idf/components/esp_hw_support D:/GitHub/esp-idf/components/esp_lcd D:/GitHub/esp-idf/components/esp_libc D:/GitHub/esp-idf/components/esp_local_ctrl D:/GitHub/esp-idf/components/esp_mm D:/GitHub/esp-idf/components/esp_netif D:/GitHub/esp-idf/components/esp_netif_stack D:/GitHub/esp-idf/components/esp_partition D:/GitHub/esp-idf/components/esp_phy D:/GitHub/esp-idf/components/esp_pm D:/GitHub/esp-idf/components/esp_psram D:/GitHub/esp-idf/components/esp_ringbuf D:/GitHub/esp-idf/components/esp_rom D:/GitHub/esp-idf/components/esp_security D:/GitHub/esp-idf/components/esp_stdio D:/GitHub/esp-idf/components/esp_system D:/GitHub/esp-idf/components/esp_timer D:/GitHub/esp-idf/components/esp_trace D:/GitHub/esp-idf/components/esp_usb_cdc_rom_console D:/GitHub/esp-idf/components/esp_wifi D:/GitHub/esp-idf/components/espcoredump D:/GitHub/esp-idf/components/esptool_py D:/GitHub/esp-idf/components/fatfs D:/GitHub/esp-idf/components/freertos D:/GitHub/esp-idf/components/hal D:/GitHub/esp-idf/components/heap D:/GitHub/esp-idf/components/http_parser D:/GitHub/esp-idf/components/ieee802154 D:/GitHub/esp-idf/components/log D:/GitHub/esp-idf/components/lwip D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main D:/GitHub/esp-idf/components/mbedtls D:/GitHub/esp-idf/components/nvs_flash D:/GitHub/esp-idf/components/nvs_sec_provider D:/GitHub/esp-idf/components/openthread D:/GitHub/esp-idf/components/partition_table D:/GitHub/esp-idf/components/perfmon D:/GitHub/esp-idf/components/protobuf-c D:/GitHub/esp-idf/components/protocomm D:/GitHub/esp-idf/components/pthread D:/GitHub/esp-idf/components/rt D:/GitHub/esp-idf/components/sdmmc D:/GitHub/esp-idf/components/soc D:/GitHub/esp-idf/components/spi_flash D:/GitHub/esp-idf/components/spiffs D:/GitHub/esp-idf/components/tcp_transport D:/GitHub/esp-idf/components/ulp D:/GitHub/esp-idf/components/unity D:/GitHub/esp-idf/components/vfs D:/GitHub/esp-idf/components/wear_levelling D:/GitHub/esp-idf/components/wpa_supplicant D:/GitHub/esp-idf/components/xtensa
+-- Configuring done (93.1s)
+-- Generating done (8.2s)
+-- Build files have been written to: D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build
+[1/12] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader && C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:/GitHub/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[2/12] No install step for 'bootloader'
+[3/12] Completed 'bootloader'
+[4/12] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[5/12] Linking C static library esp-idf\esp_app_format\libesp_app_format.a
+[6/12] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/test-project.cpp.obj
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp: In function 'void update_all_sensor_data()':
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:163:18: warning: unused variable 'now' [-Wunused-variable]
+  163 |         uint32_t now = esp_timer_get_time() / 1000;
+      |                  ^~~
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp: At global scope:
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:67:17: warning: 'last_pitot_update' defined but not used [-Wunused-variable]
+   67 | static uint32_t last_pitot_update = 0;
+      |                 ^~~~~~~~~~~~~~~~~
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:66:17: warning: 'last_imu_update' defined but not used [-Wunused-variable]
+   66 | static uint32_t last_imu_update = 0;
+      |                 ^~~~~~~~~~~~~~~
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:65:17: warning: 'last_gps_update' defined but not used [-Wunused-variable]
+   65 | static uint32_t last_gps_update = 0;
+      |                 ^~~~~~~~~~~~~~~
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:55:20: warning: 'TAG' defined but not used [-Wunused-variable]
+   55 | static const char *TAG = "SD_INIT";
+      |                    ^~~
+[7/12] Linking C static library esp-idf\main\libmain.a
+[8/12] Generating esp-idf/esp_system/ld/sections.ld
+[9/12] Linking CXX executable test-project.elf
+[10/12] Generating binary image from built executable
+esptool v5.3.dev2
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/test-project.bin
+[11/12] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build && C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:/GitHub/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/partition_table/partition-table.bin D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/test-project.bin"
+test-project.bin binary size 0x2ee90 bytes. Smallest app partition is 0x100000 bytes. 0xd1170 bytes (82%) free.

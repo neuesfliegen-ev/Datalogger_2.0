@@ -1,0 +1,20 @@
+Command: ninja all
+[1/9] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/test-project.cpp.obj
+[2/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader && C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:/GitHub/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[3/9] No install step for 'bootloader'
+[4/9] Linking C static library esp-idf\main\libmain.a
+[5/9] Completed 'bootloader'
+[6/9] Generating esp-idf/esp_system/ld/sections.ld
+[7/9] Linking CXX executable test-project.elf
+FAILED: test-project.elf 
+C:\WINDOWS\system32\cmd.exe /C "cd . && C:\Users\emi\.espressif\tools\xtensa-esp-elf\esp-15.2.0_20251204\xtensa-esp-elf\bin\xtensa-esp32-elf-g++.exe @"D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/toolchain/cxxflags" @"D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/toolchain/ldflags" -Wl,--cref -Wl,--defsym=IDF_TARGET_ESP32=0 -Wl,--Map=D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/build/test-project.map -Wl,--no-warn-rwx-segments -Wl,--orphan-handling=error -fno-lto -Wl,--gc-sections -Wl,--warn-common -T esp32.peripherals.ld -T esp32.rom.ld -T esp32.rom.api.ld -T esp32.rom.libgcc.ld -T esp32.rom.libc-funcs.ld -T memory.ld -T sections.ld -u include_esp_phy_override -T rom.regi2c.ld @CMakeFiles\test-project.elf.rsp -o test-project.elf && cd ."
+C:/Users/emi/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/15.2.0/../../../../xtensa-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(test-project.cpp.obj):(.literal._Z41__static_initialization_and_destruction_0v+0x4): undefined reference to `CJY901::CJY901()'
+C:/Users/emi/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/15.2.0/../../../../xtensa-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(test-project.cpp.obj):(.literal._Z18serial_buses_setupv+0x14): undefined reference to `CJY901::StartIIC()'
+C:/Users/emi/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/15.2.0/../../../../xtensa-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(test-project.cpp.obj): in function `__static_initialization_and_destruction_0()':
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:25:(.text._Z41__static_initialization_and_destruction_0v+0x6): undefined reference to `CJY901::CJY901()'
+C:/Users/emi/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/15.2.0/../../../../xtensa-esp-elf/bin/ld.exe: esp-idf/main/libmain.a(test-project.cpp.obj): in function `serial_buses_setup()':
+D:/GitHub/Datalogger_2.0/esp32-datalogger/test-project/main/test-project.cpp:48:(.text._Z18serial_buses_setupv+0x7f): undefined reference to `CJY901::StartIIC()'
+collect2.exe: error: ld returned 1 exit status
+ninja: build stopped: subcommand failed.

@@ -1,0 +1,209 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b65ch ( 46684) map[0m
+[0;32mI (104) esp_image: segment 1: paddr=0001b684 vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001e138 vaddr=40080000 size=01ee0h (  7904) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14b10h ( 84752) map[0m
+[0;32mI (146) esp_image: segment 4: paddr=00034b38 vaddr=40081ee0 size=09cf0h ( 40176) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003e830 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (169) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (169) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (189) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (189) cpu_start: Pro cpu start user code[0m
+[0;32mI (189) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (191) app_init: Application information:[0m
+[0;32mI (195) app_init: Project name:     test-project[0m
+[0;32mI (199) app_init: App version:      2dafe38-dirty[0m
+[0;32mI (204) app_init: Compile time:     May 14 2026 16:42:04[0m
+[0;32mI (209) app_init: ELF file SHA256:  ded624d59...[0m
+[0;32mI (213) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (219) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (222) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (226) efuse_init: Chip rev:         v3.1[0m
+I (231) heap_init: Initializing. RAM available for dynamic allocation:
+[0;32mI (237) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (242) heap_init: At 3FFB35D8 len 0002CA28 (178 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (252) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008BBD0 len 00014430 (81 KiB): IRAM[0m
+[0;33mW (264) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (276) spi_flash: detected chip: generic[0m
+[0;32mI (280) spi_flash: flash io: dio[0m
+[0;33mW (283) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (296) main_task: Started on CPU0[0m
+[0;32mI (306) main_task: Calling app_main()[0m
+[0;32mI (306) uart: queue free spaces: 10[0m
+[0;32mI (306) main: Hello, starting up..[0m
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.10
+Attitude from telemetry: -179.58, 2.04, -33.10
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.10
+Attitude from telemetry: -179.58, 2.04, -33.10
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.10
+Attitude from telemetry: -179.58, 2.04, -33.10
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.10
+Attitude from telemetry: -179.58, 2.04, -33.10
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+Laptop received command 0
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.09
+Attitude from telemetry: -179.58, 2.04, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.05, -33.09
+Attitude from telemetry: -179.59, 2.05, -33.09
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.07, -33.07
+Attitude from telemetry: -179.59, 2.07, -33.07
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.05, -33.29
+Attitude from telemetry: -179.59, 2.05, -33.29
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.05, -33.20
+Attitude from telemetry: -179.59, 2.05, -33.20
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.10
+Attitude from telemetry: -179.58, 2.04, -33.10
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.03, -33.07
+Attitude from telemetry: -179.58, 2.03, -33.07
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+Laptop received command 0
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.04, -33.06
+Attitude from telemetry: -179.59, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.59, 2.04, -33.06
+Attitude from telemetry: -179.59, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+Laptop received command 0
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.03, -33.06
+Attitude from telemetry: -179.58, 2.03, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.03, -33.06
+Attitude from telemetry: -179.58, 2.03, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.03, -33.06
+Attitude from telemetry: -179.58, 2.03, -33.06
+Reading uart bytes
+Laptop received command 1
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.03, -33.06
+Attitude from telemetry: -179.58, 2.03, -33.06
+Reading uart bytes
+updated telemetry
+Attitude: -179.58, 2.04, -33.06
+Attitude from telemetry: -179.58, 2.04, -33.06
+Reading uart bytes

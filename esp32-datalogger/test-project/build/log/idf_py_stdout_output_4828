@@ -1,0 +1,60 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM3 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py' '-p' 'COM3'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0a118h ( 41240) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=0001a140 vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=0001cbf4 vaddr=40080000 size=03424h ( 13348) load[0m
+[0;32mI (113) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=10868h ( 67688) map[0m
+[0;32mI (138) esp_image: segment 4: paddr=00030890 vaddr=40083424 size=07c08h ( 31752) load[0m
+[0;32mI (151) esp_image: segment 5: paddr=000384a0 vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (157) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (157) boot: Disabling RNG early entropy source...[0m
+[0;32mI (169) cpu_start: Multicore app[0m
+[0;32mI (178) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (178) cpu_start: Pro cpu start user code[0m
+[0;32mI (178) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (180) app_init: Application information:[0m
+[0;32mI (184) app_init: Project name:     test-project[0m
+[0;32mI (188) app_init: App version:      d10779f-dirty[0m
+[0;32mI (192) app_init: Compile time:     Apr  3 2026 18:46:41[0m
+[0;32mI (197) app_init: ELF file SHA256:  272227101...[0m
+[0;32mI (202) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (207) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (211) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (215) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (219) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (225) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (230) heap_init: At 3FFB34F0 len 0002CB10 (178 KiB): DRAM[0m
+[0;32mI (236) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (241) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (246) heap_init: At 4008B02C len 00014FD4 (83 KiB): IRAM[0m
+[0;33mW (253) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (265) spi_flash: detected chip: generic[0m
+[0;32mI (268) spi_flash: flash io: dio[0m
+[0;33mW (271) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (285) main_task: Started on CPU0[0m
+[0;32mI (295) main_task: Calling app_main()[0m
+[0;32mI (295) main: Hello, starting up..[0m
+Attitude: 179.80, 1.15, -54.62Attitude: 179.80, 1.16, -54.64Attitude: 179.80, 1.15, -54.65Attitude: 179.81, 1.15, -54.65Attitude: 179.80, 1.15, -54.65Attitude: 179.80, 1.15, -54.65Attitude: 179.80, 1.14, -54.65Attitude: 179.79, 1.14, -54.65Attitude: 179.80, 1.14, -54.65Attitude: 179.80, 1.14, -54.65Attitude: 179.79, 1.14, -54.65Attitude: -179.73, 1.69, -54.96Attitude: -179.77, 24.60, -5.64Attitude: 179.96, 25.31, 21.65Attitude: 179.95, 25.55, 30.29Attitude: 179.94, 25.38, 33.12Attitude: 179.96, 24.63, 33.24Attitude: 179.96, 24.39, 32.72Attitude: 179.97, 24.37, 32.04Attitude: 179.97, 24.33, 31.82Attitude: 179.96, 15.83, 28.58Attitude: 179.48, 1.58, -31.36Attitude: 179.65, 1.27, -51.62Attitude: 179.73, 1.19, -57.73Attitude: 179.75, 1.17, -59.50Attitude: 179.76, 1.16, -60.03Attitude: 179.76, 1.16, -60.19Attitude: 179.77, 1.16, -60.23Attitude: 179.77, 1.16, -60.25Attitude: 179.76, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 179.77, 1.16, -60.25Attitude: 167.93, -0.07, -59.85Attitude: 90.61, -3.19, -34.40Attitude: 88.82, -3.84, -24.02Attitude: 87.50, -4.40, -20.65Attitude: 87.15, -4.72, -19.79Attitude: 86.37, -4.98, -19.30Attitude: 85.90, -4.93, -19.41Attitude: 83.12, -1.82, -18.95Attitude: 82.76, -3.43, -19.43Attitude: 82.71, -3.76, -20.13Attitude: 82.53, -4.01, -20.30Attitude: 82.69, -4.16, -20.17Attitude: 82.35, -4.14, -19.98Attitude: -153.86, 3.82, -27.59Attitude: -93.11, -1.30, -103.78Attitude: -89.99, -0.77, -138.40Attitude: -88.76, -0.31, -148.73Attitude: -87.99, -0.16, -152.07Attitude: -87.48, -0.11, -153.19Attitude: -87.34, -0.10, -153.45Attitude: -86.22, -0.15, -154.02Attitude: -86.59, -0.16, -153.97Attitude: -86.61, -0.16, -154.00Attitude: -149.04, 2.74, -163.07Attitude: -178.04, 1.11, -82.79Attitude: -179.54, 0.99, -55.76Atti

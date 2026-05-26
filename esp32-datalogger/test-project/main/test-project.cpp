@@ -265,7 +265,7 @@ void radio_task(void* arg) {
 
     while (true) {
         if (xQueueReceive(radioQueue, &msg, portMAX_DELAY) == pdTRUE) {
-            uart_write_bytes(RADIO_UART_NUM, msg.text, msg.len);
+            uart_write_bytes(RADIO_UART_NUM0, msg.text, msg.len);
         }
 
         vTaskDelay(pdMS_TO_TICKS(1)); // lets watchdog/idle task breathe

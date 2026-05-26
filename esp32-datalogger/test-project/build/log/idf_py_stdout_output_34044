@@ -1,0 +1,408 @@
+Command: C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe D:\GitHub\esp-idf\tools/idf_monitor.py -p COM4 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\test-project.elf D:\GitHub\Datalogger_2.0\esp32-datalogger\test-project\build\bootloader\bootloader.elf --force-color -m 'C:\Users\emi\.espressif\python_env\idf6.1_py3.11_env\Scripts\python.exe' 'D:\GitHub\esp-idf\tools\idf.py'
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0040,len:6272
+load:0x40078000,len:15848
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v6.1-dev-3480-g44c77cbf46 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  3 2026 18:48:09[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v3.1[0m
+[0;32mI (33) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b80ch ( 47116) map[0m
+[0;32mI (105) esp_image: segment 1: paddr=0001b834 vaddr=3ffb0000 size=02aach ( 10924) load[0m
+[0;32mI (109) esp_image: segment 2: paddr=0001e2e8 vaddr=40080000 size=01d30h (  7472) load[0m
+[0;32mI (112) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14dech ( 85484) map[0m
+[0;32mI (147) esp_image: segment 4: paddr=00034e14 vaddr=40081d30 size=09ea0h ( 40608) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=0003ecbc vaddr=50000000 size=00028h (    40) load[0m
+[0;32mI (170) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (170) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (196) app_init: Project name:     test-project[0m
+[0;32mI (200) app_init: App version:      9424512-dirty[0m
+[0;32mI (204) app_init: Compile time:     May 15 2026 14:00:19[0m
+[0;32mI (209) app_init: ELF file SHA256:  1e6bdafdd...[0m
+[0;32mI (214) app_init: ESP-IDF:          v6.1-dev-3480-g44c77cbf46[0m
+[0;32mI (219) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (223) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (227) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (231) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (237) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (242) heap_init: At 3FFB35D8 len 0002CA28 (178 KiB): DRAM[0m
+[0;32mI (247) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (253) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (258) heap_init: At 4008BBD0 len 00014430 (81 KiB): IRAM[0m
+[0;33mW (265) spi_flash: Detected boya flash chip but using generic driver. For optimal functionality, enable `SPI_FLASH_SUPPORT_BOYA_CHIP` in menuconfig[0m
+[0;32mI (277) spi_flash: detected chip: generic[0m
+[0;32mI (280) spi_flash: flash io: dio[0m
+[0;33mW (283) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (297) main_task: Started on CPU0[0m
+[0;32mI (307) main_task: Calling app_main()[0m
+[0;32mI (307) main: Hello, starting up..[0m
+[0;32mI (307) uart: queue free spaces: 10[0m
+[0;32mI (307) uart: queue free spaces: 10[0m
+updated telemetry
+Attitude: -172.55, 7.67, -76.38
+Attitude from telemetry: -172.55, 7.67, -76.38
+updated telemetry
+Attitude: -172.55, 7.68, -76.36
+Attitude from telemetry: -172.55, 7.68, -76.36
+updated telemetry
+Attitude: -172.57, 7.63, -76.35
+Attitude from telemetry: -172.57, 7.63, -76.35
+updated telemetry
+Attitude: -172.53, 7.67, -76.27
+Attitude from telemetry: -172.53, 7.67, -76.27
+updated telemetry
+Attitude: -172.53, 7.72, -76.26
+Attitude from telemetry: -172.53, 7.72, -76.26
+updated telemetry
+Attitude: -172.52, 7.77, -76.26
+Attitude from telemetry: -172.52, 7.77, -76.26
+updated telemetry
+Attitude: -172.71, 7.80, -76.16
+Attitude from telemetry: -172.71, 7.80, -76.16
+updated telemetry
+Attitude: -174.08, 8.03, -76.35
+Attitude from telemetry: -174.08, 8.03, -76.35
+updated telemetry
+Attitude: -174.18, 7.88, -76.31
+Attitude from telemetry: -174.18, 7.88, -76.31
+updated telemetry
+Attitude: -173.79, 7.61, -76.46
+Attitude from telemetry: -173.79, 7.61, -76.46
+updated telemetry
+Attitude: -173.95, 7.68, -76.40
+Attitude from telemetry: -173.95, 7.68, -76.40
+updated telemetry
+Attitude: -173.96, 7.72, -76.41
+Attitude from telemetry: -173.96, 7.72, -76.41
+updated telemetry
+Attitude: -173.98, 7.72, -76.38
+Attitude from telemetry: -173.98, 7.72, -76.38
+updated telemetry
+Attitude: -173.91, 7.73, -76.39
+Attitude from telemetry: -173.91, 7.73, -76.39
+updated telemetry
+Attitude: -174.34, 7.49, -76.20
+Attitude from telemetry: -174.34, 7.49, -76.20
+updated telemetry
+Attitude: -174.34, 7.63, -76.20
+Attitude from telemetry: -174.34, 7.63, -76.20
+updated telemetry
+Attitude: -174.24, 7.67, -76.18
+Attitude from telemetry: -174.24, 7.67, -76.18
+updated telemetry
+Attitude: -174.28, 7.67, -76.17
+Attitude from telemetry: -174.28, 7.67, -76.17
+updated telemetry
+Attitude: -174.23, 7.70, -76.49
+Attitude from telemetry: -174.23, 7.70, -76.49
+updated telemetry
+Attitude: -174.63, 7.94, -76.21
+Attitude from telemetry: -174.63, 7.94, -76.21
+updated telemetry
+Attitude: -172.70, 7.82, -76.11
+Attitude from telemetry: -172.70, 7.82, -76.11
+updated telemetry
+Attitude: -173.07, 8.94, -86.11
+Attitude from telemetry: -173.07, 8.94, -86.11
+updated telemetry
+Attitude: -172.75, 8.84, -87.00
+Attitude from telemetry: -172.75, 8.84, -87.00
+updated telemetry
+Attitude: -172.79, 9.20, -87.42
+Attitude from telemetry: -172.79, 9.20, -87.42
+updated telemetry
+Attitude: -172.60, 11.40, -86.36
+Attitude from telemetry: -172.60, 11.40, -86.36
+
+updated telemetry
+Attitude: -172.59, 11.50, -87.73
+Attitude from telemetry: -172.59, 11.50, -87.73
+2801.00,5333.40156,N,01001.35250,E,1,12,1.36,-0.4,M,45.1,M,,*62
+$GNGSA,A,3,17,02,01,31,03,28,04,19,,,,,2.14,1.36,1.66,1*01
+$GN
+updated telemetry
+Attitude: -173.19, 11.96, -88.53
+Attitude from telemetry: -173.19, 11.96, -88.53
+GSA,A,3,19,26,29,33,,,,,,,,,2.14,1.36,1.66,3*06
+$GNGSA,A,3,21,34,42,38,14,,,,,,,,2.14,1.36,1.66,4*0A
+$GNGSA,A,3,,,,,,,,,,,,,2.
+updated telemetry
+Attitude: -173.16, 11.93, -88.41
+Attitude from telemetry: -173.16, 11.93, -88.41
+14,1.36,1.66,5*07
+$GPGSV,3,1,09,01,46,142,29,02,18,143,33,03,80,059,34,04,49,191,29,1*66
+$GPGSV,3,2,09,09,19,211,12,17,40,251,
+updated telemetry
+Attitude: -173.00, 11.91, -88.14
+Attitude from telemetry: -173.00, 11.91, -88.14
+27,19,36,291,13,28,26,056,24,1*63
+$GPGSV,3,3,09,31,28,088,22,1*55
+$GPGSV,1,1,03,06,24,306,,25,01,020,,36,28,163,,0*5C
+$GAGSV,
+updated telemetry
+Attitude: -173.07, 11.76, -88.15
+Attitude from telemetry: -173.07, 11.76, -88.15
+1,1,04,19,35,190,23,26,20,127,26,29,64,118,27,33,72,140,33,7*72
+$GAGSV,1,1,03,16,05,280,,25,10,324,,28,09,203,,0*4E
+$GBGSV,2,1
+updated telemetry
+Attitude: -172.87, 11.51, -86.17
+Attitude from telemetry: -172.87, 11.51, -86.17
+,05,14,85,175,28,21,64,067,23,34,36,183,20,38,54,270,22,1*75
+$GBGSV,2,2,05,42,60,231,24,1*45
+$GQGSV,1,1,00,0*64
+$GNGLL,5333.4
+updated telemetry
+Attitude: -172.87, 11.52, -86.12
+Attitude from telemetry: -172.87, 11.52, -86.12
+0156,N,01001.35250,E,152801.00,A,A*79
+$GNRMC,152801.10,A,5333.40154,N,01001.35251,E,0.104,,150526,,,A,V*18
+$GNVTG,,T,,M,0.104,
+updated telemetry
+Attitude: -172.80, 11.52, -86.11
+Attitude from telemetry: -172.80, 11.52, -86.11
+N,0.192,K,A*32
+$GNGGA,152801.10,5333.40154,N,01001.35251,E,1,12,1.36,-0.4,M,45.1,M,,*60
+$GNGSA,A,3,17,02,01,31,03,28,04,19,,,,
+[0;33mW (67727) i2c.common: GPIO 21 is not usable, maybe conflict with others[0m
+[0;33mW (67727) i2c.common: GPIO 22 is not usable, maybe conflict with others[0m
+updated telemetry
+Attitude: -172.79, 8.39, -86.42
+Attitude from telemetry: -172.79, 8.39, -86.42
+,2.14,1.36,1.66,1*01
+$GNGSA,A,3,19,26,29,33,,,,,,,,,2.14,1.36,1.66,3*06
+$GNGSA,A,3,21,34,42,38,14,,,,,,,,2.14,1.36,1.66,4*0A
+
+updated telemetry
+Attitude: -174.13, 8.12, -86.46
+Attitude from telemetry: -174.13, 8.12, -86.46
+$GNGSA,A,3,,,,,,,,,,,,,2.14,1.36,1.66,5*07
+$GPGSV,3,1,09,01,46,142,29,02,18,143,33,03,80,059,33,04,49,191,29,1*61
+$GPGSV,3,2,0
+updated telemetry
+Attitude: -174.37, 8.22, -86.48
+Attitude from telemetry: -174.37, 8.22, -86.48
+9,09,19,211,12,17,40,251,27,19,36,291,13,28,26,056,23,1*64
+$GPGSV,3,3,09,31,28,088,22,1*55
+$GPGSV,1,1,03,06,24,306,,25,01,020,
+updated telemetry
+Attitude: -174.54, 8.28, -86.57
+Attitude from telemetry: -174.54, 8.28, -86.57
+,36,28,163,,0*5C
+$GAGSV,1,1,04,19,35,190,23,26,20,127,26,29,64,118,27,33,72,140,33,7*72
+$GAGSV,1,1,03,16,05,280,,25,10,324,,28
+updated telemetry
+Attitude: -174.64, 8.41, -86.56
+Attitude from telemetry: -174.64, 8.41, -86.56
+,09,203,,0*4E
+$GBGSV,2,1,05,14,85,175,28,21,64,067,23,34,36,183,20,38,54,270,21,1*76
+$GBGSV,2,2,05,42,60,231,24,1*45
+$GQGSV,1
+updated telemetry
+Attitude: -174.68, 8.45, -86.48
+Attitude from telemetry: -174.68, 8.45, -86.48
+,1,00,0*64
+$GNGLL,5333.40154,N,01001.35251,E,152801.10,A,A*7B
+$GNTXT,01,01,01,More than 100 frame errors, UART1 RX disabled*04
+updated telemetry
+Attitude: -174.50, 8.57, -86.42
+Attitude from telemetry: -174.50, 8.57, -86.42
+
+$GNRMC,152801.20,A,5333.40153,N,01001.35252,E,0.029,,150526,,,A,V*11
+$GNVTG,,T,,M,0.029,N,0.053,K,A*30
+$GNGGA,152801.20,5333
+updated telemetry
+Attitude: -174.65, 8.38, -86.53
+Attitude from telemetry: -174.65, 8.38, -86.53
+.40153,N,01001.35252,E,1,12,1.36,-0.4,M,45.1,M,,*67
+$GNGSA,A,3,17,02,01,31,03,28,04,19,,,,,2.14,1.36,1.66,1*01
+$GNGSA,A,3,19,2
+updated telemetry
+Attitude: -174.85, 8.36, -86.54
+Attitude from telemetry: -174.85, 8.36, -86.54
+6,29,33,,,,,,,,,2.14,1.36,1.66,3*06
+$GNGSA,A,3,21,34,42,38,14,,,,,,,,2.14,1.36,1.66,4*0A
+$GNGSA,A,3,,,,,4,E,1,12,1.49,-0.2,M,4
+updated telemetry
+Attitude: -174.67, 8.45, -86.50
+Attitude from telemetry: -174.67, 8.45, -86.50
+5.1,M,,*6B
+$GNGSA,A,3,17,02,01,31,03,28,04,,,,,,2.29,1.49,1.74,1*0C
+$GNGSA,A,3,19,26,29,33,,,,,,1*6A
+$GPGSV,2,2,08,17,40,251,
+updated telemetry
+Attitude: -174.53, 8.46, -86.56
+Attitude from telemetry: -174.53, 8.46, -86.56
+31,19,36,291,11,28,26,056,17,31,28,088,23,1*6F
+$GPGSV,1,1,04,06,24,306,,09,19,211,,25,01,6,05,280,,25,10,324,,28,09,203,,0*4E
+
+updated telemetry
+Attitude: -174.53, 8.49, -86.45
+Attitude from telemetry: -174.53, 8.49, -86.45
+$GBGSV,2,1,05,14,85,175,23,21,64,067,25,34,36,183,27,38,54,270,10,1*7E
+$GBGSV,2,20187,N,01001.35312,E,0.298,,150526,,,A,V*1E
+$
+updated telemetry
+Attitude: -174.36, 8.49, -86.28
+Attitude from telemetry: -174.36, 8.49, -86.28
+GNVTG,,T,,M,0.298,N,0.552,K,A*3C
+$GNGGA,152809.10,5333.40187,N,01001.3531
+$GNGSA,A,3,19,26,29,33,,,,,,,,,2.23,1.40,1.74,3*00
+
+updated telemetry
+Attitude: -174.49, 8.42, -86.13
+Attitude from telemetry: -174.49, 8.42, -86.13
+$GNGSA,A,3,21,34,42,14,,,,,,,,,2.23,1.40,1.74,4*07
+$GNGSA,A,3,,,,82,4*0B
+$GNGSA,A,3,,,,,,,,,,,,,2.36,1.50,1.82,5*0D
+$GPGSV,3,
+updated telemetry
+Attitude: -174.33, 8.44, -86.32
+Attitude from telemetry: -174.33, 8.44, -86.32
+1,10,01,46,142,35,02,18,143,37,03,80,059,28,04,49,191,33,1,33,72,140,42,7*76
+$GAGSV,1,1,03,16,05,280,,25,10,324,,28,09,203,,0*4
+updated telemetry
+Attitude: -174.51, 8.44, -86.09
+Attitude from telemetry: -174.51, 8.44, -86.09
+E
+$GBGSV,2,1,05,14,85,175,35,21,64,067,37,34,36,183,231,34,1*76
+$GBGSV,1,1,01,38,54,270,,0*49
+$GQGSV,1,1,00,0*64
+$GNGLL,5333
+updated telemetry
+Attitude: -174.55, 8.44, -86.00
+Attitude from telemetry: -174.55, 8.44, -86.00
+.40061,N,01001.35368,E,152817.10,A,A*70
+526,,,A,V*18
+$GNVTG,,T,,M,0.136,N,0.251,K,A*3F
+$GNGGA,152819.20,5333.40022,N,01001.35
+updated telemetry
+Attitude: -174.42, 8.45, -86.01
+Attitude from telemetry: -174.42, 8.45, -86.01
+386,E,1,12,1.37,0.9,M,45.1,M,,*40,17,02,01,31,03,09,28,04,19,,,,1.69,0.98,1.37,1*00
+$GNGSA,A,3,19,26,29,33,,,,,,,,,1.69,0.98,1.
+updated telemetry
+Attitude: -174.36, 8.42, -86.11
+Attitude from telemetry: -174.36, 8.42, -86.11
+37,3*0E
+$GNGSA,A,3,21,344
+$GPGSV,3,3,11,28,26,056,28,31,28,088,40,49,29,186,35,1*50
+$GPGSV,1,1,02,25,01,020,,36,28,163,,0*68
+updated telemetry
+Attitude: -174.41, 8.40, -86.06
+Attitude from telemetry: -174.41, 8.40, -86.06
+
+$GAGSV,1,1,04,19$GBGSV,2,1,05,14,85,171,32,21,64,067,29,34,36,183,32,38,55,269,31,1*78
+$GBGSV,2,2,05,42,61,231,36,1*47
+$GBGSV
+updated telemetry
+Attitude: -174.10, 8.48, -86.14
+Attitude from telemetry: -174.10, 8.48, -86.14
+,1,1,01,0V,1,1,01,09,03,078,,0*43
+$GQGSV,1,1,00,0*64
+$GNGLL,5333.39859,N,01001.35490,E,152827.20,A,A*7D
+$GNRMC,152827.30,A,53
+updated telemetry
+Attitude: -172.83, 8.47, -85.83
+Attitude from telemetry: -172.83, 8.47, -85.83
+335496,E,1,12,1.00,3.6,M,45.1,M,,*4F
+$GNGSA,A,3,17,02,01,31,03,09,28,04,19,,,,1.71,1.00,1.38,1*06
+$GNGSA,A,3,19,26,29,33,,,,,,
+updated telemetry
+Attitude: -172.80, 8.56, -86.25
+Attitude from telemetry: -172.80, 8.56, -86.25
+,,,1.71,1.00,1.38,3*08
+$GNGSA,A,3,21,34,42,38,14,,,,,,,,1.71,1.00,1.38,4*04
+$GNGSA,A,3,,,,,,,,,,,,,1.71,1.00,1..78,5*08
+$GPGS
+updated telemetry
+Attitude: -172.83, 8.57, -86.31
+Attitude from telemetry: -172.83, 8.57, -86.31
+V,3,1,10,01,46,142,40,02,17,143,31,03,80,059,24,04,49,191,23,1*67
+$GPGSV,3,2,10,06,24,306,18,09,19,211,1,16,09,19,211,16,17,40,
+updated telemetry
+Attitude: -172.77, 8.58, -86.31
+Attitude from telemetry: -172.77, 8.58, -86.31
+251,47,19,36,291,23,1*62
+$GPGSV,3,3,11,28,26,056,28,31,28,088,33,49,29,186,34,1*55
+$GPGSV,1,1,025,10,324,,28,09,203,,0*4E
+$GB
+updated telemetry
+Attitude: -172.77, 8.62, -86.59
+Attitude from telemetry: -172.77, 8.62, -86.59
+GSV,2,1,05,14,85,171,27,21,64,067,11,34,36,183,25,38,55,269,29,1*78
+$GBGSV,2,2,05,42,61,1,01,09,03,078,,0*43
+$GQGSV,1,1,00,0*6
+updated telemetry
+Attitude: -172.83, 8.60, -86.42
+Attitude from telemetry: -172.83, 8.60, -86.42
+4
+$GNGLL,5333.39753,N,01001.35489,E,152837.30,A,A*70
+*.35489,E,152839.30,A,A*71
+$GNRMC,152839.40,A,5333.39716,N,01001.35489,E
+updated telemetry
+Attitude: -172.86, 8.56, -86.34
+Attitude from telemetry: -172.86, 8.56, -86.34
+,0.061,,150526,,,A,V*19
+$GNVTG,,T,,M,0.061,N,0.113,K,A*.84,1.13,1.46,1*07
+$GNGSA,A,3,19,26,29,33,,,,,,,,,1.84,1.13,1.46,3*09
+
+updated telemetry
+Attitude: -173.91, 8.56, -86.33
+Attitude from telemetry: -173.91, 8.56, -86.33
+$GNGSA,A,3,21,34,42,38,14,,,,,,,,1.84,1.13,1.46,
+$GPGSV,3,2,11,06,24,306,13,09,19,211,08,17,39,251,44,19,36,291,25,1*63
+$GPGSV,
+updated telemetry
+Attitude: -174.00, 8.60, -86.28
+Attitude from telemetry: -174.00, 8.60, -86.28
+3,3,11,28,26,056,27,31,28,088,27,49,29,1,28,09,203,,0*4E
+$GBGSV,2,1,05,14,85,171,26,21,64,067,08,34,36,183,24,38,55,269,28,1*71
+updated telemetry
+Attitude: -173.94, 8.61, -86.23
+Attitude from telemetry: -173.94, 8.61, -86.23
+
+$GBGSV,2,2,05,42,61,231,32,1*40
+$GQGSV,1,1,00,0*64
+$GNGLL,5333.39534,N,01001.35466,E,152847.40,A,A*72
+$GNRMC,152847.50,A,53
+updated telemetry
+Attitude: -172.81, 8.67, -86.09
+Attitude from telemetry: -172.81, 8.67, -86.09
+33.39533,N,01001.35466,E,0.021,,150526,,,A,V*11
+$GNVTG,,T,,M,0.021,N,0.040,K,A*3A
+$GNGGA,152847.53.39495,N,01001.35465,E,1,12,
+updated telemetry
+Attitude: 178.53, 3.22, -94.59
+Attitude from telemetry: 178.53, 3.22, -94.59
+1.46,4.1,M,45.1,M,,*44
+$GNGSA,A,3,17,02,01,31,03,28,04,19,,,,,2.27,1.46,1.74,1*05
+$GNGSA,38,14,,,,,,,,,2.27,1.46,1.74,4*0D
+$G
+updated telemetry
+Attitude: 166.54, -7.48, -98.55
+Attitude from telemetry: 166.54, -7.48, -98.55
+NGSA,A,3,,,,,,,,,,,,,2.27,1.46,1.74,5*03
+$GPGSV,3,1,11,01,46,142,37,02,17,143,30,09,36,291,26,28,26,055,24,1*6A
+$GPGSV,3,3,11,

@@ -13,9 +13,19 @@
 #include "telemetry.h"
 
 typedef struct {
+    char type[2]; //"D:" or "I:"
     char text[1024];
     size_t len;
 } RadioMessage;
+
+typedef struct {
+    uint8_t type;
+    Telemetry& data;
+} RadioDataBin;
+
+typedef struct{
+
+} RadioInfoBin;
 
 struct RadioCommand {
     int command;
