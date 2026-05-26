@@ -5,8 +5,10 @@
 
 // update_telemetry
 // This method takes in the data from the sensors, and updates the dataset struct with the new data.
-esp_err_t Telemetry::update_telemetry(const IMUData &imuData)
+esp_err_t Telemetry::update_telemetry(uint32_t now, const IMUData &imuData)
 {
+	
+	dataset.t = now;
 	// 1. IMU data
 	dataset.ax = imuData.acc.af[0];
 	dataset.ay = imuData.acc.af[1];

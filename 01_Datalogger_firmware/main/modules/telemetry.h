@@ -1,3 +1,6 @@
+#ifndef TELEMETRY_H
+#define TELEMETRY_H
+
 #include "esp_check.h"
 #include "hal/imu_data.h"
 
@@ -40,7 +43,9 @@ public:
 	Telemetry() {};
 	struct SDataset dataset;
 	struct SDataset rawDataset;
-	esp_err_t update_telemetry(const IMUData &imuData);
+	esp_err_t update_telemetry(uint32_t currentTime, const IMUData& imuData/*, const GPSData& gpsData, const AirspeedData& airspeedData*/);
 
 private:
 };
+
+#endif
