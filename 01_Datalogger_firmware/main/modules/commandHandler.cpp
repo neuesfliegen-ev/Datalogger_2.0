@@ -10,12 +10,12 @@
 #include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
 
-#include "modules/commandHandler.h"
 #include "modules/telemetry.h"
-#include "hal/radio.h"
-#include "hal/imu.h"
+#include "modules/commandHandler.h"
 
-CommandHandler::CommandHandler(RadioClass& radio, CJY901& imu, Telemetry& telemetry, bool& TELEMETRY_ENABLED) : radio(radio), imu(imu), telemetry(telemetry), telemetryEnabled(TELEMETRY_ENABLED){}
+
+CommandHandler::CommandHandler(RadioClass& radio, CJY901& imu, Telemetry& telemetry, bool TELEMETRY_ENABLED) 
+    : radio(radio), imu(imu), telemetry(telemetry), telemetryEnabled(TELEMETRY_ENABLED){}
 
 esp_err_t CommandHandler::executeCommand(int command, int option) {
 

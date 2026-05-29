@@ -1,9 +1,4 @@
-/////////////////////////////////////////////////////////
-//* Register values for WT901 I2C and Class definition *//
-/////////////////////////////////////////////////////////
-
-#ifndef IMU_H
-#define IMU_H
+#pragma once
 
 #include "driver/i2c_master.h"
 #include "hal/imu_data.h"
@@ -142,4 +137,3 @@ private:
 	esp_err_t writeRegister(uint8_t *dataToWrite, uint8_t bytesToWrite);
 };
 
-#endif

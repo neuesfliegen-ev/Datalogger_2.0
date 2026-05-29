@@ -1,5 +1,4 @@
-#ifndef TELEMETRY_H
-#define TELEMETRY_H
+#pragma once
 
 #include "esp_check.h"
 #include "hal/imu_data.h"
@@ -47,5 +46,3 @@ public:
 
 private:
 };
-
-#endif

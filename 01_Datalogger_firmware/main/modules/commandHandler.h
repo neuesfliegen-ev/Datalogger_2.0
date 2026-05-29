@@ -1,6 +1,4 @@
-#ifndef COMMAND_HANDLER_H
-#define COMMAND_HANDLER_H
-
+#pragma once
 
 #include "modules/telemetry.h"
 #include "hal/radio.h"
@@ -9,16 +7,15 @@
 class CommandHandler {
 
 public:
-    CommandHandler(RadioClass& radio, CJY901& imu, Telemetry& telemetry, bool& TELEMETRY_ENABLED);
+    CommandHandler(RadioClass& radio, CJY901& imu, Telemetry& telemetry, bool TELEMETRY_ENABLED);
 
     esp_err_t executeCommand(int command, int option);
+
 private:
     RadioClass& radio;
     CJY901& imu;
 	Telemetry& telemetry;
-	bool& telemetryEnabled;
+	bool telemetryEnabled;
 
 
 };
-
-#endif

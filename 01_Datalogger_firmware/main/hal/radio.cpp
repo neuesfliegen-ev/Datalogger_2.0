@@ -2,9 +2,13 @@
 #include "modules/telemetry.h"
 #include "esp_log.h"
 
+extern bool TELEMETRY_ENABLED;
+extern bool DEBUG;
+
 const char DATA_HEADER[] = "D: ";
 const char INFO_HEADER[] = "I: ";
 
+//SETUP FUNCTIONS
 RadioClass::RadioClass(gpio_num_t M0, gpio_num_t M1){
 	M0_PIN = M0;
 	M1_PIN = M1;
@@ -14,11 +18,11 @@ void RadioClass::setQueue(QueueHandle_t qh){
     radioQueue = qh;
 }
 
-
 void RadioClass::startUART(uart_port_t p){
 	uart_num = p;
 };
 
+//OPERATIONAL FUNCTIONS
 bool RadioClass::readCommand(int& command, int& option) {
     static char buffer[64];
     static int index = 0;
@@ -41,7 +45,7 @@ bool RadioClass::readCommand(int& command, int& option) {
         index = 0;
         uart_flush(uart_num);
         sendMessage("Command too long, flushing UART\n");
-        printf("Command too long, flushing UART\n");
+        if(DEBUG)printf("Command too long, flushing UART\n");
         return false;
     }
 
@@ -49,22 +53,13 @@ bool RadioClass::readCommand(int& command, int& option) {
     return false;
 }
 
-/* --DO NOT USE; ONLY FOR TESTING----
-int RadioClass::readBytes(void *buf, uint32_t length){
-    return uart_read_bytes(uart_num, buf, length, pdMS_TO_TICKS(100));
-}
-
-int RadioClass::writeBytes(const uint8_t* data, size_t length){
-	return uart_write_bytes(uart_num, (const char*)data, length);
-};
-*/
-
-//change these to binary later
 int RadioClass::sendMessage(const char* text) {
-    RadioMessage msg;
+    RadioMessage msg{};
     size_t pos = 0;
 
-    memcpy(msg.text + pos, INFO_HEADER, 3);
+    constexpr const char* header = "I: ";
+
+    memcpy(msg.text + pos, header, 3);
     pos += 3;
 
     size_t text_len = strlen(text);
@@ -84,30 +79,7 @@ int RadioClass::sendMessage(const char* text) {
     return xQueueSend(radioQueue, &msg, 0);
 }
 
-int RadioClass::sendData(const uint8_t* buf, size_t length) {
-    RadioMessage msg;
-    size_t pos = 0;
-
-    memcpy(msg.text + pos, DATA_HEADER, 3);
-    pos += 3;
-
-    if (length > sizeof(msg.text) - pos - 2) {
-        length = sizeof(msg.text) - pos - 2;
-    }
-
-    memcpy(msg.text + pos, buf, length);
-    pos += length;
-
-    memcpy(msg.text + pos, "\r\n", 2);
-    pos += 2;
-
-    msg.len = pos;
-
-    return xQueueSend(radioQueue, &msg, 0);
-}
-
 int RadioClass::sendDataset(Telemetry* telemetry){
-    //char buffer[512];
     RadioMessage msg;  
     SDataset& d = telemetry->dataset;
 
@@ -133,3 +105,13 @@ int RadioClass::sendDataset(Telemetry* telemetry){
     return xQueueSend(radioQueue, &msg, 0);
 };
 
+
+/* --DO NOT USE; ONLY FOR TESTING----
+int RadioClass::readBytes(void *buf, uint32_t length){
+    return uart_read_bytes(uart_num, buf, length, pdMS_TO_TICKS(100));
+}
+
+int RadioClass::writeBytes(const uint8_t* data, size_t length){
+    return uart_write_bytes(uart_num, (const char*)data, length);
+};
+*/
