@@ -25,13 +25,16 @@
 #include "modules/commandHandler.h"
 #include "sd_card.h"
 
+/* Settings */
 bool DEBUG = false;
 bool TELEMETRY_ENABLED = true;
 bool LOGGING = false;
 
+QueueHandle_t datasetQueue;
 QueueHandle_t radioQueue;
 int command, option; 
 
+//Module objects
 SDCard sd;
 Telemetry telemetry;
 CJY901 IMU;
@@ -43,6 +46,17 @@ CommandHandler commandHandler(Radio, IMU, telemetry, TELEMETRY_ENABLED);
 static uint32_t last_gps_update = 0;
 static uint32_t last_imu_update = 0;
 static uint32_t last_pitot_update = 0;
+
+void generateFileName(char *buffer, size_t buffer_size){
+    int64_t ms = esp_timer_get_time() / 1000;
+
+    snprintf(
+        buffer,
+        buffer_size,
+        "/sdcard/%lld_test_file.bin",
+        ms
+    );
+}
 
 void update_all_sensor_data(){
 	uint32_t now = esp_timer_get_time() / 1000;
@@ -63,7 +77,7 @@ void update_all_sensor_data(){
 	const IMUData& imu_data = IMU.updateAll();
 	telemetry.update_telemetry(now, imu_data/*, pitot_data, gps_data*/); 
 
-	if(DEBUG) printf("updated telemetry\n");
+	if(DEBUG) ESP_LOGI("TELEMETRY", "updated telemetry\n");
 }
 
 //Read sensors, read radio, send over radio 
@@ -90,9 +104,30 @@ void polling_task(void *pvParameters) {
 
 //Log to SD
 void logging_task(void* arg) {
-    for (;;) {
+	SDataset writeBuffer[32];
+	size_t count = 0;
+	uint32_t flush_counter = 0;
 
-    }
+	for (;;) {
+	    SDataset sample;
+
+	    if (xQueueReceive(datasetQueue, &sample, portMAX_DELAY) == pdTRUE) {
+	        writeBuffer[count++] = sample;
+
+	        if (count >= 32) {
+	            sd.writeDatasets(writeBuffer, count);
+	            count = 0;
+
+	            flush_counter++;
+
+	            if (flush_counter >= 10) {
+	                sd.flush();
+	                flush_counter = 0;
+	            }
+	            if(DEBUG) ESP_LOGI("SD CARD", "flushed file");	        
+	        }
+	    }
+	}
 }
 
 extern "C" void app_main(){
@@ -100,10 +135,18 @@ extern "C" void app_main(){
 	sd.begin();
 	serial_buses_setup();
 
+	//Create binary file (test phase)
+	char filename[64];
+	generateFileName(filename, sizeof(filename));
+	sd.openLogFile(filename);
+
+
 	radioQueue = xQueueCreate(10, sizeof(RadioMessage));
 	Radio.setQueue(radioQueue);
 
-	xTaskCreatePinnedToCore(polling_task, "polling_task", 8192, NULL, 5, NULL, 0);
-	xTaskCreatePinnedToCore(logging_task, "logging_task", 4096, NULL, 6, NULL, 1);
+	datasetQueue = xQueueCreate(32, sizeof(SDataset));
+
+	xTaskCreatePinnedToCore(polling_task, "polling_task", 4096, NULL, 5, NULL, 0);
+	xTaskCreatePinnedToCore(logging_task, "logging_task", 6144, NULL, 6, NULL, 1);
 }
 

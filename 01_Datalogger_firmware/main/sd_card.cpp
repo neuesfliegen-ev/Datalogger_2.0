@@ -67,6 +67,26 @@ esp_err_t SDCard::begin() {
     return ESP_OK;
 }
 
+//Creates and opens binary file for logging
+esp_err_t SDCard::openLogFile(const char *path){
+    if (!mounted) {
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    if (log_file != nullptr) {
+        fclose(log_file);
+        log_file = nullptr;
+    }
+
+    log_file = fopen(path, "wb");   // new binary file
+
+    if (log_file == nullptr) {
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}
+
 void SDCard::end(){
     sdmmc_host_t host = SDSPI_HOST_DEFAULT();
     spi_host_device_t spi_host = static_cast<spi_host_device_t>(host.slot);
@@ -78,6 +98,60 @@ void SDCard::end(){
     }
 
     spi_bus_free(spi_host);
+}
+
+
+esp_err_t SDCard::writeDatasets(const SDataset *data, size_t count){
+    if (!mounted || log_file == nullptr || data == nullptr || count == 0) {
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    size_t written = fwrite(data, sizeof(SDataset), count, log_file);
+
+    if (written != count) {
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}
+
+esp_err_t SDCard::flush(){
+    if (!mounted || log_file == nullptr) {
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    int ret = fflush(log_file);
+
+    if (ret != 0) {
+        ESP_LOGE(TAG, "fflush failed");
+        return ESP_FAIL;
+    }
+
+    return ESP_OK;
+}
+
+/*
+esp_err_t SDCard::readFile(const char *path, char *buffer, size_t buffer_size){
+    if (!mounted) {
+        return ESP_ERR_INVALID_STATE;
+    }
+
+    if (buffer == nullptr || buffer_size == 0) {
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    FILE *file = fopen(path, "r");
+    if (file == nullptr) {
+        ESP_LOGE(TAG, "Failed to open file for reading: %s", path);
+        return ESP_FAIL;
+    }
+
+    size_t bytes_read = fread(buffer, 1, buffer_size - 1, file);
+    buffer[bytes_read] = '\0';
+
+    fclose(file);
+
+    return ESP_OK;
 }
 
 esp_err_t SDCard::writeFile(const char *path, const char *data){
@@ -101,40 +175,4 @@ esp_err_t SDCard::writeFile(const char *path, const char *data){
 
     return ESP_OK;
 }
-
-esp_err_t SDCard::writeDataset(const SDataset &data){
-    if (!mounted || log_file == nullptr) {
-        return ESP_ERR_INVALID_STATE;
-    }
-
-    size_t written = fwrite(&data, sizeof(SDataset), 1, log_file);
-
-    if (written != 1) {
-        return ESP_FAIL;
-    }
-
-    return ESP_OK;
-}
-
-esp_err_t SDCard::readFile(const char *path, char *buffer, size_t buffer_size){
-    if (!mounted) {
-        return ESP_ERR_INVALID_STATE;
-    }
-
-    if (buffer == nullptr || buffer_size == 0) {
-        return ESP_ERR_INVALID_ARG;
-    }
-
-    FILE *file = fopen(path, "r");
-    if (file == nullptr) {
-        ESP_LOGE(TAG, "Failed to open file for reading: %s", path);
-        return ESP_FAIL;
-    }
-
-    size_t bytes_read = fread(buffer, 1, buffer_size - 1, file);
-    buffer[bytes_read] = '\0';
-
-    fclose(file);
-
-    return ESP_OK;
-}
+*/
