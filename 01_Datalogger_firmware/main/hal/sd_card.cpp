@@ -1,5 +1,3 @@
-#include "sd_card.h"
-
 #include <cstdio>
 #include <cstring>
 
@@ -9,7 +7,8 @@
 #include "driver/sdspi_host.h"
 
 #include "pins.h"
-#include "telemetry.h"
+#include "modules/telemetry.h"
+#include "hal/sd_card.h"
 
 static const char *TAG = "SD";
 static const char *SD_MOUNT_POINT = "/sdcard";

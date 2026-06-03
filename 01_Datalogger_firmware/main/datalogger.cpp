@@ -21,9 +21,10 @@
 #include "setup.h"
 #include "hal/radio.h"
 #include "hal/imu.h"
+#include "hal/gps.h"
 #include "modules/telemetry.h"
 #include "modules/commandHandler.h"
-#include "sd_card.h"
+#include "hal/sd_card.h"
 
 /* Settings */
 bool DEBUG = false;
@@ -40,7 +41,7 @@ Telemetry telemetry;
 CJY901 IMU;
 RadioClass Radio(RADIO_M0_PIN, RADIO_M1_PIN);
 //PitotClass Pitot;
-//GPSClass GPS;
+GPSClass GPS;
 CommandHandler commandHandler(Radio, IMU, telemetry, TELEMETRY_ENABLED);
 
 static uint32_t last_gps_update = 0;
@@ -61,10 +62,6 @@ void generateFileName(char *buffer, size_t buffer_size){
 void update_all_sensor_data(){
 	uint32_t now = esp_timer_get_time() / 1000;
 	/* **update all the data structs**
-	if (now - last_gps_update >= GPS_UPDATE_PERIOD) {
-    	gps_data = GPS.updateAll();
-    	last_gps_update = now;
-	}
 	if (now - last_pitot_update >= PITOT_UPDATE_PERIOD) {
     	pitot_data = Pitot.updateAll();
     	last_pitot_update = now;
@@ -74,8 +71,12 @@ void update_all_sensor_data(){
 		last_imu_update = now;
 	}
 	*/
-	const IMUData& imu_data = IMU.updateAll();
-	telemetry.update_telemetry(now, imu_data/*, pitot_data, gps_data*/); 
+	if (now - last_gps_update >= GPS_UPDATE_PERIOD) {
+    	GPS.update();
+    	last_gps_update = now;
+	}	
+	IMU.updateAll();
+	telemetry.update_telemetry(now, IMU, GPS/*, airspeedSensor*/); 
 
 	if(DEBUG) ESP_LOGI("TELEMETRY", "updated telemetry\n");
 }
@@ -148,5 +149,6 @@ extern "C" void app_main(){
 
 	xTaskCreatePinnedToCore(polling_task, "polling_task", 4096, NULL, 5, NULL, 0);
 	xTaskCreatePinnedToCore(logging_task, "logging_task", 6144, NULL, 6, NULL, 1);
+	//xTaskCreatePinnedToCore(gps_task, "gps_task", 1024, NULL, 7, NULL, 0);
 }
 

@@ -1,28 +1,25 @@
 #include "hal/imu.h"
+#include "hal/imu_reg.h"
 #include "string.h"
 
 /** Methods **/
 
-void CJY901::StartIIC(i2c_master_dev_handle_t h)
-{
+void CJY901::StartIIC(i2c_master_dev_handle_t h){
   bus_handle = h;
 };
 
-esp_err_t CJY901::readRegisters(uint8_t addressToRead, uint8_t bytesToRead, uint8_t *dest)
-{
+esp_err_t CJY901::readRegisters(uint8_t addressToRead, uint8_t bytesToRead, uint8_t *dest){
   esp_err_t result = i2c_master_transmit_receive(bus_handle, &addressToRead, 1, dest, bytesToRead, -1);
   return result;
 };
 
-esp_err_t CJY901::writeRegister(uint8_t *dataToWrite, uint8_t bytesToWrite)
-{
+esp_err_t CJY901::writeRegister(uint8_t *dataToWrite, uint8_t bytesToWrite){
   esp_err_t result = i2c_master_transmit(bus_handle, dataToWrite, 1 + bytesToWrite, -1);
   return result;
 };
 
 //--UPDATE MEASUREMENTS-------------------------------
-esp_err_t CJY901::updateAcc()
-{
+esp_err_t CJY901::updateAcc(){
   uint8_t buf[8];
   esp_err_t result = readRegisters(AX, 8, buf);
 
@@ -38,8 +35,7 @@ esp_err_t CJY901::updateAcc()
   return result;
 };
 
-esp_err_t CJY901::updateGyr()
-{
+esp_err_t CJY901::updateGyr(){
   uint8_t buf[6];
   esp_err_t result = readRegisters(GX, 6, buf);
 
@@ -51,27 +47,25 @@ esp_err_t CJY901::updateGyr()
   imuData.gyr.wf[1] = ((float)gy_raw / 32768.0f) * 2000.0f;
   imuData.gyr.wf[2] = ((float)gz_raw / 32768.0f) * 2000.0f;
 
-  return ESP_OK;
+  return result;
 };
 
-esp_err_t CJY901::updateMag()
-{
+esp_err_t CJY901::updateMag(){
   uint8_t buf[8];
   esp_err_t result = readRegisters(HX, 8, buf);
 
   int16_t hx_raw = (int16_t)(((int16_t)buf[1] << 8) | buf[0]);
   int16_t hy_raw = (int16_t)(((int16_t)buf[3] << 8) | buf[2]);
   int16_t hz_raw = (int16_t)(((int16_t)buf[5] << 8) | buf[4]);
-  int16_t tmp_raw = (int16_t)(((int16_t)buf[7] << 8) | buf[6]);
+  //int16_t tmp_raw = (int16_t)(((int16_t)buf[7] << 8) | buf[6]);
 
   imuData.mag.h[0] = hx_raw;
   imuData.mag.h[1] = hy_raw;
   imuData.mag.h[2] = hz_raw;
-  return ESP_OK;
+  return result;
 };
 
-esp_err_t CJY901::updateBar()
-{
+esp_err_t CJY901::updateBar(){
   uint8_t buf[8];
   esp_err_t result = readRegisters(PressureL, 8, buf);
 
@@ -81,11 +75,10 @@ esp_err_t CJY901::updateBar()
   imuData.bar.lPressure = (float)pressure_raw;        // Pa
   imuData.bar.lHeight = ((float)height_raw) / 100.0f; // cm -> m
 
-  return ESP_OK;
+  return result;
 };
 
-esp_err_t CJY901::updateAtt()
-{
+esp_err_t CJY901::updateAtt(){
   uint8_t buf[6];
   esp_err_t result = readRegisters(Roll, 6, buf);
   if (result != ESP_OK)
@@ -102,8 +95,7 @@ esp_err_t CJY901::updateAtt()
   return ESP_OK;
 };
 
-IMUData &CJY901::updateAll()
-{
+IMUData &CJY901::updateAll(){
   updateAcc();
   updateGyr();
   updateAtt();
@@ -113,8 +105,7 @@ IMUData &CJY901::updateAll()
 }
 
 //--COMMANDS-----------------------------------------
-esp_err_t CJY901::calibrateAcc()
-{
+esp_err_t CJY901::calibrateAcc(){
   esp_err_t err = unlock();
   if (err != ESP_OK)
     return err;
@@ -127,8 +118,7 @@ esp_err_t CJY901::calibrateAcc()
   return save();
 }
 
-esp_err_t CJY901::calibrateMag()
-{
+esp_err_t CJY901::calibrateMag(){
   esp_err_t err = unlock();
   if (err != ESP_OK)
     return err;
@@ -141,8 +131,7 @@ esp_err_t CJY901::calibrateMag()
   return save();
 }
 
-esp_err_t CJY901::stopCalibrating()
-{ // unlock, set calsw normal, save
+esp_err_t CJY901::stopCalibrating(){ // unlock, set calsw normal, save
   esp_err_t err = unlock();
   if (err != ESP_OK)
     return err;
@@ -155,15 +144,13 @@ esp_err_t CJY901::stopCalibrating()
   return save();
 }
 
-esp_err_t CJY901::unlock()
-{
+esp_err_t CJY901::unlock(){
   uint8_t array[5] = {0xFF, 0xAA, 0x69, 0x88, 0xB5};
   esp_err_t r = writeRegister(array, 5);
   return r;
 }
 
-esp_err_t CJY901::save()
-{
+esp_err_t CJY901::save(){
   uint8_t array[5] = {0XFF, 0XAA, 0X00, 0X00, 0X00};
   esp_err_t r = writeRegister(array, 5);
   return r;

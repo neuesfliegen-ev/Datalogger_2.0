@@ -1,29 +1,56 @@
 #pragma once
 
 #include "esp_check.h"
-#include "hal/imu_data.h"
+#include "hal/imu.h"
+#include "hal/gps.h"
 
 /* Structs */
-
 // Struct to save all three sensor data in one struct.
-struct SDataset
-{
-	uint32_t t;
-	float ax, ay, az;
-	float gx, gy, gz;
-	float hx, hy, hz;
-	float roll, pitch, yaw;
-	float tmp;
-	float hght, press;
-	float psta, pdyn;
-	float alt, gs, lat, lon;
+struct SDataset{
+    uint32_t t;
+
+    // IMU acceleration
+    float ax, ay, az;
+
+    // IMU gyroscope
+    float gx, gy, gz;
+
+    // IMU magnetometer
+    float hx, hy, hz;
+
+    // IMU attitude
+    float roll, pitch, yaw;
+
+    // IMU temperature / barometer
+    float tmp;
+    float hght;
+    float press;
+
+    // Pressure sensors
+    float psta;
+    float pdyn;
+
+    // GPS
+    int32_t lat; 			// degrees * 1e7
+    int32_t lon;          	// degrees * 1e7
+    uint16_t ground_speed; 	// km/h * 100
+    int32_t gps_alt;      	// meters * 100
+
+    // Other
+    uint32_t s_count;
+
+	uint8_t gps_hour;
+	uint8_t gps_minute;
+	uint8_t gps_second;
+	uint16_t gps_millisecond;
+
+	uint8_t gps_day;
+	uint8_t gps_month;
+	uint16_t gps_year;
 };
 
 // Struct to save all data, in short (resistor level)
-// In resistor level, the data is in short, nd needs to be converted to float
-// using the conversion factors provided in the datasheets of the sensors.
-struct SDataset_raw
-{
+struct SDataset_raw{
 	short ax, ay, az;
 	short gx, gy, gz;
 	short hx, hy, hz;
@@ -31,18 +58,15 @@ struct SDataset_raw
 	short tmp;
 	short hght;
 	float psta, pdyn;
-	float alt, gs, lat, lon;
 };
 
 /* Classes */
 // Telemetry class to save all the data in one struct, and update the data from the sensors.
-class Telemetry
-{
+class Telemetry{
 public:
 	Telemetry() {};
-	struct SDataset dataset;
-	struct SDataset rawDataset;
-	esp_err_t update_telemetry(uint32_t currentTime, const IMUData& imuData/*, const GPSData& gpsData, const AirspeedData& airspeedData*/);
+	SDataset dataset;
+	esp_err_t update_telemetry(uint32_t, CJY901&, GPSClass&);
 
 private:
 };

@@ -2,7 +2,7 @@
 
 #include "esp_err.h"
 #include "sdmmc_cmd.h"
-#include "telemetry.h"
+#include "modules/telemetry.h"
 
 
 class SDCard {

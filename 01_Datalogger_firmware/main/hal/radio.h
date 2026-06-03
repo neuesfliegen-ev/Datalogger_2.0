@@ -33,26 +33,22 @@ struct RadioMessage {
 };
 
 class RadioClass {
-private:
-    gpio_num_t M0_PIN;
-    gpio_num_t M1_PIN;
-    uart_port_t uart_num;
-    QueueHandle_t radioQueue;
-
 public:
     RadioClass(gpio_num_t, gpio_num_t);
-
     void setQueue(QueueHandle_t);
-
     void startUART(uart_port_t p);
 
     bool readCommand(int& cmd, int& option);
 
     int readBytes(void *buf, uint32_t length);
-
     int writeBytes(const uint8_t* data, size_t length);
 
     int sendMessage(const char* msg);
-
     int sendDataset(Telemetry*);
+
+private:
+    gpio_num_t M0_PIN;
+    gpio_num_t M1_PIN;
+    uart_port_t uart_num;
+    QueueHandle_t radioQueue;
 };

@@ -38,9 +38,9 @@ const uint32_t wt901b_i2c_scl_speed_hz = 100000;
 const uint32_t sleep_time_ms = 1000;
 
 /*Constants for time keeping in milliseconds*/
-const uint32_t GPS_UPDATE_PERIOD = 100;
+const uint32_t GPS_UPDATE_PERIOD = 500;
 const uint32_t PITOT_UPDATE_PERIOD = 200;
-const uint32_t IMU_UPDATE_PERIOD = 100;
+//const uint32_t IMU_UPDATE_PERIOD = 100;
 
 esp_err_t radio_uart_setup();
 
