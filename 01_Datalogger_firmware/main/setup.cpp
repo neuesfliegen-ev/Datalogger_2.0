@@ -65,7 +65,7 @@ void gps_uart_setup(){
 	ESP_ERROR_CHECK(uart_set_pin(GPS_UART_NUM, GPS_TX_PIN, GPS_RX_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
 		ESP_LOGI("gps", "gps pin set");
 
-	//GPS.startUART(GPS_UART_NUM);	
+	GPS.startUART(GPS_UART_NUM);	
 }
 
 void init_IMU_i2c(){
@@ -92,34 +92,35 @@ void init_IMU_i2c(){
 	IMU.StartIIC(imu_dev_handle);
 }
 
-void init_Pitot_i2c(){
-	i2c_master_bus_config_t imu_bus_config = {};
-		imu_bus_config.i2c_port = PITOT_I2C_PORT;
-		imu_bus_config.sda_io_num = PITOT_SDA_PIN;
-		imu_bus_config.scl_io_num = PITOT_SCL_PIN;
-		imu_bus_config.clk_source = I2C_CLK_SRC_DEFAULT;
-		imu_bus_config.glitch_ignore_cnt = 7;
-		imu_bus_config.intr_priority = 0;
-		imu_bus_config.trans_queue_depth = 0;
-		imu_bus_config.flags.enable_internal_pullup = true;
+void init_Airspeed_i2c(){
+	i2c_master_bus_config_t airspeed_bus_config = {};
+		airspeed_bus_config.i2c_port = AIRSPEED_I2C_PORT;
+		airspeed_bus_config.sda_io_num = AIRSPEED_SDA_PIN;
+		airspeed_bus_config.scl_io_num = AIRSPEED_SCL_PIN;
+		airspeed_bus_config.clk_source = I2C_CLK_SRC_DEFAULT;
+		airspeed_bus_config.glitch_ignore_cnt = 7;
+		airspeed_bus_config.intr_priority = 0;
+		airspeed_bus_config.trans_queue_depth = 0;
+		airspeed_bus_config.flags.enable_internal_pullup = true;
 	
-	i2c_master_bus_handle_t imu_bus_handle;
-	ESP_ERROR_CHECK(i2c_new_master_bus(&imu_bus_config, &imu_bus_handle));
+	i2c_master_bus_handle_t airspeed_bus_handle;
+	ESP_ERROR_CHECK(i2c_new_master_bus(&airspeed_bus_config, &airspeed_bus_handle));
 
-	i2c_device_config_t imu_dev_cfg = {};
-	    imu_dev_cfg.dev_addr_length = I2C_ADDR_BIT_LEN_7;
-    	imu_dev_cfg.device_address = 0x50;
-    	imu_dev_cfg.scl_speed_hz = 100000;
+	i2c_device_config_t airspeed_dev_cfg = {};
+	    airspeed_dev_cfg.dev_addr_length = I2C_ADDR_BIT_LEN_7;
+    	airspeed_dev_cfg.device_address = AIRSPEED_I2C_ADDR;
+    	airspeed_dev_cfg.scl_speed_hz = 100000;
 
-	i2c_master_dev_handle_t imu_dev_handle;
-	ESP_ERROR_CHECK(i2c_master_bus_add_device(imu_bus_handle, &imu_dev_cfg, &imu_dev_handle));
-	//Pitot.StartIIC(imu_dev_handle);
+	i2c_master_dev_handle_t airspeed_dev_handle;
+	ESP_ERROR_CHECK(i2c_master_bus_add_device(airspeed_bus_handle, &airspeed_dev_cfg, &airspeed_dev_handle));
+	Airspeed.setup(airspeed_dev_handle);
 }
 
 void serial_buses_setup(){
 	init_IMU_i2c();
-	//init_Pitot_i2c();
+	init_Airspeed_i2c();
 
     radio_uart_setup();
     gps_uart_setup();
+
 }

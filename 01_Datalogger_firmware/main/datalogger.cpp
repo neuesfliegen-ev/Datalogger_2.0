@@ -22,6 +22,7 @@
 #include "hal/radio.h"
 #include "hal/imu.h"
 #include "hal/gps.h"
+#include "hal/airspeed.h"
 #include "modules/telemetry.h"
 #include "modules/commandHandler.h"
 #include "hal/sd_card.h"
@@ -39,14 +40,14 @@ int command, option;
 SDCard sd;
 Telemetry telemetry;
 CJY901 IMU;
-RadioClass Radio(RADIO_M0_PIN, RADIO_M1_PIN);
-//PitotClass Pitot;
+AirspeedClass Airspeed;
 GPSClass GPS;
+RadioClass Radio(RADIO_M0_PIN, RADIO_M1_PIN);
 CommandHandler commandHandler(Radio, IMU, telemetry, TELEMETRY_ENABLED);
 
 static uint32_t last_gps_update = 0;
 static uint32_t last_imu_update = 0;
-static uint32_t last_pitot_update = 0;
+static uint32_t last_airspeed_update = 0;
 
 void generateFileName(char *buffer, size_t buffer_size){
     int64_t ms = esp_timer_get_time() / 1000;
@@ -61,22 +62,21 @@ void generateFileName(char *buffer, size_t buffer_size){
 
 void update_all_sensor_data(){
 	uint32_t now = esp_timer_get_time() / 1000;
-	/* **update all the data structs**
-	if (now - last_pitot_update >= PITOT_UPDATE_PERIOD) {
-    	pitot_data = Pitot.updateAll();
-    	last_pitot_update = now;
+	/* **update all the data structs**/
+	/*5ms?*/
+	if (now - last_airspeed_update >= AIRSPEED_UPDATE_PERIOD) {
+    	Airspeed.read();
+    	last_airspeed_update = now;
 	}
-	if (now - last_imu_update >= IMU_UPDATE_PERIOD){
-		imu_data = IMU.updateAll();	
-		last_imu_update = now;
-	}
-	*/
+	/*10ms max.*/
 	if (now - last_gps_update >= GPS_UPDATE_PERIOD) {
     	GPS.update();
     	last_gps_update = now;
 	}	
-	IMU.updateAll();
-	telemetry.update_telemetry(now, IMU, GPS/*, airspeedSensor*/); 
+	/*3ms?*/
+	IMU.updateAll(); last_imu_update = now;
+	/*1ms?*/
+	telemetry.update_telemetry(now, IMU, GPS, Airspeed); 
 
 	if(DEBUG) ESP_LOGI("TELEMETRY", "updated telemetry\n");
 }

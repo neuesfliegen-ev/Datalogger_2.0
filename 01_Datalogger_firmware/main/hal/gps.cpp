@@ -13,7 +13,7 @@ void GPSClass::startUART(uart_port_t p){
 void GPSClass::update(){
     uint8_t c;
 
-    while (uart_read_bytes(uart_num, &c, 1, 10 / portTICK_PERIOD_MS) > 0) {
+    while (uart_read_bytes(uart_num, &c, 1, 5 / portTICK_PERIOD_MS) > 0) {
         if (c == '\n') {
             line_[index_] = '\0';
 

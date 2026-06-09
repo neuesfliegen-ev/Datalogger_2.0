@@ -3,6 +3,7 @@
 #include "esp_check.h"
 #include "hal/imu.h"
 #include "hal/gps.h"
+#include "hal/airspeed.h"
 
 /* Structs */
 // Struct to save all three sensor data in one struct.
@@ -27,8 +28,8 @@ struct SDataset{
     float press;
 
     // Pressure sensors
-    float psta;
-    float pdyn;
+    float dpress;
+    float airspeed_temp;
 
     // GPS
     int32_t lat; 			// degrees * 1e7
@@ -49,7 +50,7 @@ struct SDataset{
 	uint16_t gps_year;
 };
 
-// Struct to save all data, in short (resistor level)
+// Struct to save all data, in short (register level)
 struct SDataset_raw{
 	short ax, ay, az;
 	short gx, gy, gz;
@@ -57,16 +58,17 @@ struct SDataset_raw{
 	short roll, pitch, yaw;
 	short tmp;
 	short hght;
-	float psta, pdyn;
+    uint16_t pressure_raw;
+    uint16_t temp_raw;
 };
 
 /* Classes */
 // Telemetry class to save all the data in one struct, and update the data from the sensors.
 class Telemetry{
 public:
-	Telemetry() {};
+	Telemetry(){};
 	SDataset dataset;
-	esp_err_t update_telemetry(uint32_t, CJY901&, GPSClass&);
+	esp_err_t update_telemetry(uint32_t, CJY901&, GPSClass&, AirspeedClass&);
 
 private:
 };

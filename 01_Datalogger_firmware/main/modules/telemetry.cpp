@@ -5,7 +5,7 @@
 
 // update_telemetry
 // This method takes in the data from the sensors, and updates the dataset struct with the new data.
-esp_err_t Telemetry::update_telemetry(uint32_t now, CJY901 &imu, GPSClass &gps){
+esp_err_t Telemetry::update_telemetry(uint32_t now, CJY901 &imu, GPSClass &gps, AirspeedClass &airspeed){
 	
 	dataset.t = now;
 	// 1. IMU data
@@ -43,7 +43,10 @@ esp_err_t Telemetry::update_telemetry(uint32_t now, CJY901 &imu, GPSClass &gps){
 	dataset.gps_day   = gps.dateTime_.date.day;
 	dataset.gps_month = gps.dateTime_.date.month;
 	dataset.gps_year  = gps.dateTime_.date.year;
-	/* Other sensor data should be updated here */
+
+	// Airspeed data
+	dataset.dpress = airspeed.data.pressure_pa;
+	dataset.airspeed_temp = airspeed.data.temp_c;
 
 	return ESP_OK;
 }

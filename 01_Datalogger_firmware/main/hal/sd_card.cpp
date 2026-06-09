@@ -32,7 +32,7 @@ esp_err_t SDCard::begin() {
         bus_cfg.sclk_io_num = SD_SCK_PIN;
         bus_cfg.quadwp_io_num = -1;
         bus_cfg.quadhd_io_num = -1;
-        bus_cfg.max_transfer_sz = 4000;
+        bus_cfg.max_transfer_sz = 16 * 1024;
 
     esp_err_t ret = spi_bus_initialize(spi_host, &bus_cfg, SDSPI_DEFAULT_DMA);
     if (ret != ESP_OK) {
