@@ -371,10 +371,10 @@
 				)
 			)
 			(symbol "ESP32 DEV KIT DOIT_1_1"
-				(pin input line
-					(at -17.78 -16.51 0)
+				(pin bidirectional line
+					(at -17.78 19.05 0)
 					(length 2.54)
-					(name "VIN"
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -392,7 +392,7 @@
 				(pin bidirectional line
 					(at 17.78 -16.51 180)
 					(length 2.54)
-					(name "3V3"
+					(name "30"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -407,10 +407,10 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -17.78 -13.97 0)
+				(pin input line
+					(at -17.78 16.51 0)
 					(length 2.54)
-					(name "GND"
+					(name "VP_(ADC/D36*)"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -428,7 +428,7 @@
 				(pin bidirectional line
 					(at 17.78 -13.97 180)
 					(length 2.54)
-					(name "GND"
+					(name "29"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -443,10 +443,10 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at -17.78 -11.43 0)
+				(pin input line
+					(at -17.78 13.97 0)
 					(length 2.54)
-					(name "ADC/D13"
+					(name "VN_(ADC/D39*)"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -461,28 +461,10 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 17.78 -11.43 180)
+				(pin input line
+					(at -17.78 11.43 0)
 					(length 2.54)
-					(name "ADC/D15"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 -8.89 0)
-					(length 2.54)
-					(name "ADC/D12"
+					(name "ADC/D34*"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -497,28 +479,10 @@
 						)
 					)
 				)
-				(pin bidirectional line
-					(at 17.78 -8.89 180)
+				(pin input line
+					(at -17.78 8.89 0)
 					(length 2.54)
-					(name "LED0/D2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 -6.35 0)
-					(length 2.54)
-					(name "ADC/D14"
+					(name "ADC/D35*"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -534,27 +498,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 -6.35 180)
+					(at -17.78 6.35 0)
 					(length 2.54)
-					(name "ADC/D4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 -3.81 0)
-					(length 2.54)
-					(name "ADC/D27"
+					(name "ADC/D32"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -570,45 +516,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 -3.81 180)
+					(at -17.78 3.81 0)
 					(length 2.54)
-					(name "UA2RX/D16"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 -1.27 0)
-					(length 2.54)
-					(name "ADC/DAC1/D26"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 17.78 -1.27 180)
-					(length 2.54)
-					(name "UA2TX/D17"
+					(name "ADC/D33"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -642,27 +552,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 1.27 180)
+					(at -17.78 -1.27 0)
 					(length 2.54)
-					(name "D5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 3.81 0)
-					(length 2.54)
-					(name "ADC/D33"
+					(name "ADC/DAC1/D26"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -678,27 +570,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 3.81 180)
+					(at -17.78 -3.81 0)
 					(length 2.54)
-					(name "D18"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 6.35 0)
-					(length 2.54)
-					(name "ADC/D32"
+					(name "ADC/D27"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -714,27 +588,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 6.35 180)
+					(at -17.78 -6.35 0)
 					(length 2.54)
-					(name "D19"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 8.89 0)
-					(length 2.54)
-					(name "ADC/D35*"
+					(name "ADC/D14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -750,27 +606,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 8.89 180)
+					(at -17.78 -8.89 0)
 					(length 2.54)
-					(name "D21"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 11.43 0)
-					(length 2.54)
-					(name "ADC/D34*"
+					(name "ADC/D12"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -786,27 +624,9 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 11.43 180)
+					(at -17.78 -11.43 0)
 					(length 2.54)
-					(name "UA0RX/D3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 13.97 0)
-					(length 2.54)
-					(name "VN_(ADC/D39*)"
+					(name "ADC/D13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -822,16 +642,16 @@
 					)
 				)
 				(pin bidirectional line
-					(at 17.78 13.97 180)
+					(at -17.78 -13.97 0)
 					(length 2.54)
-					(name "UA0TX/D1"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "13"
+					(number "14"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -840,45 +660,9 @@
 					)
 				)
 				(pin input line
-					(at -17.78 16.51 0)
+					(at -17.78 -16.51 0)
 					(length 2.54)
-					(name "VP_(ADC/D36*)"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 17.78 16.51 180)
-					(length 2.54)
-					(name "D22"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at -17.78 19.05 0)
-					(length 2.54)
-					(name "EN"
+					(name "VIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -903,7 +687,223 @@
 							)
 						)
 					)
-					(number "15"
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 16.51 180)
+					(length 2.54)
+					(name "D22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 13.97 180)
+					(length 2.54)
+					(name "UA0TX/D1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 11.43 180)
+					(length 2.54)
+					(name "UA0RX/D3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 8.89 180)
+					(length 2.54)
+					(name "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 6.35 180)
+					(length 2.54)
+					(name "D19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 3.81 180)
+					(length 2.54)
+					(name "D18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 1.27 180)
+					(length 2.54)
+					(name "D5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 -1.27 180)
+					(length 2.54)
+					(name "UA2TX/D17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 -3.81 180)
+					(length 2.54)
+					(name "UA2RX/D16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 -6.35 180)
+					(length 2.54)
+					(name "ADC/D4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "26"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 -8.89 180)
+					(length 2.54)
+					(name "LED0/D2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "27"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 17.78 -11.43 180)
+					(length 2.54)
+					(name "ADC/D15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "28"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -6953,19 +6953,19 @@
 		(pin "6"
 			(uuid "bcec8ae4-1cee-4022-bbea-18b495eca5c0")
 		)
-		(pin "5"
+		(pin "24"
 			(uuid "298c1860-82ca-4a43-aa1b-4344bd64c8b5")
 		)
-		(pin "6"
+		(pin "10"
 			(uuid "3da11670-8c4e-447b-8e7b-b5c44c0c4e75")
 		)
 		(pin "4"
 			(uuid "6ecea913-68fd-474f-8ba5-b6af9f99425d")
 		)
-		(pin "7"
+		(pin "25"
 			(uuid "c2251657-0646-4220-892d-2b24149c487f")
 		)
-		(pin "4"
+		(pin "26"
 			(uuid "eebe332e-1007-4bf2-a27e-df56cf8acda7")
 		)
 		(pin "12"
@@ -6974,46 +6974,46 @@
 		(pin "13"
 			(uuid "f3434528-e24c-45e2-88df-776e3212da71")
 		)
-		(pin "11"
+		(pin "28"
 			(uuid "0bd31772-4c08-4fdc-9024-f3ddbbc92051")
 		)
-		(pin "12"
+		(pin "27"
 			(uuid "e3fe4eb5-bd6b-456f-ad57-3d493b8792f6")
 		)
 		(pin "15"
 			(uuid "3e5ead75-a068-47dc-8652-8ecc3f637dd3")
 		)
-		(pin "15"
+		(pin "22"
 			(uuid "1c7c33a6-0dd5-48c8-92ec-cc7c3cd62ff6")
 		)
 		(pin "14"
 			(uuid "ec9759d9-2dc3-4b14-ac00-78ab069426f9")
 		)
-		(pin "14"
+		(pin "23"
 			(uuid "ae1755f6-ab34-4648-a92a-9a8a39cbb244")
 		)
-		(pin "13"
+		(pin "20"
 			(uuid "95d7256f-71ed-4fb7-829d-6bcf643434de")
 		)
 		(pin "8"
 			(uuid "52d63ca1-1f43-42d6-ae41-e40649b2328f")
 		)
-		(pin "10"
+		(pin "16"
 			(uuid "acbc1beb-d699-4f73-9d4f-4bee76840c1a")
 		)
 		(pin "9"
 			(uuid "0415af3d-4f82-4015-a7bf-4f074776d856")
 		)
-		(pin "8"
+		(pin "17"
 			(uuid "702941af-a80f-4d04-a997-97028b24deed")
 		)
 		(pin "11"
 			(uuid "e13772ad-0383-4d27-a94f-436b7ca4e352")
 		)
-		(pin "10"
+		(pin "18"
 			(uuid "8d66f6d6-250a-4609-8697-35796789e87d")
 		)
-		(pin "9"
+		(pin "19"
 			(uuid "985ddebd-8df2-4d03-bb09-cb0686ee1bf5")
 		)
 		(pin "1"
@@ -7031,7 +7031,7 @@
 		(pin "2"
 			(uuid "abb8ea3e-f9e8-4665-b08c-db3e4c5e23a0")
 		)
-		(pin "3"
+		(pin "21"
 			(uuid "5c5b5f02-a42e-45da-a9a0-fc0673291fbf")
 		)
 		(instances

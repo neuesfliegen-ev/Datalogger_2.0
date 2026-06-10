@@ -1,4 +1,4 @@
 (sym_lib_table
 	(version 7)
-	(lib (name "Datalogger-v2") (type "KiCad") (uri "/Users/mirellaborean/Documents/KiCad_custom_libraries/Datalogger-v2.kicad_sym") (options "") (descr ""))
+	(lib (name "Datalogger-v2") (type "KiCad") (uri "${KIPRJMOD}/Libraries/Datalogger-v2/Datalogger-v2.kicad_sym") (options "") (descr ""))
 )
