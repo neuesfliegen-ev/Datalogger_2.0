@@ -468,9 +468,12 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "Datalogger-v2"
+    ],
     "pinned_symbol_libs": [
-      "New_Datalogger"
+      "New_Datalogger",
+      "Datalogger-v2"
     ]
   },
   "meta": {
@@ -634,7 +637,7 @@
         "uuid": "42ef2c91-2c25-439b-9270-57cdf0bd934b"
       }
     ],
-    "used_designators": "U8",
+    "used_designators": "U1-8",
     "variants": []
   },
   "sheets": [
