@@ -15,14 +15,14 @@ const gpio_num_t IMU_SDA_PIN = GPIO_NUM_21; //1k pullup
 const gpio_num_t IMU_SCL_PIN = GPIO_NUM_22; //1k pullup
 
 //Airspeed sensor
-const gpio_num_t AIRSPEED_SDA_PIN = GPIO_NUM_8; //1k pull up --CHANGE
-const gpio_num_t AIRSPEED_SCL_PIN = GPIO_NUM_9; //1k pull up --CHANGE
+const gpio_num_t AIRSPEED_SDA_PIN = GPIO_NUM_27; //1k pull up --CHANGE
+const gpio_num_t AIRSPEED_SCL_PIN = GPIO_NUM_14; //1k pull up --CHANGE
 
 //SD card module
 const gpio_num_t SD_MISO_PIN = GPIO_NUM_19; //VSPI
-const gpio_num_t SD_CS_PIN = GPIO_NUM_13; 
+const gpio_num_t SD_CS_PIN = GPIO_NUM_5; //VPSI
 const gpio_num_t SD_SCK_PIN = GPIO_NUM_18; //VSPI
-const gpio_num_t SD_MOSI_PIN = GPIO_NUM_23; //10k pullup
+const gpio_num_t SD_MOSI_PIN = GPIO_NUM_23; //VSPI 10k pullup
 
 //LEDs
 const gpio_num_t BLINK_LED = GPIO_NUM_2;

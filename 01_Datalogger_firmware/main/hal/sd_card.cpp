@@ -24,7 +24,10 @@ esp_err_t SDCard::begin() {
         mount_config.allocation_unit_size = 16 * 1024;
 
     sdmmc_host_t host = SDSPI_HOST_DEFAULT();
-    spi_host_device_t spi_host = static_cast<spi_host_device_t>(host.slot);
+    host.slot = SPI3_HOST;   // VSPI beim klassischen ESP32
+    host.max_freq_khz = 10000; //idk but it works
+
+    spi_host_device_t spi_host = SPI3_HOST;
 
     spi_bus_config_t bus_cfg = {};
         bus_cfg.mosi_io_num = SD_MOSI_PIN;
@@ -34,7 +37,7 @@ esp_err_t SDCard::begin() {
         bus_cfg.quadhd_io_num = -1;
         bus_cfg.max_transfer_sz = 16 * 1024;
 
-    esp_err_t ret = spi_bus_initialize(spi_host, &bus_cfg, SDSPI_DEFAULT_DMA);
+    esp_err_t ret = spi_bus_initialize(spi_host, &bus_cfg, SPI_DMA_CH_AUTO);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "SPI bus init failed: %s", esp_err_to_name(ret));
         return ret;
@@ -42,7 +45,7 @@ esp_err_t SDCard::begin() {
 
     sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
         slot_config.gpio_cs = SD_CS_PIN;
-            slot_config.host_id = spi_host;
+        slot_config.host_id = spi_host;
 
     ret = esp_vfs_fat_sdspi_mount(
         SD_MOUNT_POINT,
@@ -86,20 +89,6 @@ esp_err_t SDCard::openLogFile(const char *path){
     return ESP_OK;
 }
 
-void SDCard::end(){
-    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
-    spi_host_device_t spi_host = static_cast<spi_host_device_t>(host.slot);
-
-    if (mounted && card != nullptr) {
-        esp_vfs_fat_sdcard_unmount(SD_MOUNT_POINT, card);
-        card = nullptr;
-        mounted = false;
-    }
-
-    spi_bus_free(spi_host);
-}
-
-
 esp_err_t SDCard::writeDatasets(const SDataset *data, size_t count){
     if (!mounted || log_file == nullptr || data == nullptr || count == 0) {
         return ESP_ERR_INVALID_STATE;
@@ -127,6 +116,39 @@ esp_err_t SDCard::flush(){
     }
 
     return ESP_OK;
+}
+
+esp_err_t SDCard::end()
+{
+    esp_err_t ret = ESP_OK;
+
+    if (log_file != nullptr) {
+        if (fflush(log_file) != 0) {
+            ESP_LOGE(TAG, "fflush failed");
+            ret = ESP_FAIL;
+        }
+
+        if (fclose(log_file) != 0) {
+            ESP_LOGE(TAG, "fclose failed");
+            ret = ESP_FAIL;
+        }
+
+        log_file = nullptr;
+    }
+
+    if (mounted && card != nullptr) {
+        esp_vfs_fat_sdcard_unmount(SD_MOUNT_POINT, card);
+        card = nullptr;
+        mounted = false;
+    }
+
+    esp_err_t spi_ret = spi_bus_free(SPI3_HOST);
+    if (spi_ret != ESP_OK) {
+        ESP_LOGE(TAG, "spi_bus_free failed: %s", esp_err_to_name(spi_ret));
+        ret = spi_ret;
+    }
+
+    return ret;
 }
 
 /*

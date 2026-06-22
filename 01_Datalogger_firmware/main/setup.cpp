@@ -84,7 +84,7 @@ void init_IMU_i2c(){
 
 	i2c_device_config_t imu_dev_cfg = {};
 	    imu_dev_cfg.dev_addr_length = I2C_ADDR_BIT_LEN_7;
-    	imu_dev_cfg.device_address = 0x50;
+    	imu_dev_cfg.device_address = WT901B_I2C_ADDR;
     	imu_dev_cfg.scl_speed_hz = 100000;
 
 	i2c_master_dev_handle_t imu_dev_handle;

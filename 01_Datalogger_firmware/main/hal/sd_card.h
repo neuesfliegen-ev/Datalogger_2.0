@@ -8,7 +8,7 @@
 class SDCard {
 public:
     esp_err_t begin();
-    void end();
+    esp_err_t end();
 
     esp_err_t openLogFile(const char *path);
 

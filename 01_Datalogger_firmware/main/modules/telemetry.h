@@ -7,7 +7,7 @@
 
 /* Structs */
 // Struct to save all three sensor data in one struct.
-struct SDataset{
+struct __attribute__((packed)) SDataset{
     uint32_t t;
 
     // IMU acceleration
@@ -49,6 +49,8 @@ struct SDataset{
 	uint8_t gps_month;
 	uint16_t gps_year;
 };
+
+static_assert(sizeof(SDataset) == 99, "SDataset size changed!");
 
 // Struct to save all data, in short (register level)
 struct SDataset_raw{

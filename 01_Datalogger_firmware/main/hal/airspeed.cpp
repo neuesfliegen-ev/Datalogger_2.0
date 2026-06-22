@@ -14,11 +14,15 @@
 #define T_MIN          (-50.0f)
 #define T_MAX          (150.0f)
 
-#define MS4525_TIMEOUT_MS 10
+#define MS4525_TIMEOUT_MS 100
 
 static float pressureBuffer[FILTER_SIZE];
 static uint8_t bufferIndex = 0;
 static float pressureSum = 0.0f;
+
+void AirspeedClass::setup(i2c_master_dev_handle_t sensor_handle) {
+    sensor = sensor_handle;
+}
 
 esp_err_t AirspeedClass::readRaw(uint8_t raw_data[4]) {
     return i2c_master_receive(sensor, raw_data, 4, pdMS_TO_TICKS(MS4525_TIMEOUT_MS));
@@ -36,10 +40,6 @@ static float updatePressureFilter(float newPressurePa)
     }
 
     return pressureSum / FILTER_SIZE;
-}
-
-void AirspeedClass::setup(i2c_master_dev_handle_t sensor_handle) {
-    sensor = sensor_handle;
 }
 
 esp_err_t AirspeedClass::read() {
