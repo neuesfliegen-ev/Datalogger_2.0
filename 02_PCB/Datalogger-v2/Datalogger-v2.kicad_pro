@@ -134,12 +134,12 @@
         "min_connection": 0.2,
         "min_copper_edge_clearance": 0.3,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.25,
+        "min_hole_clearance": 0.3,
         "min_hole_to_hole": 0.3,
-        "min_microvia_diameter": 0.2,
-        "min_microvia_drill": 0.1,
+        "min_microvia_diameter": 0.3,
+        "min_microvia_drill": 0.3,
         "min_resolved_spokes": 2,
-        "min_silk_clearance": 0.0,
+        "min_silk_clearance": 0.125,
         "min_text_height": 0.8,
         "min_text_thickness": 0.15,
         "min_through_hole_diameter": 0.3,
@@ -650,7 +650,7 @@
         "uuid": "42ef2c91-2c25-439b-9270-57cdf0bd934b"
       }
     ],
-    "used_designators": "#PWR2-11,U1-8",
+    "used_designators": "#PWR9-12",
     "variants": []
   },
   "sheets": [
