@@ -463,7 +463,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -617,7 +617,7 @@
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
       "field_names": [],
-      "hop_over_size_choice": 0,
+      "hop_over_size_choice": 2,
       "intersheets_ref_own_page": false,
       "intersheets_ref_prefix": "",
       "intersheets_ref_short": false,
@@ -638,7 +638,7 @@
     "meta": {
       "version": 1
     },
-    "page_layout_descr_file": "",
+    "page_layout_descr_file": "Schematic Flight Logger NFC 2027",
     "plot_directory": "",
     "reuse_designators": true,
     "subpart_first_id": 65,
@@ -650,7 +650,7 @@
         "uuid": "42ef2c91-2c25-439b-9270-57cdf0bd934b"
       }
     ],
-    "used_designators": "U1-8",
+    "used_designators": "#PWR2-11,U1-8",
     "variants": []
   },
   "sheets": [

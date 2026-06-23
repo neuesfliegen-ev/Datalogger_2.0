@@ -242,7 +242,7 @@
 			)
 		)
 		(property "Value" "ESP32 DEV KIT DOIT"
-			(at -1.651 23.5331 0)
+			(at -11.938 23.622 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -386,46 +386,10 @@
 					)
 				)
 			)
-			(pin bidirectional line
-				(at 17.78 -16.51 180)
-				(length 2.54)
-				(name "30"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
 			(pin input line
 				(at -17.78 16.51 0)
 				(length 2.54)
 				(name "VP_(ADC/D36*)"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin bidirectional line
-				(at 17.78 -13.97 180)
-				(length 2.54)
-				(name "29"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -695,7 +659,7 @@
 			(pin bidirectional line
 				(at 17.78 16.51 180)
 				(length 2.54)
-				(name "D22"
+				(name "SCL/D22"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -749,7 +713,7 @@
 			(pin bidirectional line
 				(at 17.78 8.89 180)
 				(length 2.54)
-				(name "20"
+				(name "SDA/D21"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -785,7 +749,7 @@
 			(pin bidirectional line
 				(at 17.78 3.81 180)
 				(length 2.54)
-				(name "D18"
+				(name "SCK/D18"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -803,7 +767,7 @@
 			(pin bidirectional line
 				(at 17.78 1.27 180)
 				(length 2.54)
-				(name "D5"
+				(name "CS/D5"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -901,6 +865,42 @@
 					)
 				)
 				(number "28"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin bidirectional line
+				(at 17.78 -13.97 180)
+				(length 2.54)
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "29"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 17.78 -16.51 180)
+				(length 2.54)
+				(name "3V3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "30"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -1480,7 +1480,7 @@
 		(in_pos_files yes)
 		(duplicate_pin_numbers_are_jumpers no)
 		(property "Reference" "U"
-			(at 0 13.716 0)
+			(at 0 12.446 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1489,10 +1489,11 @@
 				)
 			)
 		)
-		(property "Value" "Micro SD Card Adapter"
+		(property "Value" ""
 			(at 0 10.668 0)
 			(show_name no)
 			(do_not_autoplace no)
+			(hide yes)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1557,6 +1558,14 @@
 			)
 		)
 		(symbol "Micro_SD_Card_Adapter_1_1"
+			(text "Micro SD Card Adapter"
+				(at 0 9.906 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
 			(pin input line
 				(at 8.89 6.35 180)
 				(length 2.54)
@@ -1675,7 +1684,7 @@
 		(in_pos_files yes)
 		(duplicate_pin_numbers_are_jumpers no)
 		(property "Reference" "U?"
-			(at 6.35 5.588 0)
+			(at 6.35 5.842 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1684,7 +1693,7 @@
 				)
 			)
 		)
-		(property "Value" "TP4056"
+		(property "Value" ""
 			(at 6.604 3.556 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1739,17 +1748,6 @@
 			)
 		)
 		(symbol "TP4056_0_0"
-			(rectangle
-				(start 0 2.54)
-				(end 12.7 -10.16)
-				(stroke
-					(width 0.254)
-					(type solid)
-				)
-				(fill
-					(type none)
-				)
-			)
 			(pin unspecified line
 				(at -5.08 0 0)
 				(length 5.08)
@@ -1855,6 +1853,27 @@
 						(font
 							(size 1.27 1.27)
 						)
+					)
+				)
+			)
+		)
+		(symbol "TP4056_1_1"
+			(rectangle
+				(start 0 2.54)
+				(end 12.7 -10.16)
+				(stroke
+					(width 0.254)
+					(type solid)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(text "TP4056"
+				(at 6.604 4.064 0)
+				(effects
+					(font
+						(size 1.27 1.27)
 					)
 				)
 			)

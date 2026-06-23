@@ -4045,7 +4045,6 @@
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
@@ -4057,21 +4056,12 @@
 			(effects
 				(font
 					(size 1.27 1.27)
-					(thickness 0.15)
 				)
 			)
 		)
 		(path "/782c0781-373d-4a99-81bb-28c5d87481c7")
 		(sheetname "/")
 		(sheetfile "Datalogger-v2.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15"
-					"16" "17" "18" "19" "20" "21" "22" "23" "24" "25" "26" "27" "28"
-				)
-			)
-		)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.2805 -4.3195)
@@ -9286,6 +9276,19 @@
 			(font
 				(size 1 1)
 				(thickness 0.2)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "Next step: compare constraints of past Datalogger's PCB with this one. \nJust copy and paste the values. \nSpecifically the vias holes?? \n(Just anything)"
+		(at 112 154 0)
+		(layer "Cmts.User")
+		(uuid "01ceb9a9-7da0-4379-b3cb-87fea223cde8")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
 				(bold yes)
 			)
 			(justify left bottom)
