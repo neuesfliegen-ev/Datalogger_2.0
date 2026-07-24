@@ -110,9 +110,9 @@
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
-        "text_height": "warning",
+        "text_height": "ignore",
         "text_on_edge_cuts": "error",
-        "text_thickness": "warning",
+        "text_thickness": "ignore",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
         "track_angle": "error",
@@ -195,7 +195,7 @@
       ],
       "track_widths": [
         0.0,
-        2.03286
+        0.781437
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -229,8 +229,8 @@
           "drill": 0.0
         },
         {
-          "diameter": 0.7,
-          "drill": 0.3
+          "diameter": 0.8,
+          "drill": 0.4
         }
       ],
       "zones_allow_external_fillets": false
@@ -518,6 +518,21 @@
         "via_diameter": 0.7,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.35,
+        "diff_pair_width": 0.3,
+        "microvia_diameter": 0.4,
+        "microvia_drill": 0.4,
+        "name": "+5V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.781437,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
       }
     ],
     "meta": {
