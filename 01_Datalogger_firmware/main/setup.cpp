@@ -113,7 +113,7 @@ void init_Airspeed_i2c(){
 
 	i2c_master_dev_handle_t airspeed_dev_handle;
 	ESP_ERROR_CHECK(i2c_master_bus_add_device(airspeed_bus_handle, &airspeed_dev_cfg, &airspeed_dev_handle));
-	Airspeed.setup(airspeed_dev_handle);
+	airspeed.setup(airspeed_dev_handle);
 }
 
 void serial_buses_setup(){

@@ -29,6 +29,7 @@ public:
 	esp_err_t calibrateAcc();
 	esp_err_t calibrateMag();
 	esp_err_t stopCalibrating();
+	esp_err_t setOutputRate(uint8_t rate);
 	// getOffsets();
 	void checkOrientation();
 	void checkAxis6Mode();

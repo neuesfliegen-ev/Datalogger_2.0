@@ -11,9 +11,7 @@ public:
     esp_err_t end();
 
     esp_err_t openLogFile(const char *path);
-
     esp_err_t writeDatasets(const SDataset *data, size_t count);
-
     esp_err_t flush();
 
     esp_err_t writeFile(const char *path, const char *data);

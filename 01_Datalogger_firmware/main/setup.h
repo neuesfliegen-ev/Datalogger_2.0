@@ -20,7 +20,7 @@ extern int command, option;
 extern Telemetry telemetry;
 extern CJY901 IMU;
 extern RadioClass Radio;
-extern AirspeedClass Airspeed;
+extern AirspeedClass airspeed;
 extern GPSClass GPS;
 extern CommandHandler commandHandler;
 

@@ -144,6 +144,19 @@ esp_err_t CJY901::stopCalibrating(){ // unlock, set calsw normal, save
   return save();
 }
 
+esp_err_t CJY901::setOutputRate(uint8_t rate){ // unlock, set output rate
+  esp_err_t err = unlock();
+  if (err != ESP_OK)
+    return err;
+
+  uint8_t toWrite[] = {RRATE, rate};
+  err = writeRegister(toWrite, 2);
+  if (err != ESP_OK)
+    return err;
+
+  return save();
+}
+
 esp_err_t CJY901::unlock(){
   uint8_t array[5] = {0xFF, 0xAA, 0x69, 0x88, 0xB5};
   esp_err_t r = writeRegister(array, 5);

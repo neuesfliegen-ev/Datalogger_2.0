@@ -16,8 +16,7 @@ static const char *SD_MOUNT_POINT = "/sdcard";
 esp_err_t SDCard::begin() {
     if (mounted) {
         return ESP_OK;
-    }
-
+    } 
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {};
         mount_config.format_if_mount_failed = false;
         mount_config.max_files = 5;
