@@ -99,3 +99,6 @@ printf 'text\n' > /dev/ttyUSB0
 ```
 
 The receiving LoRa module should output the transmitted data through its serial interface.
+
+
+<img width="1918" height="718" alt="image" src="https://github.com/user-attachments/assets/b347c34d-f611-4019-88bf-331b83d70862" />
