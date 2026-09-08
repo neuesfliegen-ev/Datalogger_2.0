@@ -1,45 +1,99 @@
-###Radio module configuration###
+# LoRa Radio Module Configuration & Message Transmission
 
-Wire the USB TTL converter to the LoRa module.
+## Radio Module Configuration
 
-M1 to high, M0 to GND.
+### 1. Wiring
 
-In left window
+Wire the USB-TTL converter to the LoRa module.
 
-1. Connect to correct ttyUSB0 port:
-   
-  sudo stty -F /dev/ttyUSB0 9600 cs8 -cstopb -parenb
-  
-3. Listen to the port:
-   
-  cat /dev/ttyUSB0
+| Pin | Level |
+|---|---|
+| M1 | HIGH |
+| M0 | GND |
 
-In right window
+### 2. Configure the Serial Port
 
-1. sudo echo "AT+HELP=?" > /dev/ttyUSB0
+In the **left terminal window**, connect to the correct `/dev/ttyUSB0` port:
 
-Possible errors: 
+```bash
+sudo stty -F /dev/ttyUSB0 9600 cs8 -cstopb -parenb
+```
 
-1. port busy
-   
-  Usually because of opened session in another window.
+### 3. Listen to the Port
 
-3. Password needed for echo
-   
-   Change the admin requirements with:
-   
-   sudo usermod -aG dialout $USER
+In the **left terminal window**:
 
+```bash
+cat /dev/ttyUSB0
+```
 
-###Sending messages###
+Keep this running to listen for responses from the module.
 
-Both M1 and M0 to GND for transmission mode.
+### 4. Send an AT Command
 
-1. Keep cat window for listening
-2. For writing
-   printf '\x01\x02\x03\x04' > /dev/ttyUSB0
-   
-   OR
+In the **right terminal window**:
 
-   printf 'text' > /dev/ttyUSB0
+```bash
+sudo echo "AT+HELP=?" > /dev/ttyUSB0
+```
 
+### Common Errors
+
+#### Port Busy
+
+Usually caused by another program or terminal session already using `/dev/ttyUSB0`.
+
+Close the other session or application using the port.
+
+#### Permission Denied
+
+If you get a permission error when accessing the serial port, add your user to the `dialout` group:
+
+```bash
+sudo usermod -aG dialout $USER
+```
+
+Log out and back in for the group change to take effect.
+
+---
+
+# Sending Messages
+
+For normal transmission mode, set both pins to GND:
+
+| Pin | Level |
+|---|---|
+| M1 | GND |
+| M0 | GND |
+
+### 1. Keep the Listener Running
+
+Keep the following command running in the **left terminal window**:
+
+```bash
+cat /dev/ttyUSB0
+```
+
+### 2. Send Binary Data
+
+In the **right terminal window**:
+
+```bash
+printf '\x01\x02\x03\x04' > /dev/ttyUSB0
+```
+
+### 3. Send Text
+
+Send plain text:
+
+```bash
+printf 'text' > /dev/ttyUSB0
+```
+
+Or send text followed by a newline:
+
+```bash
+printf 'text\n' > /dev/ttyUSB0
+```
+
+The receiving LoRa module should output the transmitted data through its serial interface.
