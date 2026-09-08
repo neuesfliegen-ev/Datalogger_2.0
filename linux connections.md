@@ -1,5 +1,7 @@
 ###Radio module configuration###
+
 Wire the USB TTL converter to the LoRa module.
+
 M1 to high, M0 to GND.
 
 In left window
@@ -14,9 +16,13 @@ In right window
 Possible errors: 
 1. port busy
   Usually because of opened session in another window.
+2. Password needed for echo
+   Change the admin requirements with:
+   sudo usermod -aG dialout $USER
 
 
 ###Sending messages###
+
 Both M1 and M0 to GND for transmission mode.
 
 1. Keep cat window for listening
