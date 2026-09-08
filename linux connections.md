@@ -16,8 +16,10 @@ Wire the USB-TTL converter to the LoRa module.
 In the **left terminal window**, connect to the correct `/dev/ttyUSB0` port:
 
 ```bash
-sudo stty -F /dev/ttyUSB0 9600 cs8 -cstopb -parenb
+sudo stty -F /dev/ttyUSB0 9600 cs8 -cstopb -parenb raw -echo
 ```
+
+!!!!!You need the raw or else u get an error
 
 ### 3. Listen to the Port
 
