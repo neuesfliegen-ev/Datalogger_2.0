@@ -1,13 +1,16 @@
 # LoRa Radio Module Configuration & Message Transmission
 
 ## Radio Module Configuration
-Problem with radio link? It's usually the hardware setting (module configuration)
+Problem with radio link? It's usually the hardware settings (module configuration).
+
+
 Configuration settings to be set:
 | AT command | Meaning |
 |---|---|
 | AT+UART=7,0 | 115200 baud rate, 8N1 |
 | AT+RATE=5 | 19.2 kbps |
 | AT+CHANNEL=1 | using channel 1 |
+| AT+ADDR=1 | set different number for each module |
 
 ### 1. Wiring
 
@@ -23,8 +26,10 @@ Wire the USB-TTL converter to the LoRa module.
 In the **left terminal window**, connect to the correct `/dev/ttyUSB0` port:
 
 ```bash
-sudo stty -F /dev/ttyUSB0 9600 cs8 -cstopb -parenb raw -echo
+sudo stty -F /dev/ttyUSB0 115200 cs8 -cstopb -parenb raw -echo
 ```
+
+If the module hasn't been set to 115200 baud rate yet, then use the default 9600.
 
 !!!!!You need the raw or else u get an error
 
