@@ -1,7 +1,7 @@
 # LoRa Radio Module Configuration & Message Transmission
 
 ## Radio Module Configuration
-
+Problem with radio link? It's usually the hardware setting (module configuration)
 Configuration settings to be set:
 | AT command | Meaning |
 |---|---|
