@@ -1,0 +1,14 @@
+idf_component_register(
+    SRCS
+        "test_main.cpp"
+        "test_imu.cpp"
+        "../../main/hal/imu.cpp"
+        "test_airspeed.cpp"
+        "../../main/hal/airspeed.cpp"
+    INCLUDE_DIRS
+        "."
+        "../../main"
+    REQUIRES
+        unity
+        esp_driver_i2c
+)
