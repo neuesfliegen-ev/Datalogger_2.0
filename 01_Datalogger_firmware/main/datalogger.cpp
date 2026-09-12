@@ -28,9 +28,9 @@
 #include "hal/sd_card.h"
 
 /* Settings */
-bool DEBUG = false;
+bool DEBUG = true;
 bool TELEMETRY_ENABLED = false;
-bool LOGGING_ENABLED = false;
+bool LOGGING_ENABLED = true;
 
 QueueHandle_t datasetQueue;
 QueueHandle_t radioQueue;
@@ -48,6 +48,7 @@ CommandHandler commandHandler(Radio, IMU, airspeed, GPS, sd, telemetry, LOGGING_
 static uint32_t last_gps_update = 0;
 static uint32_t last_imu_update = 0;
 static uint32_t last_airspeed_update = 0;
+static uint32_t last_radio_tx = 0;
 
 void generateFileName(char *buffer, size_t buffer_size){
     int64_t ms = esp_timer_get_time() / 1000;
@@ -92,27 +93,55 @@ void update_all_sensor_data(){
 	if(DEBUG) ESP_LOGI("TELEMETRY", "updated telemetry\n");
 }
 
-//Read sensors, read radio, send over radio 
+//Read sensors, read radio commands
 void polling_task(void *pvParameters) {
 	RadioMessage msg;
     
     for(;;) {
-
+    	
     	update_all_sensor_data(); 
 
-    	//Queue to the sd card 
-  		if (xQueueSend(datasetQueue, &telemetry.dataset, 0) != pdTRUE) {
-    		ESP_LOGW("SD QUEUE", "datasetQueue full, sample dropped");
-		}     
+        // Queue data for SD
+        if (LOGGING_ENABLED) {
+            if (xQueueSend(datasetQueue, &telemetry.dataset, 0) != pdTRUE) {
+                ESP_LOGW("SD QUEUE", "datasetQueue full, sample dropped");
+            }
+        }    
 		
-		if (Radio.readCommand(command, option)) commandHandler.executeCommand(command, option);
-		if (xQueueReceive(radioQueue, &msg, portMAX_DELAY) == pdTRUE) uart_write_bytes(RADIO_UART_NUM, msg.text, msg.len);
-
-		if(TELEMETRY_ENABLED){
-			Radio.sendDataset(&telemetry);	
+		if (Radio.readCommand(command, option)){
+			commandHandler.executeCommand(command, option);
 		}
 
-        vTaskDelay(pdMS_TO_TICKS(50));
+		uint32_t now = esp_timer_get_time() / 1000;
+		if(TELEMETRY_ENABLED && (now - last_radio_tx > TELEMETRY_PERIOD)){
+			int64_t t0 = esp_timer_get_time();
+			Radio.sendDataset(&telemetry);
+			int64_t t1 = esp_timer_get_time();
+
+			printf("sendDataset took %.2f ms\n", (t1 - t0) / 1000.0);
+			last_radio_tx = now;
+		}
+
+        // IMPORTANT: give other tasks CPU time
+        vTaskDelay(pdMS_TO_TICKS(10));
+
+    }
+}
+
+//Radio TX Parsing
+void radio_tx_task(void *arg) {
+    RadioMessage msg;
+
+    for (;;) {
+    	if(TELEMETRY_ENABLED){
+    		// Blocking is fine here because this task ONLY handles TX
+    		if (xQueueReceive(radioQueue, &msg, portMAX_DELAY) == pdTRUE) {
+
+            int written = uart_write_bytes(RADIO_UART_NUM, msg.text, msg.len);
+
+            if(DEBUG)ESP_LOGI("RADIO TX","sent %d/%d bytes",written,msg.len);
+        	}
+    	}
     }
 }
 
@@ -175,8 +204,33 @@ extern "C" void app_main(){
 
 	datasetQueue = xQueueCreate(32, sizeof(SDataset));
 
-	xTaskCreatePinnedToCore(polling_task, "polling_task", 4096, NULL, 5, NULL, 0);
+	   // Sensors + command RX
+    xTaskCreatePinnedToCore(
+        polling_task,
+        "polling_task",
+        4096,
+        NULL,
+        5,
+        NULL,
+        0
+    );
+
+    // Radio TX
+    xTaskCreatePinnedToCore(
+        radio_tx_task,
+        "radio_tx_task",
+        2048,
+        NULL,
+        4,
+        NULL,
+        0
+    );
+
 	xTaskCreatePinnedToCore(logging_task, "logging_task", 6144, NULL, 6, NULL, 1);
 	//xTaskCreatePinnedToCore(gps_task, "gps_task", 1024, NULL, 7, NULL, 0);
+
+	//Verify radio link by sending message over UART
+	Radio.sendMessage("hello hello hello, datalogger radio link is up\n");
+
 }
 

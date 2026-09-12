@@ -28,7 +28,7 @@ const uart_port_t RADIO_UART_NUM = UART_NUM_2;
 const uart_port_t GPS_UART_NUM = UART_NUM_1;
 
 //BAUD RATES
-const uint32_t RADIO_BAUD_RATE = 9600;
+const uint32_t RADIO_BAUD_RATE = 115200;
 const uint32_t GPS_BAUD_RATE = 115200;
 
 //COMMUNICATION PROTOCOLS
@@ -43,6 +43,8 @@ const uint16_t AIRSPEED_I2C_ADDR = 0x28;
 const uint32_t GPS_UPDATE_PERIOD = 500;
 const uint32_t AIRSPEED_UPDATE_PERIOD = 200;
 //const uint32_t IMU_UPDATE_PERIOD = 100;
+const uint32_t RADIO_TX_PERIOD = 150;
+const uint32_t TELEMETRY_PERIOD = 1000;
 
 esp_err_t radio_uart_setup();
 

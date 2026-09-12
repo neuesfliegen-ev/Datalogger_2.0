@@ -30,10 +30,10 @@ esp_err_t CommandHandler::executeCommand(int command, int option) {
     switch(command) {
         case 0: //START CALIBRATION (ALL SENSORS)
             radio.sendMessage("Received command 0: starting calibration, stop when ready...\n");
-            if(option){
-                radio.sendMessage("Missing argument: calibrate what?\n");
-            }else {
+            if(option >= 0) {
                 calibrate(option);
+            }else{
+                radio.sendMessage("Missing argument: calibrate what?\n");
             }
             break;
 

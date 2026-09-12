@@ -28,28 +28,33 @@ bool RadioClass::readCommand(int& command, int& option) {
     static int index = 0;
     uint8_t byte;
 
-    int len = uart_read_bytes(uart_num, &byte, 1, 10);
 
-    if (len <= 0) {return false; }
+    while(uart_read_bytes(uart_num, &byte, 1, 10) == 1){
+        //if(DEBUG)printf("UART RX: 0x%02X ('%c')\n",byte,(byte >= 32 && byte <= 126) ? byte : '.');
+        if (byte == '\n' || byte == '\r'){
+            if (index == 0){continue;}
+           
+            buffer[index] = '\0';
+            option = -1; //reset option value
+            int parsed = sscanf(buffer, "%d %d", &command, &option);
+            if(DEBUG)printf("command: %d, option: %d\n", command, option);
+            
+            index = 0;
+           
+            return parsed == 1 || parsed == 2;
+        }
+            
+        if (index >= sizeof(buffer) - 1) {
+            index = 0;
+            uart_flush(uart_num);
+            sendMessage("Command too long, flushing UART\n");
+            if(DEBUG)printf("Command too long, flushing UART\n");
+            return false;
+        }
+        buffer[index++] = byte;
 
-    if (byte == '\n' || byte == '\r') {
-        if (index == 0) return false;
-
-        buffer[index] = '\0';
-        int parsed = sscanf(buffer, "%d %d", &command, &option);
-        index = 0;
-        return parsed == 2;
     }
 
-    if (index >= sizeof(buffer) - 1) {
-        index = 0;
-        uart_flush(uart_num);
-        sendMessage("Command too long, flushing UART\n");
-        if(DEBUG)printf("Command too long, flushing UART\n");
-        return false;
-    }
-
-    buffer[index++] = byte;
     return false;
 }
 
