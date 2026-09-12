@@ -7,5 +7,5 @@ TEST_CASE("hardware test application starts", "[smoke]")
 
 extern "C" void app_main()
 {
-    unity_run_menu();
+    unity_run_all_tests();
 }
