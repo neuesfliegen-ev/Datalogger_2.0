@@ -2,6 +2,13 @@
 
 ## Radio Module Configuration
 
+Configuration settings to be set:
+| AT command | Meaning |
+|---|---|
+| AT+UART=7,0 | 115200 baud rate, 8N1 |
+| AT+RATE=5 | 19.2 kbps |
+| AT+CHANNEL=1 | using channel 1 |
+
 ### 1. Wiring
 
 Wire the USB-TTL converter to the LoRa module.
