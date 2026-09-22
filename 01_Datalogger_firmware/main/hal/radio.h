@@ -1,5 +1,4 @@
-#ifndef RADIO_H
-#define RADIO_H
+#pragma once
 
 #include <stdint.h>
 #include <stddef.h>
@@ -12,51 +11,44 @@
 
 #include "telemetry.h"
 
-typedef struct {
-    char type[2]; //"D:" or "I:"
-    char text[1024];
-    size_t len;
-} RadioMessage;
+enum class RadioTxType : uint8_t {
+    Telemetry = 1,
+    Info      = 2,
+    Ack       = 3
+};
 
-typedef struct {
+struct RadioHeader {
     uint8_t type;
-    Telemetry& data;
-} RadioDataBin;
-
-typedef struct{
-
-} RadioInfoBin;
+    uint16_t len;
+};
 
 struct RadioCommand {
-    int command;
-    int option;
+    uint8_t command;
+    uint8_t option;
+};
+
+struct RadioMessage {
+    char text[256];
+    size_t len;
 };
 
 class RadioClass {
-private:
-    gpio_num_t M0_PIN;
-    gpio_num_t M1_PIN;
-    uart_port_t uart_num;
-    QueueHandle_t radioQueue;
-
 public:
     RadioClass(gpio_num_t, gpio_num_t);
-
     void setQueue(QueueHandle_t);
-
     void startUART(uart_port_t p);
 
     bool readCommand(int& cmd, int& option);
 
     int readBytes(void *buf, uint32_t length);
-
     int writeBytes(const uint8_t* data, size_t length);
 
     int sendMessage(const char* msg);
-
-    int sendData(const uint8_t*, size_t);
-
     int sendDataset(Telemetry*);
-};
 
-#endif
+private:
+    gpio_num_t M0_PIN;
+    gpio_num_t M1_PIN;
+    uart_port_t uart_num;
+    QueueHandle_t radioQueue;
+};

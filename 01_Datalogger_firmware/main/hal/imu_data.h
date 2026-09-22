@@ -1,5 +1,4 @@
-#ifndef IMU_DATA_H
-#define IMU_DATA_H
+#pragma once
 
 struct STime
 {
@@ -72,4 +71,3 @@ struct IMUData
     SBar bar;
 };
 
-#endif
