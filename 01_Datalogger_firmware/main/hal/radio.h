@@ -44,6 +44,7 @@ public:
     int writeBytes(const uint8_t* data, size_t length);
 
     int sendMessage(const char* msg);
+    int sendMessage(int);
     int sendDataset(Telemetry*);
 
 private:

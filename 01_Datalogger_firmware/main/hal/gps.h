@@ -1,14 +1,12 @@
 #pragma once
 
 #include "driver/uart.h"
-
 #include "hal/gps_data.h"
 
 class GPSClass {
 public:
 	GPSClass(){};
 	void startUART(uart_port_t p);
-
 	void update();
 
 	SGPS gps_;

@@ -84,6 +84,13 @@ int RadioClass::sendMessage(const char* text) {
     return xQueueSend(radioQueue, &msg, 0);
 }
 
+int RadioClass::sendMessage(int value) {
+    char buffer[16];
+    snprintf(buffer, sizeof(buffer), "%d", value);
+
+    return sendMessage(buffer);
+}
+
 int RadioClass::sendDataset(Telemetry* telemetry){
     RadioMessage msg;  
     SDataset& d = telemetry->dataset;

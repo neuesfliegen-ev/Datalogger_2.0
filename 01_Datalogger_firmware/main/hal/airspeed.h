@@ -21,8 +21,6 @@ typedef struct {
     float pressure_pa;
     float temp_c;
     float speed_ms;
-    //float speed_kmh;
-    //float speed_kt;
     float offset;
 } ms4525_data;
 

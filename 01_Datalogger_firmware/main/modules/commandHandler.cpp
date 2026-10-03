@@ -84,9 +84,33 @@ esp_err_t CommandHandler::executeCommand(int command, int option) {
 
 esp_err_t CommandHandler::calibrate(int option){
     switch(option){
-        case 0: return imu.calibrateAcc(); break;
-        case 1: return imu.calibrateMag(); break;
-        default: radio.sendMessage("Invalid parameter: option\n");
+        //Accelerometer
+        case 0: 
+            return imu.calibrateAcc(); break;
+        //Magnetometer
+        case 1: 
+            return imu.calibrateMag(); break;
+        //Airspeed sensor
+        case 2: {
+            radio.sendMessage("Finding airspeed sensor offset: 200 sample points");
+            esp_err_t result = airspeed.offset(200);
+            radio.sendMessage("Set offset: ");
+            radio.sendMessage(airspeed.data.offset);
+            radio.sendMessage("\n");
+            return result;
+            break;
+        }
+        //GPS sat count
+        case 3: {
+            gps.update();
+            radio.sendMessage("Sat count: ");
+            radio.sendMessage(gps.gps_.satellites);
+            radio.sendMessage("\n");
+            return ESP_OK;
+            break;
+        }
+        default: 
+            radio.sendMessage("Invalid parameter: option\n");
     }
     return ESP_OK;
 }

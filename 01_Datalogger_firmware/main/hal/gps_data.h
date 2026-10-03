@@ -12,6 +12,7 @@ typedef struct {
     int32_t longitude;   // degrees * 1e7
     uint16_t speed;      // km/h * 100
     int32_t altitude;    // meters * 100
+    uint8_t satellites;  // count
 } SGPS;
 
 typedef struct {
