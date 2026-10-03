@@ -55,6 +55,9 @@ void GPSClass::parseGGA(char* line)
     if (f[4] && f[5])
         gps_.longitude = parseCoord(f[4], f[5][0]);
 
+    if (f[7])
+        gps_.satellites = static_cast<uint8_t>(std::atoi(f[7]));
+
     if (f[9])
         gps_.altitude = parseAltitude(f[9]);
 }
