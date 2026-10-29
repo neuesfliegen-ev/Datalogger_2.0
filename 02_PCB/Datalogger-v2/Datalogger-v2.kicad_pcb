@@ -9,7 +9,7 @@
 	(paper "A4")
 	(title_block
 		(title "Flight Logger NFC 2027")
-		(date "2026-10-26")
+		(date "2026-10-29")
 		(company "Neues Fliegen e.V.")
 		(comment 1 "Mirella Borean")
 	)
