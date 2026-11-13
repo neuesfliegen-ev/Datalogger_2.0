@@ -4,9 +4,9 @@ ESP-IDF firmware for an ESP32-based flight data logger. It reads an IMU, GPS, an
 
 ## Start here
 
-1. Read [`docs/architecture.md`](docs/architecture.md) for the runtime flow.
-2. Read [`docs/commands.md`](docs/commands.md) before using the radio link.
-3. Check [`docs/hardware.md`](docs/hardware.md) before connecting hardware.
+1. Read [`03_Docs/architecture.md`](../03_Docs/architecture.md) for the runtime flow.
+2. Read [`03_Docs/commands.md`](../03_Docs/commands.md) before using the radio link.
+3. Check [`03_Docs/hardware.md`](../03_Docs/hardware.md) before connecting hardware.
 
 The program entry point is `app_main()` in `main/datalogger.cpp`.
 

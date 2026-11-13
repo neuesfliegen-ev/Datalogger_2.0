@@ -2,7 +2,7 @@
 
 A few simple habits to keep our workflow smooth, organized, and conflict-free.
 
-> See also: [🌿 Branch Naming & Workflow Convention](\docs\branch-convention.md)
+> See also: [🌿 Branch Naming & Workflow Convention](branch-convention.md)
 
 ---
 

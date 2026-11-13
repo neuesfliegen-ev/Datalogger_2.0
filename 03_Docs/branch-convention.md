@@ -2,7 +2,7 @@
 
 To keep our collaboration organized and avoid conflicts, please follow these guidelines when creating and managing branches.
 
-> See also: [📜 GitHub Best Practices](\docs\github-best-practices.md)
+> See also: [📜 GitHub Best Practices](github-best-practices.md)
 
 ---
 
