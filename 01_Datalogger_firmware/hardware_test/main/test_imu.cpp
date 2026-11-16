@@ -109,4 +109,3 @@ TEST_CASE(
     i2c_master_bus_rm_device(device_handle);
     i2c_del_master_bus(bus_handle);
 }
-

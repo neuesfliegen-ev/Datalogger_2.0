@@ -52,4 +52,3 @@ radio UART --> readCommand() --> CommandHandler --> radioQueue
 | `CommandHandler` | Applies commands to sensors, logging, and telemetry |
 | `RadioClass` | Parses commands and queues outgoing messages |
 | `SDCard` | Mounts the card and writes binary datasets |
-

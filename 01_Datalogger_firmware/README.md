@@ -44,4 +44,3 @@ main/
 - Radio commands use a simple text protocol without checksums.
 - SD files contain packed binary `SDataset` records and are not portable if that structure changes.
 - Several devices and runtime flags are global; this is a future refactoring target.
-

@@ -49,4 +49,3 @@ roll, pitch, yaw, temperature, height, pressure
 - A command is processed only after `\n` or `\r` is received.
 - The input buffer holds at most 63 characters plus the terminator.
 - Invalid input currently produces no parser error response.
-

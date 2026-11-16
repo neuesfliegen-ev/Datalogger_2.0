@@ -128,7 +128,7 @@ TEST_CASE("[GPS] UART data diagnostic", "[gps]")
     TEST_MESSAGE(
         "[GPS] Manually verify the latitude, longitude, and fix status "
         "in the NMEA output against the board's current location.");
-        
+
     /* Step 4: Release the UART resources. */
 
     uart_driver_delete(GPS_UART_PORT);

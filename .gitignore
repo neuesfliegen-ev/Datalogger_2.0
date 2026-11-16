@@ -45,3 +45,4 @@
 01_Datalogger_firmware/sdkconfig
 01_Datalogger_firmware/hardware_test/sdkconfig
 01_Datalogger_firmware/hardware_test/build
+.vscode/
