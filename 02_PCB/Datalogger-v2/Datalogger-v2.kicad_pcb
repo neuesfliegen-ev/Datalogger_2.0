@@ -10950,6 +10950,18 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "- MAKE TRACES SHORTERRRRR\n- CHANGE MINIMUM WIDTH OF TRACES TO 0.3 mm"
+		(at 88.485 99 0)
+		(layer "Cmts.User")
+		(uuid "03173b82-4b38-44b4-80de-a95d1b69c99c")
+		(effects
+			(font
+				(size 3 3)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "Direction of flight :)"
 		(at 125 33.59 0)
 		(layer "Cmts.User")
