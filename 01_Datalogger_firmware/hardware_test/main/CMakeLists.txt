@@ -1,0 +1,21 @@
+idf_component_register(
+    SRCS
+        "test_main.cpp"
+        "test_imu.cpp"
+        "../../main/hal/imu.cpp"
+        "test_sd_card.cpp"
+        "../../main/hal/sd_card.cpp"
+        "test_gps.cpp"
+    INCLUDE_DIRS
+        "."
+        "../../main"
+    REQUIRES
+        unity
+        esp_driver_i2c
+        esp_driver_spi
+        esp_driver_sdspi
+        esp_driver_uart
+        fatfs
+        sdmmc
+    WHOLE_ARCHIVE
+)
